@@ -1081,6 +1081,69 @@
       "endTime": "2025-02-10T05:13:28.143Z",
       "duration": "0m 3s",
       "timestamp": "2025-02-10T05:13:24.148Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-10T05:24:45.157Z",
+      "endTime": "2025-02-10T05:25:45.159Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-02-10T05:24:45.157Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-10T05:37:18.142Z",
+      "endTime": "2025-02-10T05:37:33.156Z",
+      "duration": "0m 15s",
+      "timestamp": "2025-02-10T05:37:18.142Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Issues · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-10T05:37:33.156Z",
+      "endTime": "2025-02-10T05:37:35.164Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-10T05:37:33.156Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-10T05:37:35.164Z",
+      "endTime": "2025-02-10T05:37:39.162Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-10T05:37:35.164Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "New File at / · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-10T05:37:39.162Z",
+      "endTime": "2025-02-10T05:37:44.167Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-10T05:37:39.162Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Visual Studio Code",
+      "title": "time-tracking-app - Visual Studio Code",
+      "startTime": "2025-02-10T05:37:44.167Z",
+      "endTime": "2025-02-10T05:37:45.175Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-10T05:37:44.167Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Visual Studio Code",
+      "title": "README.md - time-tracking-app - Visual Studio Code",
+      "startTime": "2025-02-10T05:37:45.175Z",
+      "endTime": "2025-02-10T05:38:09.165Z",
+      "duration": "0m 23s",
+      "timestamp": "2025-02-10T05:37:45.175Z"
     }
   ]
 }
