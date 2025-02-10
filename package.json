@@ -1,0 +1,78 @@
+{
+  "name": "time-tracking-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Comput Labs",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "Compüt Labs Time Tracking Application",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "electron": "^34.0.1",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^4.0.0"
+  },
+  "dependencies": {
+    "active-win": "^8.2.1",
+    "auto-launch": "^5.0.6",
+    "axios": "^1.7.9",
+    "chart.js": "^4.4.7",
+    "electron-auto-launch": "^5.0.7"
+  },
+  "build": {
+    "appId": "com.computlabs.timetrackingapp",
+    "productName": "Comput Labs Time Tracking",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "main.js",
+      "assets/icons/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icons/icon512.ico",
+      "publisherName": "Comput Labs",
+      "executableName": "ComputLabsTimeTracking"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": true,
+      "createDesktopShortcut": "always",
+      "shortcutName": "Comput Labs Time Tracking",
+      "installerHeader": "assets/icons/icon512.bmp",
+      "installerIcon": "assets/icons/icon512.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icons/icon512.icns",
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icons/icon512.png",
+      "category": "Utility"
+    }
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "assets/icons/icon512"
+      }
+    }
+  }
+}

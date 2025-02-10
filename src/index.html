@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comput Labs - Time Tracking</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center">
+    <div id="app" class="w-full max-w-md  p-8">
+        <!-- Company Logo & Name -->
+        <div class="flex flex-col items-center mb-6">
+            <img src="https://comput-images.blr1.cdn.digitaloceanspaces.com/Comput_labs_black.png" alt="Comput Labs Logo" class="mb-2 w-40 ">
+            <!-- <h1 class="text-2xl font-bold text-gray-800">Comput Labs</h1> -->
+            <p class="text-gray-500 text-sm">Time Tracking System</p>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form">
+          <h2 class="text-xl font-semibold text-center text-gray-700 mb-4">Login to Your Account</h2>
+          
+          <div class="mb-4">
+            <label class="block text-gray-600 font-medium">Email</label>
+            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your email">
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-gray-600 font-medium">Password</label>
+            <input type="password" id="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your password">
+          </div>
+
+          <button type="submit" class="w-full bg-black hover:bg-gray-800 text-white font-medium py-2 rounded-lg transition duration-300">
+            Login
+          </button>
+
+          
+        </form>
+    </div>
+
+    <script src="./renderer.js"></script>
+</body>
+</html>
+
+<!-- src/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Tracking App</title>
+  <link href="./styles.css" rel="stylesheet">
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div id="app" class="flex items-center justify-center h-screen bg-gray-100">
+        <form id="login-form" class="bg-white p-8 rounded shadow-md">
+          <h2 class="text-2xl font-bold mb-6">Login</h2>
+          <div class="mb-4">
+            <label class="block text-gray-700">Email</label>
+            <input type="email" id="email" class="w-full px-4 py-2 border rounded">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700">Password</label>
+            <input type="password" id="password" class="w-full px-4 py-2 border rounded">
+          </div>
+          <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Login</button>
+        </form>
+      </div>
+  <div id="app"></div>
+  <script src="./renderer.js"></script>
+</body>
+</html> -->

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="./styles.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <!-- <div id="app" class="p-4 w-full h-full">
+    
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-xl font-bold">Compüt Labs</h1>
+
+      <div class="relative">
+        <button id="menu-btn" class="focus:outline-none">
+          <svg class="w-6 h-6 text-gray-700 hover:text-gray-900 transition" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+          </svg>
+        </button>
+
+        <div id="menu-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded shadow-lg border transition duration-200 ease-in-out">
+          <button id="logout-btn" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-red-100">
+            Logout
+          </button>
+          <button id="quit-btn" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">
+            Quit
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <div id="timer" class="text-2xl font-bold">00:00:00</div>
+      <button id="start-stop-btn" class="text-white rounded ml-2">
+        <svg width="40" height="40" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+          <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
+        </svg>
+      </button>
+    </div>
+  </div> -->
+  <div id="app" class="p-2 border rounded-lg w-full max-w-full flex items-center justify-between space-x-4 overflow-hidden overflow-x-hidden">
+    <div class="flex items-center space-x-2 text-md">
+      <h1 class="text-md font-bold">Compüt Labs</h1>
+      <div class="relative">
+        <button id="menu-btn" class="focus:outline-none text-md">
+          <svg class="w-5 h-5 text-gray-700 hover:text-gray-900 transition" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+          </svg>
+        </button>
+        <div id="menu-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded shadow-lg border transition duration-200 ease-in-out text-md">
+          <button id="logout-btn" class="block w-full text-left px-4 py-2 text-md text-gray-700 hover:bg-red-100">
+            Logout
+          </button>
+          <button id="quit-btn" class="block w-full text-left px-4 py-2 text-md text-gray-700 hover:bg-gray-200">
+            Quit
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center space-x-2 text-md">
+      <div id="timer" class="text-md font-bold">00:00:00</div>
+      <button id="start-stop-btn" class="text-white rounded">
+        <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+          <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
+        </svg>
+      </button>
+    </div>
+    <div class="flex items-center text-md">
+      <button id="quit-btn1" class="text-white text-md">
+        <svg width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#ff0000" fill-rule="evenodd" d="M11.2929,3.29289 C11.6834,2.90237 12.3166,2.90237 12.7071,3.29289 C13.0976,3.68342 13.0976,4.31658 12.7071,4.70711 L9.41421,8 L12.7071,11.2929 C13.0976,11.6834 13.0976,12.3166 12.7071,12.7071 C12.3166,13.0976 11.6834,13.0976 11.2929,12.7071 L8,9.41421 L4.70711,12.7071 C4.31658,13.0976 3.68342,13.0976 3.29289,12.7071 C2.90237,12.3166 2.90237,11.6834 3.29289,11.2929 L6.58579,8 L3.29289,4.70711 C2.90237,4.31658 2.90237,3.68342 3.29289,3.29289 C3.68342,2.90237 4.31658,2.90237 4.70711,3.29289 L8,6.58579 L11.2929,3.29289 Z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="./home.js"></script>
+  <script>
+    const quitBtn = document.getElementById("quit-btn1");
+    quitBtn.addEventListener("click", () => {
+      // Use confirm() for a system-level dialog
+      //const isConfirmed = confirm("Are you sure you want to quit the application?");
+      
+      // if (isConfirmed) {
+      //   // Perform any cleanup or data saving before quitting
+        try {
+          // Attempt to upload any remaining batch records
+          if (typeof uploadBatchToDatabase === 'function') {
+            uploadBatchToDatabase().then(() => {
+              // Send quit event to main process after potential data upload
+              ipcRenderer.send("quit-app");
+            }).catch(() => {
+              // Fallback to quitting even if upload fails
+              ipcRenderer.send("quit-app");
+            });
+          } else {
+            // Direct quit if upload function is not available
+            ipcRenderer.send("quit-app");
+          }
+        } catch (error) {
+          console.error("Error during quit process:", error);
+          ipcRenderer.send("quit-app");
+        }
+      //}
+    });
+  </script>
+</body>
+</html>
