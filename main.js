@@ -125,7 +125,7 @@ function createHomeWindow() {
 
     // Calculate mini icon position based on home window
     miniIconWindow = new BrowserWindow({
-      width: 50,
+      width: 35,
       height: 50,
       x: miniIconX+20,
       y: homeY + homeHeight - 28, // Position at bottom of home window
@@ -369,10 +369,11 @@ function checkForToken() {
   try {
     const tokenPath = path.join(app.getPath('userData'), 'token.json');
     console.log('Checking token at path:', tokenPath);
+    
 
-    // Check if token file exists
+    // If no token file exists, return false
     if (!fs.existsSync(tokenPath)) {
-      console.log('Token file does not exist');
+      console.log('No token file found');
       return false;
     }
 
@@ -382,14 +383,9 @@ function checkForToken() {
 
     const tokenData = JSON.parse(fileContent);
     
-    // Validate token structure
-    if (!tokenData || !tokenData.token) {
-      console.log('Invalid token structure');
-      return false;
-    }
-
-    // Additional token validation (e.g., expiration check)
-    const isTokenValid = tokenData.token && 
+    // Validate token structure and expiration
+    const isTokenValid = tokenData && 
+                         tokenData.token && 
                          (!tokenData.expiration || 
                           new Date(tokenData.expiration) > new Date());
 
@@ -397,13 +393,70 @@ function checkForToken() {
     return isTokenValid;
   } catch (error) {
     console.error('Error checking token:', error);
-    
-    // Optional: Show error dialog
-    dialog.showErrorBox('Token Error', `Failed to validate login token: ${error.message}`);
-    
     return false;
   }
 }
+
+// Function to initialize the correct window
+function initializeWindow() {
+  // Always destroy existing windows first
+  if (mainWindow) {
+    mainWindow.close();
+    mainWindow = null;
+  }
+  if (homeWindow) {
+    homeWindow.close();
+    homeWindow = null;
+  }
+
+  // Check token and create appropriate window
+  const tokenValid = checkForToken();
+  
+  if (tokenValid) {
+    console.log('Token is valid. Creating home window.');
+    createHomeWindow();
+  } else {
+    console.log('Token is invalid. Creating main window.');
+    createMainWindow();
+  }
+}
+
+// Modify app ready event to handle window initialization
+app.whenReady().then(() => {
+  setupAutoStart();
+  setupAutoLaunch();
+
+  // Initialize window based on token
+  initializeWindow();
+
+  // Mac-specific window handling
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      initializeWindow();
+    }
+  });
+});
+
+// Handle login success to update token and windows
+ipcMain.on('login-success', (event, tokenData) => {
+  try {
+    const tokenPath = path.join(app.getPath('userData'), 'token.json');
+    fs.writeFileSync(tokenPath, JSON.stringify(tokenData));
+    
+    // Reinitialize window after successful login
+    initializeWindow();
+  } catch (error) {
+    console.error('Error saving token:', error);
+    dialog.showErrorBox('Login Error', 'Failed to save login token');
+  }
+});
+
+// Ensure proper window management
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
 
 ipcMain.handle('get-active-window', async () => {
   try {
@@ -421,42 +474,65 @@ ipcMain.on('logout', () => {
   const tokenPath = path.join(app.getPath('userData'), 'token.json');
   if (fs.existsSync(tokenPath)) fs.unlinkSync(tokenPath);
 
-  // Close the home window and open the login window
-  if (homeWindow) homeWindow.close();
-  createMainWindow();
+  // Destroy all existing windows
+  const windows = BrowserWindow.getAllWindows();
+  windows.forEach(window => {
+    if (!window.isDestroyed()) {
+      window.destroy(); // Use destroy instead of close to forcefully remove the window
+    }
+  });
+
+  // Explicitly create a new login window
+  const mainWindow = createMainWindow();
+  
+  // Ensure no other windows can be created during logout
+  if (homeWindow) {
+    homeWindow.close();
+    homeWindow = null;
+  }
 });
 
-ipcMain.on("quit-app", () => {
+ipcMain.on("quit-app", (event) => {
   // Show confirmation dialog
   const { dialog } = require('electron');
   const windows = BrowserWindow.getAllWindows();
   
   const response = dialog.showMessageBoxSync({
-    type: 'question',
-    buttons: ['Yes', 'No'],
+    type: 'warning',
+    buttons: ['Quit Application'],
     defaultId: 1,
-    title: 'Confirm Quit',
-    message: 'Are you sure you want to quit the application?',
-    detail: 'All tracking data will be saved before closing.'
+    title: 'Confirm Exit',
+    message: 'Do you want to quit the Time Tracking App?',
+    detail: 'All your tracking data will be automatically saved\n• Any ongoing tracking will be paused\n• You can resume tracking when you reopen the app',
+    iconPath: path.join(__dirname, 'assets', 'icon.png'),
+    cancelId: 1
   });
 
-  // If user clicks "No", do nothing
+  // If user clicks "Cancel", do nothing
   if (response === 1) return;
 
-  // Ensure all windows are closed before quitting
-  windows.forEach(window => {
-    if (!window.isDestroyed()) {
-      window.close();
-    }
-  });
+  try {
+    // Send a signal to renderer processes to prepare for quit
+    windows.forEach(window => {
+      window.webContents.send('prepare-quit');
+    });
 
-  // Force quit after a short delay to ensure windows close
-  setTimeout(() => {
-    app.quit(); // Closes the application
-    if (process.platform !== 'darwin') {
-      app.exit(0); // Force exit on non-macOS platforms
-    }
-  }, 200);
+    // Wait a short moment to allow renderer to save data
+    setTimeout(() => {
+      // Close all windows
+      windows.forEach(window => {
+        if (!window.isDestroyed()) {
+          window.destroy();
+        }
+      });
+
+      // Quit the application
+      app.quit();
+    }, 1000);
+  } catch (error) {
+    console.error('Error during app quit:', error);
+    app.quit();
+  }
 });
 
 // Idle Tracking Variables
@@ -589,42 +665,6 @@ function setupAutoLaunch() {
   };
 }
 
-app.whenReady().then(() => {
-  setupAutoStart();
-  setupAutoLaunch();
-  // Check if the user is already logged in
-  if (checkForToken()) {
-    createHomeWindow();
-  } else {
-    createMainWindow();
-  }
-
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      if (checkForToken()) {
-        createHomeWindow();
-      } else {
-        createMainWindow();
-      }
-    }
-  });
-});
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
-});
-
-// Handle login success
-ipcMain.on('login-success', (event, tokenData) => {
-  const tokenPath = path.join(app.getPath('userData'), 'token.json');
-  fs.writeFileSync(tokenPath, JSON.stringify(tokenData));
-
-  // Close the login window and open the home window
-  if (mainWindow) mainWindow.close();
-  createHomeWindow();
-});
-
-// Add error logging
 app.on('error', (error) => {
   console.error('Electron app encountered an error:', error);
   dialog.showErrorBox('App Startup Error', `Failed to start the application: ${error.message}`);

@@ -853,11 +853,35 @@ function updateInsights() {
 }
 
 // ** Logout Button Logic **
-document.getElementById('logout-btn').addEventListener('click', () => {
-  uploadBatchToDatabase();
-  localStorage.clear();
-  ipcRenderer.send('logout');
-  window.location.href = 'index.html';
+const logoutBtn = document.getElementById('logout-btn');
+logoutBtn.addEventListener("click", async () => {
+  try {
+    console.log(" User clicked Logout");
+
+    // Stop any ongoing tracking
+    if (typeof stopTracking === 'function') {
+      stopTracking();
+    }
+
+    // Ensure data is uploaded before logout
+    if (typeof uploadBatchToDatabase === 'function') {
+      await uploadBatchToDatabase();
+    }
+
+    // Clear local storage and session data
+    localStorage.clear();
+    
+    // Send logout event to main process
+    ipcRenderer.send('logout');
+    
+    // Prevent any further window interactions
+    window.close();
+  } catch (error) {
+    console.error('Logout error:', error);
+    // Force logout even if there's an error
+    ipcRenderer.send('logout');
+    window.close();
+  }
 });
 
 // Modify Start/Stop Button to continue from total tracked duration
@@ -999,32 +1023,32 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = "index.html"; // Redirect to login page
   });
 
-//   // Handle Quit
-//  quitBtn.addEventListener("click", async () => {
-//   ipcRenderer.send("quit-app");
-//   //  const isConfirmed = confirm("Are you sure you want to quit the application?");
- 
-//   //  if (isConfirmed) {
-//   //    try {
-//   //      // Attempt to upload any remaining batch records
-//   //      if (typeof uploadBatchToDatabase === 'function') {
-//   //        await uploadBatchToDatabase().catch(error => {
-//   //          console.error("Error uploading batch before quitting:", error);
-//   //        });
-//   //      }
- 
-//   //      // Save tracking data before quitting
-//   //      saveTrackingData();
- 
-//   //      // Send quit event to main process
-//   //      ipcRenderer.send("quit-app");
-//   //    } catch (error) {
-//   //      console.error("Error during quit process:", error);
-//   //      ipcRenderer.send("quit-app");
-//   //    }
-//   //  }
-//  });
+  // Handle Quit
+  const quitBtn = document.getElementById("quit-btn");
+  quitBtn.addEventListener("click", async () => {
+    try {
+      // Send quit request to main process
+      ipcRenderer.send("quit-app");
+    } catch (error) {
+      console.error("Error during quit process:", error);
+    }
+  });
 
+  // Listen for prepare-quit event from main process
+  ipcRenderer.on('prepare-quit', async () => {
+    try {
+      // Final data save attempt
+      if (typeof uploadBatchToDatabase === 'function') {
+        await uploadBatchToDatabase();
+      }
+      
+      if (typeof saveTrackingData === 'function') {
+        saveTrackingData();
+      }
+    } catch (error) {
+      console.error('Error during final data save:', error);
+    }
+  });
 
 });
 
