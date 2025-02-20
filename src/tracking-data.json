@@ -2045,5 +2045,196 @@
       "duration": "0m 43s",
       "timestamp": "2025-02-10T09:27:01.190Z"
     }
+  ],
+  "2025-02-20": [
+    {
+      "id": "test-user",
+      "app": "Windsurf",
+      "title": "time-tracking-app - Windsurf",
+      "startTime": "2025-02-20T03:28:27.504Z",
+      "endTime": "2025-02-20T03:31:55.756Z",
+      "duration": "3m 28s",
+      "timestamp": "2025-02-20T03:28:27.504Z"
+    },
+    {
+      "id": "test-user",
+      "app": "Windsurf",
+      "title": "time-tracking-app - Windsurf - home.js",
+      "startTime": "2025-02-20T03:31:55.756Z",
+      "endTime": "2025-02-20T03:32:55.754Z",
+      "duration": "0m 59s",
+      "timestamp": "2025-02-20T03:31:55.756Z"
+    },
+    {
+      "id": "test-user",
+      "app": "Windsurf",
+      "title": "time-tracking-app - Windsurf - main.js",
+      "startTime": "2025-02-20T03:32:55.754Z",
+      "endTime": "2025-02-20T03:33:55.770Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-02-20T03:32:55.754Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Gmail - Google Chrome",
+      "startTime": "2025-02-20T03:38:05.750Z",
+      "endTime": "2025-02-20T03:38:08.756Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-20T03:38:05.750Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Inbox (119) - sachinrathodnic1@gmail.com - Gmail - Google Chrome",
+      "startTime": "2025-02-20T03:38:08.756Z",
+      "endTime": "2025-02-20T03:38:55.763Z",
+      "duration": "0m 47s",
+      "timestamp": "2025-02-20T03:38:08.756Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "time-tracking-app - Windsurf - tracking-data.json",
+      "startTime": "2025-02-20T03:38:55.763Z",
+      "endTime": "2025-02-20T03:41:55.760Z",
+      "duration": "2m 59s",
+      "timestamp": "2025-02-20T03:38:55.763Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "MI Shop - Google Chrome",
+      "startTime": "2025-02-20T03:41:55.760Z",
+      "endTime": "2025-02-20T03:42:55.765Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-02-20T03:41:55.760Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "time-tracking-app - Windsurf - tracking-data.json",
+      "startTime": "2025-02-20T03:42:55.765Z",
+      "endTime": "2025-02-20T03:45:55.764Z",
+      "duration": "2m 59s",
+      "timestamp": "2025-02-20T03:42:55.765Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Inbox (118) - sachinrathodnic1@gmail.com - Gmail - Google Chrome",
+      "startTime": "2025-02-20T03:45:55.764Z",
+      "endTime": "2025-02-20T03:46:55.779Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-02-20T03:45:55.764Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Why Electron | Electron - Google Chrome",
+      "startTime": "2025-02-20T03:46:55.779Z",
+      "endTime": "2025-02-20T03:53:55.772Z",
+      "duration": "6m 59s",
+      "timestamp": "2025-02-20T03:46:55.779Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "time-tracking-app - Windsurf - main.js",
+      "startTime": "2025-02-20T03:53:55.772Z",
+      "endTime": "2025-02-20T03:54:55.851Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-02-20T03:53:55.772Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "time-tracking-app - Windsurf - home.js",
+      "startTime": "2025-02-20T03:54:55.851Z",
+      "endTime": "2025-02-20T03:55:55.765Z",
+      "duration": "0m 59s",
+      "timestamp": "2025-02-20T03:54:55.851Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Sign in to Outlook - Google Chrome",
+      "startTime": "2025-02-20T03:55:55.765Z",
+      "endTime": "2025-02-20T03:56:55.765Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-02-20T03:55:55.765Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Mail - Sachin Rathod - Outlook - Google Chrome",
+      "startTime": "2025-02-20T03:56:55.765Z",
+      "endTime": "2025-02-20T03:57:55.782Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-02-20T03:56:55.765Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-20T03:57:55.782Z",
+      "endTime": "2025-02-20T04:06:15.094Z",
+      "duration": "8m 19s",
+      "timestamp": "2025-02-20T03:57:55.782Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "LockApp.exe",
+      "title": "Like the image that you see? Choose an option below",
+      "startTime": "2025-02-20T04:06:15.094Z",
+      "endTime": "2025-02-20T04:06:21.445Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-02-20T04:06:15.094Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "time-tracking-app - Windsurf - home.js",
+      "startTime": "2025-02-20T04:39:22.101Z",
+      "endTime": "2025-02-20T04:39:27.156Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-20T04:39:22.101Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "time-tracking-app - Windsurf - tracking-data.json",
+      "startTime": "2025-02-20T04:39:27.156Z",
+      "endTime": "2025-02-20T04:39:53.758Z",
+      "duration": "0m 26s",
+      "timestamp": "2025-02-20T04:39:27.156Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "https://my-app-7fjx6.ondigitalocean.app/api/v1/tracking-data - Devlopment",
+      "startTime": "2025-02-20T04:39:53.758Z",
+      "endTime": "2025-02-20T04:40:55.764Z",
+      "duration": "1m 2s",
+      "timestamp": "2025-02-20T04:39:53.758Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "time-tracking-app - Windsurf - tracking-data.json",
+      "startTime": "2025-02-20T04:40:55.764Z",
+      "endTime": "2025-02-20T04:43:55.757Z",
+      "duration": "2m 59s",
+      "timestamp": "2025-02-20T04:40:55.764Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "https://my-app-7fjx6.ondigitalocean.app/api/v1/tracking-data - Devlopment",
+      "startTime": "2025-02-20T04:43:55.757Z",
+      "endTime": "2025-02-20T04:44:55.756Z",
+      "duration": "0m 59s",
+      "timestamp": "2025-02-20T04:43:55.757Z"
+    }
   ]
 }

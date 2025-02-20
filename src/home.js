@@ -55,24 +55,10 @@ function startElectronIdleTracking() {
     console.log(`User has been idle for ${idleTime} seconds. Showing confirmation dialog.`);
     isIdleAlertShown = true; // Prevent duplicate popups
 
-    // Explicitly stop tracking before showing dialog
-    stopTracking(); // Use the existing stopTracking method
-
     ipcRenderer.send('show-idle-dialog', {
       message: `You've been inactive for ${IDLE_THRESHOLD} seconds.\nDo you want to take a break or continue tracking?`
     });
-
-    // Add a listener for dialog response
-    ipcRenderer.once('idle-dialog-response', (event, response) => {
-      if (response === 'continue') {
-        // Restart tracking if user chooses to continue
-        startTracking();
-      }
-      
-      // Reset idle alert flag
-      isIdleAlertShown = false;
-    });
-});
+  });
 
   ipcRenderer.on('idle-dialog-response', (event, response) => {
     if (response === 'break') {
@@ -1149,6 +1135,120 @@ function updateTimerDisplay() {
 
   console.log(`Updated Timer Display: ${hours}:${minutes}:${seconds}`);
 }
+
+// Enhanced Uninstallation Handler
+function handleUninstall() {
+  const { ipcRenderer } = require('electron');
+  
+  // Comprehensive Uninstallation Confirmation
+  const confirmUninstall = confirm(
+    '🚨 Uninstallation Warning 🚨\n\n' +
+    'This will permanently remove:\n' +
+    '• All tracking data\n' +
+    '• Application settings\n' +
+    '• Local storage\n' +
+    '• Authentication tokens\n\n' +
+    'Are you absolutely sure you want to continue?'
+  );
+  
+  if (confirmUninstall) {
+    try {
+      // Stop any active tracking
+      if (window.stopTracking) {
+        window.stopTracking();
+      }
+      
+      // Comprehensive Browser Storage Cleanup
+      const storageCleanupMethods = [
+        () => {
+          localStorage.clear();
+          console.log('Browser localStorage cleared');
+        },
+        () => {
+          sessionStorage.clear();
+          console.log('Browser sessionStorage cleared');
+        },
+        () => {
+          // Clear IndexedDB databases
+          if (window.indexedDB) {
+            window.indexedDB.databases().then(databases => {
+              databases.forEach(db => {
+                window.indexedDB.deleteDatabase(db.name);
+                console.log(`Deleted IndexedDB: ${db.name}`);
+              });
+            });
+          }
+        }
+      ];
+      
+      // Execute all cleanup methods
+      storageCleanupMethods.forEach(method => {
+        try {
+          method();
+        } catch (error) {
+          console.error('Storage cleanup error:', error);
+        }
+      });
+      
+      // Send comprehensive uninstall request
+      ipcRenderer.send('perform-uninstall', {
+        reason: 'complete_app_removal',
+        timestamp: Date.now()
+      });
+      
+      // Listen for uninstallation result with enhanced feedback
+      ipcRenderer.once('uninstall-complete', (event, result) => {
+        if (result) {
+          alert('🎉 Uninstallation Successful!\n\n' +
+                'All application data has been removed.\n' +
+                'Thank you for using Time Tracker!');
+        } else {
+          alert('⚠️ Uninstallation Partially Failed\n\n' +
+                'Some files could not be removed.\n' +
+                'Please check application logs for details.');
+        }
+      });
+      
+    } catch (uninstallError) {
+      console.error('Uninstallation process failed:', uninstallError);
+      alert('Uninstallation encountered an unexpected error.');
+    }
+  }
+}
+
+// Add uninstall button to UI with enhanced visibility
+function addUninstallButton() {
+  const settingsContainer = document.querySelector('.settings-container');
+  if (settingsContainer) {
+    const uninstallButton = document.createElement('button');
+    uninstallButton.textContent = '🗑️ Uninstall App';
+    uninstallButton.classList.add('uninstall-btn', 'danger-btn');
+    uninstallButton.style.cssText = `
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    `;
+    uninstallButton.addEventListener('click', handleUninstall);
+    
+    // Add hover effect
+    uninstallButton.addEventListener('mouseenter', (e) => {
+      e.target.style.backgroundColor = '#ff6666';
+    });
+    uninstallButton.addEventListener('mouseleave', (e) => {
+      e.target.style.backgroundColor = '#ff4d4d';
+    });
+    
+    settingsContainer.appendChild(uninstallButton);
+  }
+}
+
+// Call when home page is loaded
+document.addEventListener('DOMContentLoaded', addUninstallButton);
+
 window.addEventListener("beforeunload", () => {
   console.log(" App is closing. Saving timer state...");
   saveTimerData();

@@ -1,4 +1,7 @@
 const { ipcRenderer } = require('electron');
+const fs = require('fs');
+const path = require('path');
+
 //testing api url
 // const apiUrl = 'https://testing-backend-3uc6s.ondigitalocean.app/api/v1/signin';
 
@@ -7,15 +10,82 @@ const apiUrl ='https://my-app-7fjx6.ondigitalocean.app/api/v1/signin'
 
 //Localhost api url
 // const apiUrl = 'http://localhost:8000/api/v1/signin';
-// Check if a user is already logged in
 
+// Enhanced Token Management
+// Robust Token Verification Function
+function verifyAndResetToken() {
+  try {
+    const userDataPath = require('electron').remote.app.getPath('userData');
+    const tokenPath = path.join(userDataPath, 'token.json');
+
+    // Check if token exists and is valid
+    if (fs.existsSync(tokenPath)) {
+      const tokenData = JSON.parse(fs.readFileSync(tokenPath, 'utf8'));
+      
+      // Validate token structure and expiration
+      if (!isValidToken(tokenData)) {
+        console.warn('Invalid or expired token detected. Resetting authentication.');
+        fs.unlinkSync(tokenPath);
+        localStorage.clear();
+        ipcRenderer.send('reset-to-login');
+        return false;
+      }
+      return true;
+    }
+    
+    // No token found
+    console.log('No valid token found. Redirecting to login.');
+    ipcRenderer.send('reset-to-login');
+    return false;
+  } catch (error) {
+    console.error('Token verification failed:', error);
+    ipcRenderer.send('reset-to-login');
+    return false;
+  }
+}
+
+// Token Validation Helper
+function isValidToken(tokenData) {
+  // Implement comprehensive token validation
+  if (!tokenData || !tokenData.token) return false;
+  
+  // Check token expiration (example: 30 days)
+  const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+  const tokenAge = Date.now() - (tokenData.timestamp || 0);
+  
+  return tokenAge < THIRTY_DAYS;
+}
+
+// Global Error Handling
+window.addEventListener('error', (event) => {
+  console.error('Unhandled error:', event.error);
+  ipcRenderer.send('reset-to-login');
+});
+
+// IPC Listeners for Authentication Management
+ipcRenderer.on('token-invalid', () => {
+  console.warn('Received token-invalid signal');
+  localStorage.clear();
+  verifyAndResetToken();
+});
+
+// Initial Token Check on Page Load
 document.addEventListener('DOMContentLoaded', () => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    ipcRenderer.send('login-success', { token }); // Notify the main process
-    window.location.href = 'home.html'; // Redirect to home page
+  // Verify token before allowing access to main application
+  if (!verifyAndResetToken()) {
+    // Redirect to login or show login modal
+    ipcRenderer.send('reset-to-login');
+  } else {
+    const token = localStorage.getItem('token');
+    if (token) {
+      ipcRenderer.send('login-success', { token }); // Notify the main process
+      window.location.href = 'home.html'; // Redirect to home page
+    }
   }
 });
+
+// Expose verification method globally
+window.verifyAndResetToken = verifyAndResetToken;
 
 // Login Form Submission
 document.getElementById('login-form').addEventListener('submit', async (e) => {

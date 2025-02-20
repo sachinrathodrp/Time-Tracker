@@ -364,6 +364,86 @@ function createHomeWindow() {
   });
 }
 
+// Enhanced Window Reset and Initialization
+function resetApplicationState() {
+  try {
+    // Remove all existing tokens and user-specific data
+    const cleanupPaths = [
+      path.join(app.getPath('userData'), 'token.json'),
+      path.join(app.getPath('home'), '.time-tracking-app', 'token.json'),
+      path.join(process.env.APPDATA, 'time-tracking-app', 'token.json')
+    ];
+
+    cleanupPaths.forEach(tokenPath => {
+      try {
+        if (fs.existsSync(tokenPath)) {
+          fs.unlinkSync(tokenPath);
+          console.log(`Removed token file: ${tokenPath}`);
+        }
+      } catch (tokenRemovalError) {
+        console.error(`Failed to remove token file ${tokenPath}:`, tokenRemovalError);
+      }
+    });
+
+    // Clear all localStorage and browser storage
+    clearLocalStorage();
+
+    // Reset any persistent app-wide configurations
+    global.isAuthenticated = false;
+    global.userToken = null;
+
+    console.log('Application state reset successfully');
+    return true;
+  } catch (error) {
+    console.error('Failed to reset application state:', error);
+    return false;
+  }
+}
+
+// Modify existing createLoginWindow function
+function createLoginWindow() {
+  // Ensure previous windows are closed
+  if (mainWindow) {
+    mainWindow.close();
+    mainWindow = null;
+  }
+
+  // Reset application state before creating login window
+  resetApplicationState();
+
+  // Create login window with enhanced configuration
+  mainWindow = new BrowserWindow({
+    width: 400,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true
+    },
+    resizable: false,
+    autoHideMenuBar: true,
+    title: 'Time Tracker - Login'
+  });
+
+  mainWindow.loadFile(path.join(__dirname, 'src', 'index.html'));
+  
+  // Clear cache and storage before loading
+  mainWindow.webContents.session.clearStorageData({
+    storages: ['appcache', 'cookies', 'filesystem', 'indexdb', 'localstorage', 'shadercache', 'websql', 'serviceworkers']
+  });
+
+  // Enhanced error handling
+  mainWindow.webContents.on('did-fail-load', () => {
+    console.error('Failed to load login window');
+    app.relaunch();
+    app.exit(0);
+  });
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
+}
+
 // Check for token in storage
 function checkForToken() {
   try {
@@ -417,24 +497,23 @@ function initializeWindow() {
     createHomeWindow();
   } else {
     console.log('Token is invalid. Creating main window.');
-    createMainWindow();
+    createLoginWindow();
   }
 }
 
-// Modify app ready event to handle window initialization
-app.whenReady().then(() => {
-  setupAutoStart();
-  setupAutoLaunch();
+// Modify app ready event handler
+app.on('ready', () => {
+  // Additional check to ensure clean startup
+  if (!mainWindow) {
+    createLoginWindow();
+  }
+});
 
-  // Initialize window based on token
-  initializeWindow();
-
-  // Mac-specific window handling
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      initializeWindow();
-    }
-  });
+// Add global error handler
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught Exception:', error);
+  resetApplicationState();
+  createLoginWindow();
 });
 
 // Handle login success to update token and windows
@@ -483,7 +562,7 @@ ipcMain.on('logout', () => {
   });
 
   // Explicitly create a new login window
-  const mainWindow = createMainWindow();
+  const mainWindow = createLoginWindow();
   
   // Ensure no other windows can be created during logout
   if (homeWindow) {
@@ -641,7 +720,7 @@ function setupAutoLaunch() {
         console.error('Failed to remove registry entry:', registryError);
       }
     } catch (err) {
-      console.error('Failed to disable auto-launch:', err);
+    console.error('Failed to disable auto-launch:', err);
     }
   };
 
@@ -678,3 +757,149 @@ app.on('will-quit', (event) => {
 app.on('quit', (event, exitCode) => {
   console.log(`App quit with exit code: ${exitCode}`);
 });
+
+// Enhanced localStorage removal utility
+function clearLocalStorage() {
+  try {
+    // Paths to potential localStorage storage
+    const localStoragePaths = [
+      path.join(app.getPath('userData'), 'LocalStorage'),
+      path.join(app.getPath('home'), '.time-tracking-app', 'LocalStorage'),
+      path.join(process.env.APPDATA, 'time-tracking-app', 'LocalStorage')
+    ];
+
+    let localStorageCleared = true;
+
+    localStoragePaths.forEach(storagePath => {
+      try {
+        if (fs.existsSync(storagePath)) {
+          // Remove all files in LocalStorage directory
+          fs.readdirSync(storagePath).forEach(file => {
+            const fullPath = path.join(storagePath, file);
+            try {
+              if (fs.statSync(fullPath).isFile()) {
+                fs.unlinkSync(fullPath);
+                console.log(`Removed localStorage file: ${fullPath}`);
+              }
+            } catch (fileRemoveError) {
+              console.error(`Failed to remove localStorage file ${fullPath}:`, fileRemoveError);
+              localStorageCleared = false;
+            }
+          });
+
+          // Attempt to remove the directory itself
+          try {
+            fs.rmdirSync(storagePath);
+            console.log(`Removed localStorage directory: ${storagePath}`);
+          } catch (dirRemoveError) {
+            console.warn(`Could not remove localStorage directory ${storagePath}:`, dirRemoveError);
+          }
+        }
+      } catch (storagePathError) {
+        console.error(`Error processing localStorage path ${storagePath}:`, storagePathError);
+        localStorageCleared = false;
+      }
+    });
+
+    return localStorageCleared;
+  } catch (error) {
+    console.error('Comprehensive localStorage cleanup error:', error);
+    return false;
+  }
+}
+
+function performUninstallCleanup() {
+  try {
+    // Comprehensive paths to clean up
+    const cleanupPaths = [
+      // Token file in Roaming directory
+      path.join(app.getPath('userData'), 'token.json'),
+      path.join(app.getPath('home'), '.time-tracking-app', 'token.json'),
+      path.join(process.env.APPDATA, 'time-tracking-app', 'token.json'),
+      
+      // Tracking data file
+      path.join(app.getPath('userData'), 'tracking-data.json'),
+      
+      // Additional potential data directories
+      path.join(app.getPath('userData'), 'logs'),
+      path.join(app.getPath('userData'), 'cache')
+    ];
+
+    // Track removal success
+    let allFilesRemoved = true;
+
+    // Cleanup function with enhanced logging
+    cleanupPaths.forEach(filePath => {
+      try {
+        if (fs.existsSync(filePath)) {
+          const stats = fs.statSync(filePath);
+          
+          if (stats.isDirectory()) {
+            // Remove directory recursively with enhanced error handling
+            try {
+              fs.rmSync(filePath, { recursive: true, force: true });
+              console.log(`Removed directory: ${filePath}`);
+            } catch (dirRemoveError) {
+              console.error(`Failed to remove directory ${filePath}:`, dirRemoveError);
+              allFilesRemoved = false;
+            }
+          } else {
+            // Enhanced file removal
+            const fileRemoved = safeRemoveFile(filePath);
+            if (!fileRemoved) {
+              allFilesRemoved = false;
+            }
+          }
+        }
+      } catch (fileCleanupError) {
+        console.error(`Error processing ${filePath}:`, fileCleanupError);
+        allFilesRemoved = false;
+      }
+    });
+
+    // Clear localStorage
+    const localStorageCleared = clearLocalStorage();
+    allFilesRemoved = allFilesRemoved && localStorageCleared;
+
+    // Optional: Remove auto-launch registry entries
+    try {
+      const { exec } = require('child_process');
+      exec('reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "Time Tracking App" /f', 
+        (error, stdout, stderr) => {
+          if (error) {
+            console.warn(`Registry cleanup warning: ${error.message}`);
+          } else {
+            console.log('Windows Registry entry removed');
+          }
+        }
+      );
+    } catch (registryError) {
+      console.error('Failed to remove registry entry:', registryError);
+    }
+
+    // Disable auto-launch
+    if (global.disableAutoLaunch) {
+      global.disableAutoLaunch();
+    }
+
+    console.log('Uninstallation cleanup completed');
+    return allFilesRemoved;
+  } catch (error) {
+    console.error('Comprehensive uninstallation error:', error);
+    return false;
+  }
+}
+
+// Add IPC handler for uninstallation (if not already present)
+ipcMain.on('perform-uninstall', (event) => {
+  const cleanupResult = performUninstallCleanup();
+  event.reply('uninstall-complete', cleanupResult);
+  
+  // Quit the application after cleanup
+  if (cleanupResult) {
+    app.quit();
+  }
+});
+
+// Optional: Add global method for manual cleanup
+global.performUninstallCleanup = performUninstallCleanup;
