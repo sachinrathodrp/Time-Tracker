@@ -578,10 +578,11 @@ ipcMain.on('show-idle-dialog', (event, options) => {
   if (homeWindow) {
     dialog.showMessageBox(homeWindow, {
       type: 'question',
-      buttons: ['Take a Break', 'Continue'],
+      buttons: ['Take a Break', 'Continue Tracking'],
       defaultId: 0,
-      title: 'Comput Labs',
-      message: options.message
+      title: 'Idle Time Detected',
+      message: options.message,
+      detail: 'Your time tracking will be paused. You can resume when ready.'
     }).then(result => {
       // Send response back to renderer
       event.reply('idle-dialog-response', 

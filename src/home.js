@@ -55,10 +55,24 @@ function startElectronIdleTracking() {
     console.log(`User has been idle for ${idleTime} seconds. Showing confirmation dialog.`);
     isIdleAlertShown = true; // Prevent duplicate popups
 
+    // Explicitly stop tracking before showing dialog
+    stopTracking(); // Use the existing stopTracking method
+
     ipcRenderer.send('show-idle-dialog', {
       message: `You've been inactive for ${IDLE_THRESHOLD} seconds.\nDo you want to take a break or continue tracking?`
     });
-  });
+
+    // Add a listener for dialog response
+    ipcRenderer.once('idle-dialog-response', (event, response) => {
+      if (response === 'continue') {
+        // Restart tracking if user chooses to continue
+        startTracking();
+      }
+      
+      // Reset idle alert flag
+      isIdleAlertShown = false;
+    });
+});
 
   ipcRenderer.on('idle-dialog-response', (event, response) => {
     if (response === 'break') {
