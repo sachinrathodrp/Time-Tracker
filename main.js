@@ -4,6 +4,8 @@ const fs = require('fs');
 const activeWin = require('active-win');
 const powerMonitor = require('electron').powerMonitor;
 const AutoLaunch = require('electron-auto-launch');
+const { exec } = require('child_process');
+
 
 let mainWindow; // Main login window
 let homeWindow; // Home window after login
@@ -14,6 +16,7 @@ function createMainWindow() {
     width: 500,
     height: 500,
     resizable: false,
+    skipTaskbar: true,
     center: true, // Ensure the window opens in the center of the screen
     webPreferences: {
       nodeIntegration: true,
@@ -51,6 +54,7 @@ function createHomeWindow() {
     transparent: true,
     frame: false,
     hasShadow: false,
+    skipTaskbar: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -133,6 +137,7 @@ function createHomeWindow() {
       transparent: true,
       alwaysOnTop: true,
       resizable: false,
+      skipTaskbar: true,
       webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
@@ -309,6 +314,7 @@ function createHomeWindow() {
 
   // Make window draggable with side-snapping
   homeWindow.webContents.on('did-finish-load', () => {
+    console.log('Home window content loaded successfully.');
     homeWindow.webContents.insertCSS(`
       body {
         -webkit-app-region: drag;
@@ -408,8 +414,10 @@ function createLoginWindow() {
     mainWindow = null;
   }
 
-  // Reset application state before creating login window
-  resetApplicationState();
+  // Reset application state only if necessary
+  if (!checkForToken()) {
+    resetApplicationState();
+  }
 
   // Create login window with enhanced configuration
   mainWindow = new BrowserWindow({
@@ -449,7 +457,6 @@ function checkForToken() {
   try {
     const tokenPath = path.join(app.getPath('userData'), 'token.json');
     console.log('Checking token at path:', tokenPath);
-    
 
     // If no token file exists, return false
     if (!fs.existsSync(tokenPath)) {
@@ -463,6 +470,16 @@ function checkForToken() {
 
     const tokenData = JSON.parse(fileContent);
     
+    // Log expiration if it exists
+    if (tokenData.expiration) {
+      console.log('Token expiration:', tokenData.expiration);
+      const expirationDate = new Date(tokenData.expiration);
+      if (expirationDate <= new Date()) {
+        console.log('Token has expired.');
+        return false; // Token is expired
+      }
+    }
+
     // Validate token structure and expiration
     const isTokenValid = tokenData && 
                          tokenData.token && 
@@ -492,6 +509,8 @@ function initializeWindow() {
   // Check token and create appropriate window
   const tokenValid = checkForToken();
   
+  console.log('Token validity check result:', tokenValid);
+  
   if (tokenValid) {
     console.log('Token is valid. Creating home window.');
     createHomeWindow();
@@ -504,9 +523,8 @@ function initializeWindow() {
 // Modify app ready event handler
 app.on('ready', () => {
   // Additional check to ensure clean startup
-  if (!mainWindow) {
-    createLoginWindow();
-  }
+  initializeWindow();
+  setupAutoLaunch();
 });
 
 // Add global error handler
@@ -691,56 +709,126 @@ function setupAutoStart() {
   }
 }
 
+// function setupAutoLaunch() {
+//   const appLauncher = new AutoLaunch({
+//     name: 'Time Tracking App',
+//     path: app.getPath('exe'),
+//     isHidden: true  // Run in background without showing window
+//   });
+//   console.log('app path',app.getPath('exe'))
+
+//   // Global method to disable auto-launch completely
+//   global.disableAutoLaunch = async () => {
+//     try {
+//       await appLauncher.disable();
+//       console.log('Auto-launch completely disabled for uninstallation');
+      
+//       // Optional: Remove from Windows Registry (additional cleanup)
+//       try {
+//         const { exec } = require('child_process');
+//         exec('reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "Time Tracking App" /f', 
+//           (error, stdout, stderr) => {
+//             if (error) {
+//               console.warn(`Registry cleanup warning: ${error.message}`);
+//               return;
+//             }
+//             console.log('Windows Registry entry removed');
+//           }
+//         );
+//       } catch (registryError) {
+//         console.error('Failed to remove registry entry:', registryError);
+//       }
+//     } catch (err) {
+//     console.error('Failed to disable auto-launch:', err);
+//     }
+//   };
+
+//   // Enable auto-start by default
+//   appLauncher.enable()
+//     .then(() => console.log('Auto-launch enabled'))
+//     .catch((err) => console.error('Failed to enable auto-launch:', err));
+
+//   // Optional: Method to toggle auto-start
+//   global.toggleAutoStart = async (enable) => {
+//     try {
+//       if (enable) {
+//         await appLauncher.enable();
+//         console.log('Auto-launch enabled');
+//       } else {
+//         await appLauncher.disable();
+//         console.log('Auto-launch disabled');
+//       }
+//     } catch (err) {
+//       console.error('Failed to toggle auto-launch:', err);
+//     }
+//   };
+// }
 function setupAutoLaunch() {
+  // **Fix Executable Path: Use Installed Path in Production**
+  const exePath = app.isPackaged
+    ? path.dirname(process.execPath) + `\\${path.basename(process.execPath)}` // Installed EXE path
+    : process.execPath; // Development mode (Electron binary)
+
+  console.log('Corrected App Executable Path:', exePath);
+
   const appLauncher = new AutoLaunch({
     name: 'Time Tracking App',
-    path: app.getPath('exe'),
-    isHidden: true  // Run in background without showing window
+    path: exePath
   });
 
-  // Global method to disable auto-launch completely
+  // **Check if auto-launch is enabled before enabling**
+  appLauncher.isEnabled()
+    .then((isEnabled) => {
+      if (!isEnabled) {
+        return appLauncher.enable();
+      }
+    })
+    .then(() => console.log('✅ Auto-launch is now enabled'))
+    .catch((err) => console.error('❌ Failed to enable auto-launch:', err));
+
+  // **Backup Auto-Start using Electron API**
+  app.setLoginItemSettings({
+    openAtLogin: true,
+    openAsHidden: true, // Start in background
+    path: exePath
+  });
+
+  console.log('✅ Auto-start configured via setLoginItemSettings');
+
+  // **Disable Auto-Launch Completely**
   global.disableAutoLaunch = async () => {
     try {
       await appLauncher.disable();
-      console.log('Auto-launch completely disabled for uninstallation');
-      
-      // Optional: Remove from Windows Registry (additional cleanup)
-      try {
-        const { exec } = require('child_process');
-        exec('reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "Time Tracking App" /f', 
-          (error, stdout, stderr) => {
-            if (error) {
-              console.warn(`Registry cleanup warning: ${error.message}`);
-              return;
-            }
-            console.log('Windows Registry entry removed');
+      console.log('🚫 Auto-launch completely disabled');
+
+      // **Remove from Windows Registry**
+      exec(
+        'reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "Time Tracking App" /f',
+        (error, stdout, stderr) => {
+          if (error) {
+            console.warn(`⚠️ Registry cleanup warning: ${error.message}`);
+          } else {
+            console.log('✅ Windows Registry entry removed successfully.');
           }
-        );
-      } catch (registryError) {
-        console.error('Failed to remove registry entry:', registryError);
-      }
+        }
+      );
     } catch (err) {
-    console.error('Failed to disable auto-launch:', err);
+      console.error('❌ Failed to disable auto-launch:', err);
     }
   };
 
-  // Enable auto-start by default
-  appLauncher.enable()
-    .then(() => console.log('Auto-launch enabled'))
-    .catch((err) => console.error('Failed to enable auto-launch:', err));
-
-  // Optional: Method to toggle auto-start
+  // **Toggle Auto-Start**
   global.toggleAutoStart = async (enable) => {
     try {
       if (enable) {
         await appLauncher.enable();
-        console.log('Auto-launch enabled');
+        console.log('✅ Auto-launch enabled');
       } else {
         await appLauncher.disable();
-        console.log('Auto-launch disabled');
+        console.log('🚫 Auto-launch disabled');
       }
     } catch (err) {
-      console.error('Failed to toggle auto-launch:', err);
+      console.error('❌ Failed to toggle auto-launch:', err);
     }
   };
 }
@@ -813,6 +901,7 @@ function performUninstallCleanup() {
     // Comprehensive paths to clean up
     const cleanupPaths = [
       // Token file in Roaming directory
+      
       path.join(app.getPath('userData'), 'token.json'),
       path.join(app.getPath('home'), '.time-tracking-app', 'token.json'),
       path.join(process.env.APPDATA, 'time-tracking-app', 'token.json'),
@@ -824,6 +913,7 @@ function performUninstallCleanup() {
       path.join(app.getPath('userData'), 'logs'),
       path.join(app.getPath('userData'), 'cache')
     ];
+    console.log("cleanupPaths", cleanupPaths);
 
     // Track removal success
     let allFilesRemoved = true;
@@ -831,11 +921,12 @@ function performUninstallCleanup() {
     // Cleanup function with enhanced logging
     cleanupPaths.forEach(filePath => {
       try {
+        console.log(`Checking path: ${filePath}`);
         if (fs.existsSync(filePath)) {
           const stats = fs.statSync(filePath);
           
           if (stats.isDirectory()) {
-            // Remove directory recursively with enhanced error handling
+            // Remove directory recursively
             try {
               fs.rmSync(filePath, { recursive: true, force: true });
               console.log(`Removed directory: ${filePath}`);
@@ -850,6 +941,8 @@ function performUninstallCleanup() {
               allFilesRemoved = false;
             }
           }
+        } else {
+          console.log(`Path does not exist: ${filePath}`);
         }
       } catch (fileCleanupError) {
         console.error(`Error processing ${filePath}:`, fileCleanupError);
@@ -863,7 +956,6 @@ function performUninstallCleanup() {
 
     // Optional: Remove auto-launch registry entries
     try {
-      const { exec } = require('child_process');
       exec('reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "Time Tracking App" /f', 
         (error, stdout, stderr) => {
           if (error) {
@@ -900,6 +992,7 @@ ipcMain.on('perform-uninstall', (event) => {
     app.quit();
   }
 });
+
 
 // Optional: Add global method for manual cleanup
 global.performUninstallCleanup = performUninstallCleanup;

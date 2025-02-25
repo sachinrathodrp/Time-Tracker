@@ -26,6 +26,7 @@
     "auto-launch": "^5.0.6",
     "axios": "^1.7.9",
     "chart.js": "^4.4.7",
+    "child_process": "^1.0.2",
     "electron-auto-launch": "^5.0.7"
   },
   "build": {
@@ -44,7 +45,7 @@
         "nsis",
         "portable"
       ],
-      "icon": "assets/icons/icon512.ico",
+      "icon": "assets/icons/icon128.png",
       "publisherName": "Comput Labs",
       "executableName": "ComputLabsTimeTracking"
     },
@@ -71,7 +72,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "assets/icons/icon512"
+        "icon": "assets/icons/icon128"
       }
     }
   }

@@ -113,7 +113,13 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     }
 
     const data = await response.json();
-    alert(JSON.stringify(JSON.stringify(data.user.fullName), null, 2));
+    const { dialog } = require('electron');
+    dialog.showMessageBox({
+      type: 'info',
+      buttons: ['Welcome'],
+      title: 'Welcome',
+      message: `Welcome, ${data.user.fullName}!`,
+    });
     if (data.token) {
       localStorage.setItem('data', JSON.stringify(data));
       localStorage.setItem('token', data.token);

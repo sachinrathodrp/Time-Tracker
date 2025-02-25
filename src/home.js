@@ -32,7 +32,7 @@ const MAX_BATCH_RECORDS = 20;
 let batchUploadTimer = null;
 
 // Electron Idle Time Tracking
-const IDLE_THRESHOLD = 10 * 60; // 10 minutes in seconds (600 seconds)
+const IDLE_THRESHOLD = 30 * 60; // 30 minutes in seconds (1800 seconds)
 let idleDetectionEnabled = false;
 let isIdleAlertShown = false;
 
@@ -61,6 +61,7 @@ function startElectronIdleTracking() {
   });
 
   ipcRenderer.on('idle-dialog-response', (event, response) => {
+    stopTracking();
     if (response === 'break') {
       console.log("User chose to take a break. Stopping tracking.");
       
