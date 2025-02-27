@@ -523,8 +523,13 @@ function initializeWindow() {
 // Modify app ready event handler
 app.on('ready', () => {
   // Additional check to ensure clean startup
-  initializeWindow();
-  setupAutoLaunch();
+  if (process.argv.includes('--squirrel-uninstall')) {
+    performUninstallCleanup(false); // Perform actual cleanup
+    app.quit();
+  } else {
+    initializeWindow();
+    setupAutoLaunch();
+  }
 });
 
 // Add global error handler
@@ -896,91 +901,63 @@ function clearLocalStorage() {
   }
 }
 
-function performUninstallCleanup() {
+function performUninstallCleanup(dryRun = false) {
   try {
-    // Comprehensive paths to clean up
-    const cleanupPaths = [
-      // Token file in Roaming directory
-      
-      path.join(app.getPath('userData'), 'token.json'),
+    const userDataPath = app.getPath('userData');
+    console.log(`Cleanup target: ${userDataPath}`);
+
+    if (dryRun) {
+      console.log(`Dry run: Would remove directory ${userDataPath}`);
+    } else if (fs.existsSync(userDataPath)) {
+      fs.rmSync(userDataPath, { recursive: true, force: true });
+      console.log(`Removed userData directory: ${userDataPath}`);
+    } else {
+      console.log(`userData directory does not exist: ${userDataPath}`);
+    }
+
+    // Remove extra files
+    const extraPaths = [
       path.join(app.getPath('home'), '.time-tracking-app', 'token.json'),
       path.join(process.env.APPDATA, 'time-tracking-app', 'token.json'),
-      
-      // Tracking data file
-      path.join(app.getPath('userData'), 'tracking-data.json'),
-      
-      // Additional potential data directories
-      path.join(app.getPath('userData'), 'logs'),
-      path.join(app.getPath('userData'), 'cache')
     ];
-    console.log("cleanupPaths", cleanupPaths);
 
-    // Track removal success
-    let allFilesRemoved = true;
-
-    // Cleanup function with enhanced logging
-    cleanupPaths.forEach(filePath => {
-      try {
-        console.log(`Checking path: ${filePath}`);
-        if (fs.existsSync(filePath)) {
-          const stats = fs.statSync(filePath);
-          
-          if (stats.isDirectory()) {
-            // Remove directory recursively
-            try {
-              fs.rmSync(filePath, { recursive: true, force: true });
-              console.log(`Removed directory: ${filePath}`);
-            } catch (dirRemoveError) {
-              console.error(`Failed to remove directory ${filePath}:`, dirRemoveError);
-              allFilesRemoved = false;
-            }
-          } else {
-            // Enhanced file removal
-            const fileRemoved = safeRemoveFile(filePath);
-            if (!fileRemoved) {
-              allFilesRemoved = false;
-            }
-          }
-        } else {
-          console.log(`Path does not exist: ${filePath}`);
+    extraPaths.forEach((filePath) => {
+      if (dryRun) {
+        console.log(`Dry run: Would remove ${filePath}`);
+      } else if (fs.existsSync(filePath)) {
+        try {
+          fs.unlinkSync(filePath);
+          console.log(`Removed additional file: ${filePath}`);
+        } catch (error) {
+          console.error(`Failed to remove ${filePath}: ${error.message}`);
         }
-      } catch (fileCleanupError) {
-        console.error(`Error processing ${filePath}:`, fileCleanupError);
-        allFilesRemoved = false;
+      } else {
+        console.log(`File does not exist: ${filePath}`);
       }
     });
 
-    // Clear localStorage
-    const localStorageCleared = clearLocalStorage();
-    allFilesRemoved = allFilesRemoved && localStorageCleared;
-
-    // Optional: Remove auto-launch registry entries
-    try {
-      exec('reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "Time Tracking App" /f', 
-        (error, stdout, stderr) => {
-          if (error) {
-            console.warn(`Registry cleanup warning: ${error.message}`);
-          } else {
-            console.log('Windows Registry entry removed');
-          }
-        }
-      );
-    } catch (registryError) {
-      console.error('Failed to remove registry entry:', registryError);
-    }
-
-    // Disable auto-launch
+    // Disable auto-launch and remove registry entries
     if (global.disableAutoLaunch) {
-      global.disableAutoLaunch();
+      if (dryRun) {
+        console.log('Dry run: Would disable auto-launch');
+      } else {
+        global.disableAutoLaunch();
+      }
     }
 
-    console.log('Uninstallation cleanup completed');
-    return allFilesRemoved;
+    console.log('Uninstallation cleanup completed successfully');
+    return true;
   } catch (error) {
-    console.error('Comprehensive uninstallation error:', error);
+    console.error('Uninstall cleanup failed:', error);
     return false;
   }
 }
+
+// Add dry-run support for testing
+ipcMain.on('test-uninstall', (event) => {
+  const result = performUninstallCleanup(true); // Dry run
+  event.reply('test-uninstall-result', result);
+});
 
 // Add IPC handler for uninstallation (if not already present)
 ipcMain.on('perform-uninstall', (event) => {
@@ -993,6 +970,53 @@ ipcMain.on('perform-uninstall', (event) => {
   }
 });
 
+// Enhanced IPC handler for showing message boxes from renderer process
+ipcMain.on('show-message-box', (event, options) => {
+  try {
+    // Find the most appropriate parent window
+    const windows = BrowserWindow.getAllWindows();
+    const parentWindow = windows.find(win => 
+      win.getTitle() === 'Home' || 
+      win.getTitle() === 'Time Tracker - Login'
+    ) || windows[0];
+
+    // Validate and set default options
+    const messageBoxOptions = {
+      type: options.type || 'info',
+      title: options.title || 'Notification',
+      message: options.message || '',
+      buttons: options.buttons || ['OK'],
+      defaultId: options.defaultId || 0,
+      cancelId: options.cancelId || -1,
+      detail: options.detail || '',
+      checkboxLabel: options.checkboxLabel || '',
+      icon: options.icon ? path.join(__dirname, options.icon) : undefined
+    };
+
+    // Show message box with comprehensive error handling
+    dialog.showMessageBox(parentWindow, messageBoxOptions)
+      .then(result => {
+        // Send back detailed response
+        event.reply('message-box-response', {
+          response: result.response,
+          checkboxChecked: result.checkboxChecked
+        });
+      })
+      .catch(err => {
+        console.error('Error showing message box:', err);
+        event.reply('message-box-error', {
+          message: err.message,
+          stack: err.stack
+        });
+      });
+  } catch (error) {
+    console.error('Critical error in message box handler:', error);
+    event.reply('message-box-critical-error', {
+      message: error.message,
+      stack: error.stack
+    });
+  }
+});
 
 // Optional: Add global method for manual cleanup
 global.performUninstallCleanup = performUninstallCleanup;

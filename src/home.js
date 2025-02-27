@@ -203,6 +203,68 @@ function stopTracking() {
   console.log("Tracking stopped successfully.");
 }
 
+// Enhanced resetTimerState function with precise reset and logging
+function resetTimerState() {
+  try {
+    console.log(' 🔄 Resetting Timer State');
+
+    // Stop all existing intervals
+    if (timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+
+    if (trackingInterval) {
+      clearInterval(trackingInterval);
+      trackingInterval = null;
+    }
+
+    if (saveInterval) {
+      clearInterval(saveInterval);
+      saveInterval = null;
+    }
+
+    // Reset all timer-related variables
+    elapsedTime = 0;
+    startTime = 0;
+    isTracking = false;
+
+    // Comprehensive state reset
+    lastWindow = null;
+    lastWindowStartTime = null;
+    batchRecords = [];
+
+    // Save reset state
+    try {
+      saveTimerData();
+    } catch (saveError) {
+      console.error(' ❌ Failed to save reset timer state:', saveError);
+    }
+
+    // Update UI
+    updateTimerDisplay();
+    updateTable();
+    updateInsights();
+
+    // Reset start/stop button to initial state
+    const startStopBtn = document.getElementById('start-stop-btn');
+    if (startStopBtn) {
+      startStopBtn.innerHTML = `
+        <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+          <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
+        </svg>
+      `;
+    }
+
+    console.log(' ✅ Timer State Reset Complete');
+  } catch (error) {
+    console.error(' 🚨 Critical Error in resetTimerState:', {
+      message: error.message,
+      stack: error.stack
+    });
+  }
+}
 
 // Comprehensive activity event listeners
 const ACTIVITY_EVENTS = [
@@ -517,46 +579,33 @@ const dataKey = 'dailyTimerData';
 // Enhanced day-wise timer tracking
 function initializeTimer() {
   try {
-    console.log(' Initializing Timer...');
+    console.log('Initializing Timer...');
     const today = new Date().toLocaleDateString();
     const userId = localStorage.getItem('userId') || 'test-user';
     const timerKey = `dailyTimerData_${userId}_${today}`;
     const storedData = localStorage.getItem(timerKey);
 
     if (!storedData) {
-      console.log(` No previous timer data found for user ${userId}. Starting fresh.`);
+      console.log(`No previous timer data found for user ${userId}. Starting fresh.`);
       elapsedTime = 0;
       isTracking = false;
       startTime = 0;
       saveTimerData();
-      updateTimerDisplay();
+      updateTimerDisplay(elapsedTime); // Display 00:00:00 initially
       return;
     }
 
     const parsedData = JSON.parse(storedData);
-    console.log(` Loaded Timer Data for user ${userId}:`, parsedData);
+    console.log(`Loaded Timer Data for user ${userId}:`, parsedData);
 
-    // Restore previous state
+    // Restore previous state, but do not resume tracking
     elapsedTime = parsedData.elapsedTime || 0;
-    isTracking = parsedData.isTracking || false;
-    startTime = parsedData.startTime || 0;
+    isTracking = false; // Always stop tracking on load
+    startTime = 0; // Reset start time
 
-    // If tracking was active, calculate additional elapsed time
-    if (isTracking && startTime > 0) {
-      const additionalTime = Math.floor((Date.now() - startTime) / 1000);
-      elapsedTime += additionalTime;
-      startTime = Date.now(); // Reset start time
-    }
-
-    updateTimerDisplay();
-
-    // If tracking was active, restart tracking
-    if (isTracking) {
-      startTracking();
-    }
-
+    updateTimerDisplay(elapsedTime); // Show accumulated time from previous sessions
   } catch (error) {
-    console.error(' Error initializing timer:', error);
+    console.error('Error initializing timer:', error);
     resetTimerState();
   }
 }
@@ -589,67 +638,139 @@ function saveTimerData() {
 
 
 // ** Update Timer **
+// function updateTimer() {
+//   try {
+//     if (!isTracking) {
+//       console.warn(' updateTimer called when not tracking');
+//       return;
+//     }
+
+//     const now = Date.now();
+    
+//     if (!startTime) {
+//       console.error(' Start time is not set during tracking');
+//       isTracking = false;
+//       return;
+//     }
+
+//     // Calculate precise session time
+//     const sessionTimeMs = now - startTime;
+//     const sessionTime = Math.floor(sessionTimeMs / 1000);
+    
+//     // Implement safeguards against unrealistic session times
+//     if (sessionTime < 0) {
+//       console.warn(' Negative session time detected. Resetting timer.');
+//       startTime = now;
+//       return;
+//     }
+
+//     if (sessionTime > 3600) { // More than 1 hour in a single interval
+//       console.warn(` Unusually long session time: ${sessionTime} seconds`);
+//       startTime = now; // Reset start time to prevent further anomalies
+//       return;
+//     }
+
+//     // Increment elapsed time precisely
+//     elapsedTime = Math.floor((now - (startTime - elapsedTime * 1000)) / 1000);
+    
+//     // Diagnostic logging with more context
+//     console.log(` Timer Update: 
+//       Total Elapsed: ${elapsedTime}s
+//       Current Session: ${sessionTime}s
+//       Start Time: ${new Date(startTime).toISOString()}
+//       Current Time: ${new Date(now).toISOString()}`);
+
+//     // Save timer data with error handling
+//     try {
+//       saveTimerData();
+//     } catch (saveError) {
+//       console.error(' Failed to save timer data:', saveError);
+//     }
+
+//     // Update display with precise elapsed time
+//     updateTimerDisplay();
+
+//   } catch (error) {
+//     console.error(' Critical error in updateTimer:', {
+//       message: error.message,
+//       stack: error.stack
+//     });
+//     resetTimerState();
+//   }
+// }
+
 function updateTimer() {
-  try {
-    if (!isTracking) {
-      console.warn(' updateTimer called when not tracking');
-      return;
-    }
-
-    const now = Date.now();
-    
-    if (!startTime) {
-      console.error(' Start time is not set during tracking');
-      isTracking = false;
-      return;
-    }
-
-    const sessionTime = Math.floor((now - startTime) / 1000);
-    
-    // Prevent unrealistic session times
-    if (sessionTime > 3600) {
-      console.warn(` Unusually long session time detected: ${sessionTime} seconds`);
-      return;
-    }
-
-    // Update total elapsed time
-    elapsedTime += sessionTime;
-    
-    // Reset start time for next interval calculation
-    startTime = now;
-
-    // Save timer data after each update
-    saveTimerData();
-
-    // Update display
-    updateTimerDisplay();
-
-    console.log(` Timer Update: 
-      Total Elapsed: ${elapsedTime}s
-      Current Session: ${sessionTime}s`);
-
-  } catch (error) {
-    console.error(' Error in updateTimer:', error);
-    resetTimerState();
+  if (!isTracking) {
+    console.warn('updateTimer called when not tracking');
+    return;
   }
+
+  const now = Date.now();
+  if (!startTime) {
+    console.error('Start time is not set during tracking');
+    isTracking = false;
+    return;
+  }
+
+  const currentSessionTime = Math.floor((now - startTime) / 1000);
+  const totalTime = elapsedTime + currentSessionTime;
+
+  // Safeguard against negative or unrealistic times
+  if (currentSessionTime < 0) {
+    console.warn('Negative session time detected. Resetting timer.');
+    startTime = now;
+    return;
+  }
+
+  updateTimerDisplay(totalTime); // Display total time
 }
 
-function resetTimerState() {
-  elapsedTime = 0;
-  isTracking = false;
-  startTime = 0;
-  clearInterval(timerInterval);
-  saveTimerData();
-  updateTimerDisplay();
-}
+// ** Start Tracking Function **
+// function startTracking() {
+//   try {
+//     console.log(' Attempting to start tracking...');
+//     debugTimerState('Before Start');
 
+//     if (isTracking) {
+//       console.warn(' Already tracking. Ignoring start request.');
+//       return;
+//     }
+
+//     isTracking = true;
+//     startTime = Date.now();
+
+//     // timerInterval = setInterval(updateTimer, 1000);
+//     timerInterval = setInterval(() => {
+//       updateTimer();
+//     }, 1000); 
+//     trackingInterval = setInterval(trackActiveWindow, 1000);
+//     saveInterval = setInterval(saveTrackingData, 60000);
+
+//     saveTimerData();
+
+//     // Update start/stop button
+//     document.getElementById('start-stop-btn').innerHTML = `
+//       <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+//         <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+//         <rect x="16" y="16" width="16" height="16" fill="#ffffff"/>
+//       </svg>
+//     `;
+
+//     console.log(` Tracking started. 
+//       Initial Elapsed Time: ${elapsedTime}s
+//       Start Time: ${new Date(startTime).toISOString()}`);
+    
+//     debugTimerState('After Start');
+//   } catch (error) {
+//     console.error(' Error starting tracking:', error);
+//     isTracking = false;
+//   }
+// }
 function startTracking() {
   try {
-    console.log(' Attempting to start tracking...');
-    debugTimerState('Before Start');
-
+    console.log('Attempting to start tracking...');
     if (isTracking) {
-      console.warn(' Already tracking. Ignoring start request.');
+      console.warn('Already tracking. Ignoring start request.');
       return;
     }
 
@@ -661,8 +782,8 @@ function startTracking() {
     saveInterval = setInterval(saveTrackingData, 60000);
 
     saveTimerData();
+    updateTimerDisplay(elapsedTime); // Show initial elapsed time immediately
 
-    // Update start/stop button
     document.getElementById('start-stop-btn').innerHTML = `
       <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
@@ -670,54 +791,101 @@ function startTracking() {
       </svg>
     `;
 
-    console.log(` Tracking started. 
-      Initial Elapsed Time: ${elapsedTime}s
-      Start Time: ${new Date(startTime).toISOString()}`);
-    
-    debugTimerState('After Start');
+    console.log(`Tracking started. Initial Elapsed Time: ${elapsedTime}s`);
   } catch (error) {
-    console.error(' Error starting tracking:', error);
+    console.error('Error starting tracking:', error);
     isTracking = false;
   }
 }
+// ** Stop Tracking Function **
+// function stopTracking() {
+//   try {
+//     console.log(' Attempting to stop tracking...');
+//     debugTimerState('Before Stop');
 
+//     if (!isTracking) {
+//       console.warn(' Not currently tracking. Ignoring stop request.');
+//       return;
+//     }
+
+//     const now = Date.now();
+//     const sessionTime = Math.floor((now - startTime) / 1000);
+    
+//     // Stop all intervals with error handling
+//     clearInterval(timerInterval);
+//     clearInterval(trackingInterval);
+//     clearInterval(saveInterval);
+    
+//     // Update total elapsed time
+//     elapsedTime += sessionTime;
+    
+//     // Reset tracking state
+//     isTracking = false;
+    
+//     // Save final tracking data
+//     saveTimerData();
+
+//     // Upload any pending batch records
+//    try {
+//     uploadBatchToDatabase();
+//     console.log('Batch upload successful.');
+//    } catch (error) {
+//     console.error('Error uploading batch:', error);
+//    }
+
+//     // Update start/stop button
+//     document.getElementById('start-stop-btn').innerHTML = `
+//       <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+//         <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+//         <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
+//       </svg>
+//     `;
+
+//     // Update display
+//     updateTimerDisplay();
+
+//     console.log(` Tracking stopped. 
+//       Total Elapsed Time: ${elapsedTime}s
+//       Last Session Time: ${sessionTime}s`);
+    
+//     debugTimerState('After Stop');
+//   } catch (error) {
+//     console.error(' Error stopping tracking:', error);
+//     isTracking = false;
+//   }
+// }
 
 function stopTracking() {
   try {
-    console.log(' Attempting to stop tracking...');
-    debugTimerState('Before Stop');
-
+    console.log('Attempting to stop tracking...');
     if (!isTracking) {
-      console.warn(' Not currently tracking. Ignoring stop request.');
+      console.warn('Not currently tracking. Ignoring stop request.');
       return;
     }
 
-    const now = Date.now();
-    const sessionTime = Math.floor((now - startTime) / 1000);
-    
-    // Stop all intervals with error handling
+    // Clear all intervals first to stop any updates
     clearInterval(timerInterval);
     clearInterval(trackingInterval);
     clearInterval(saveInterval);
-    
-    // Update total elapsed time
-    elapsedTime += sessionTime;
-    
-    // Reset tracking state
+    timerInterval = null;
+    trackingInterval = null;
+    saveInterval = null;
+
+    // Calculate the final elapsed time
+    const now = Date.now();
+    const sessionTime = Math.floor((now - startTime) / 1000);
+    elapsedTime += sessionTime; // Add session duration to total elapsed time
+
+    // Update state
     isTracking = false;
-    
-    // Save final tracking data
+    startTime = 0;
+
+    // Save data and update display
     saveTimerData();
-
-    // Upload any pending batch records
-   try {
     uploadBatchToDatabase();
-    console.log('Batch upload successful.');
-   } catch (error) {
-    console.error('Error uploading batch:', error);
-   }
+    updateTimerDisplay(elapsedTime); // Show the final elapsed time
 
-    // Update start/stop button
+    // Update the button icon
     document.getElementById('start-stop-btn').innerHTML = `
       <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
@@ -725,20 +893,12 @@ function stopTracking() {
       </svg>
     `;
 
-    // Update display
-    updateTimerDisplay();
-
-    console.log(` Tracking stopped. 
-      Total Elapsed Time: ${elapsedTime}s
-      Last Session Time: ${sessionTime}s`);
-    
-    debugTimerState('After Stop');
+    console.log(`Tracking stopped. Total Elapsed Time: ${elapsedTime}s`);
   } catch (error) {
-    console.error(' Error stopping tracking:', error);
+    console.error('Error stopping tracking:', error);
     isTracking = false;
   }
 }
-
 
 // ** Active Window Tracking **
 async function trackActiveWindow() {
@@ -752,6 +912,7 @@ async function trackActiveWindow() {
   }
 
   const result = await ipcRenderer.invoke('get-active-window');
+  console.log(" Active window result:", result);
 
   if (result && result.owner && result.title) {
     // Check if the window should be tracked
@@ -1117,21 +1278,44 @@ function shouldIgnoreWindow(app, title) {
 }
 
 // ** Update Timer Display **
-function updateTimerDisplay() {
-  const totalSeconds = elapsedTime;
+// function updateTimerDisplay() {
+//   const totalSeconds = elapsedTime;
+//   const hours = Math.floor(totalSeconds / 3600);
+//   const minutes = Math.floor((totalSeconds % 3600) / 60);
+//   const seconds = totalSeconds % 60;
+
+//   const timerDisplay = document.getElementById('timer');
+//   if (timerDisplay) {
+//     timerDisplay.textContent = `${
+//       hours.toString().padStart(2, '0')
+//     }:${
+//       minutes.toString().padStart(2, '0')
+//     }:${
+//       seconds.toString().padStart(2, '0')
+//     }`;
+//   }
+
+//   console.log(`Updated Timer Display: ${hours}:${minutes}:${seconds}`);
+// }
+
+
+// ** Update Timer Display Function **
+function updateTimerDisplay(totalSeconds) {
+  // Check if totalSeconds is a valid number
+  if (typeof totalSeconds !== 'number' || isNaN(totalSeconds)) {
+    console.error('Invalid totalSeconds value:', totalSeconds);
+    return; // Skip updating the display if the value is invalid
+  }
+
+  // Calculate hours, minutes, and seconds
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
 
+  // Update the timer display
   const timerDisplay = document.getElementById('timer');
   if (timerDisplay) {
-    timerDisplay.textContent = `${
-      hours.toString().padStart(2, '0')
-    }:${
-      minutes.toString().padStart(2, '0')
-    }:${
-      seconds.toString().padStart(2, '0')
-    }`;
+    timerDisplay.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   }
 
   console.log(`Updated Timer Display: ${hours}:${minutes}:${seconds}`);
@@ -1143,7 +1327,7 @@ function handleUninstall() {
   
   // Comprehensive Uninstallation Confirmation
   const confirmUninstall = confirm(
-    '🚨 Uninstallation Warning 🚨\n\n' +
+    ' Uninstallation Warning \n\n' +
     'This will permanently remove:\n' +
     '• All tracking data\n' +
     '• Application settings\n' +
@@ -1200,11 +1384,11 @@ function handleUninstall() {
       // Listen for uninstallation result with enhanced feedback
       ipcRenderer.once('uninstall-complete', (event, result) => {
         if (result) {
-          alert('🎉 Uninstallation Successful!\n\n' +
+          alert(' Uninstallation Successful!\n\n' +
                 'All application data has been removed.\n' +
                 'Thank you for using Time Tracker!');
         } else {
-          alert('⚠️ Uninstallation Partially Failed\n\n' +
+          alert(' Uninstallation Partially Failed\n\n' +
                 'Some files could not be removed.\n' +
                 'Please check application logs for details.');
         }
@@ -1222,7 +1406,7 @@ function addUninstallButton() {
   const settingsContainer = document.querySelector('.settings-container');
   if (settingsContainer) {
     const uninstallButton = document.createElement('button');
-    uninstallButton.textContent = '🗑️ Uninstall App';
+    uninstallButton.textContent = ' Uninstall App';
     uninstallButton.classList.add('uninstall-btn', 'danger-btn');
     uninstallButton.style.cssText = `
       background-color: #ff4d4d;

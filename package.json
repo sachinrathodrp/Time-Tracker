@@ -7,6 +7,7 @@
     "build": "electron-builder --win --x64",
     "build:mac": "electron-builder --mac",
     "build:linux": "electron-builder --linux",
+    "verify-uninstall":"node verify-uninstall.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -56,7 +57,9 @@
       "createDesktopShortcut": "always",
       "shortcutName": "Comput Labs Time Tracking",
       "installerHeader": "assets/icons/icon512.bmp",
-      "installerIcon": "assets/icons/icon512.ico"
+      "installerIcon": "assets/icons/icon512.ico",
+      "deleteAppDataOnUninstall": true,
+      "include": "installer.nsh"
     },
     "mac": {
       "target": "dmg",

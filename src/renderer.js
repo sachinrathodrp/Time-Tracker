@@ -1,6 +1,7 @@
 const { ipcRenderer } = require('electron');
 const fs = require('fs');
 const path = require('path');
+const { dialog } = require('electron');
 
 //testing api url
 // const apiUrl = 'https://testing-backend-3uc6s.ondigitalocean.app/api/v1/signin';
@@ -107,18 +108,16 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Error response:', errorText);
+      console.log('Error response:', errorText);
       alert('Login failed: ' + errorText);
       return;
     }
 
     const data = await response.json();
-    const { dialog } = require('electron');
-    dialog.showMessageBox({
+    ipcRenderer.send('show-message-box', {
       type: 'info',
-      buttons: ['Welcome'],
       title: 'Welcome',
-      message: `Welcome, ${data.user.fullName}!`,
+      message: `Welcome, ${data.user.fullName}!`
     });
     if (data.token) {
       localStorage.setItem('data', JSON.stringify(data));
