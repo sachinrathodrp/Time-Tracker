@@ -1,0 +1,32 @@
+name: Build macOS Application
+
+on:
+  push:
+    branches: [ "main" ]  # Trigger on pushes to the main branch
+  pull_request:           # Optional: Trigger on pull requests
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: macos-latest  # Use a macOS runner
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4  # Check out your code
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x      # Match your Node.js version
+
+      - name: Install Dependencies
+        run: npm install         # Install npm packages
+
+      - name: Build macOS App
+        run: npm run build:mac    # Run your macOS build script
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: macOS-Build       # Name of the generated artifact
+          path: dist/             # Path to the built files (adjust if needed)
