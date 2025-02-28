@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4  # Use latest checkout action
+        uses: actions/checkout@v4
 
       - name: Set Up Node.js
         uses: actions/setup-node@v4
@@ -23,10 +23,12 @@ jobs:
         run: npm install
 
       - name: Build macOS App
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Add this line
         run: npm run build:mac
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4  # Update to v4
+        uses: actions/upload-artifact@v4
         with:
           name: macOS-Build
-          path: dist/  # Ensure this matches your build output directory
+          path: dist/
