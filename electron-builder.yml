@@ -1,0 +1,13 @@
+appId: com.computlabs.timetracker
+productName: Time Tracker
+directories:
+  output: dist
+mac:
+  category: public.app-category.productivity
+  target:
+    - dmg
+    - zip
+  hardenedRuntime: false
+  gatekeeperAssess: false
+  entitlements: entitlements.mac.plist
+  entitlementsInherit: entitlements.mac.plist

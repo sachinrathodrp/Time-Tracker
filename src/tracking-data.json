@@ -7724,6 +7724,465 @@
       "endTime": "2025-02-28T06:23:21.696Z",
       "duration": "2m 0s",
       "timestamp": "2025-02-28T06:21:21.684Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T06:30:21.689Z",
+      "endTime": "2025-02-28T06:33:21.693Z",
+      "duration": "3m 0s",
+      "timestamp": "2025-02-28T06:30:21.689Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "https://my-app-7fjx6.ondigitalocean.app/api/v1/tracking-data - Devlopment",
+      "startTime": "2025-02-28T06:33:21.693Z",
+      "endTime": "2025-02-28T06:34:21.751Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-02-28T06:33:21.693Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf",
+      "startTime": "2025-02-28T06:34:21.751Z",
+      "endTime": "2025-02-28T06:35:21.808Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-02-28T06:34:21.751Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-02-28T06:35:21.808Z",
+      "endTime": "2025-02-28T06:37:21.708Z",
+      "duration": "1m 59s",
+      "timestamp": "2025-02-28T06:35:21.808Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-02-28T06:37:21.708Z",
+      "endTime": "2025-02-28T06:41:45.619Z",
+      "duration": "4m 23s",
+      "timestamp": "2025-02-28T06:37:21.708Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-02-28T06:41:45.619Z",
+      "endTime": "2025-02-28T06:42:19.619Z",
+      "duration": "0m 34s",
+      "timestamp": "2025-02-28T06:41:45.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Gmail - Google Chrome",
+      "startTime": "2025-02-28T06:42:20.617Z",
+      "endTime": "2025-02-28T06:42:22.637Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T06:42:20.617Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Inbox (119) - sachinrathodnic1@gmail.com - Gmail - Google Chrome",
+      "startTime": "2025-02-28T06:42:22.637Z",
+      "endTime": "2025-02-28T06:42:27.627Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T06:42:22.637Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Urgent Hiring for Webform Developer at Beyond Key Systems Pvt. Ltd. - sachinrathodnic1@gmail.com - Gmail - Google Chrome",
+      "startTime": "2025-02-28T06:43:27.617Z",
+      "endTime": "2025-02-28T06:45:36.687Z",
+      "duration": "2m 9s",
+      "timestamp": "2025-02-28T06:43:27.617Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "password.xlsx - Google Chrome",
+      "startTime": "2025-02-28T06:45:36.687Z",
+      "endTime": "2025-02-28T06:46:21.675Z",
+      "duration": "0m 44s",
+      "timestamp": "2025-02-28T06:45:36.687Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Urgent Hiring for Webform Developer at Beyond Key Systems Pvt. Ltd. - sachinrathodnic1@gmail.com - Gmail - Google Chrome",
+      "startTime": "2025-02-28T06:46:21.675Z",
+      "endTime": "2025-02-28T06:52:21.697Z",
+      "duration": "6m 0s",
+      "timestamp": "2025-02-28T06:46:21.675Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "LockApp.exe",
+      "title": "Windows Default Lock Screen",
+      "startTime": "2025-02-28T06:52:21.697Z",
+      "endTime": "2025-02-28T06:54:21.710Z",
+      "duration": "2m 0s",
+      "timestamp": "2025-02-28T06:52:21.697Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Urgent Hiring for Webform Developer at Beyond Key Systems Pvt. Ltd. - sachinrathodnic1@gmail.com - Gmail - Google Chrome",
+      "startTime": "2025-02-28T06:54:21.710Z",
+      "endTime": "2025-02-28T06:56:21.696Z",
+      "duration": "1m 59s",
+      "timestamp": "2025-02-28T06:54:21.710Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-02-28T06:56:21.696Z",
+      "endTime": "2025-02-28T06:57:21.690Z",
+      "duration": "0m 59s",
+      "timestamp": "2025-02-28T06:56:21.696Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-02-28T06:57:21.690Z",
+      "endTime": "2025-02-28T07:03:22.307Z",
+      "duration": "6m 0s",
+      "timestamp": "2025-02-28T06:57:21.690Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-02-28T07:21:40.055Z",
+      "endTime": "2025-02-28T07:21:53.674Z",
+      "duration": "0m 13s",
+      "timestamp": "2025-02-28T07:21:40.055Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "General - Google Chrome",
+      "startTime": "2025-02-28T07:21:53.674Z",
+      "endTime": "2025-02-28T07:21:57.686Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T07:21:53.674Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-02-28T07:21:57.686Z",
+      "endTime": "2025-02-28T07:22:00.678Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T07:21:57.686Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-02-28T07:22:00.678Z",
+      "endTime": "2025-02-28T07:22:03.681Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T07:22:00.678Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-02-28T07:22:03.681Z",
+      "endTime": "2025-02-28T07:22:08.671Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T07:22:03.681Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T07:22:08.671Z",
+      "endTime": "2025-02-28T07:22:13.687Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T07:22:08.671Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "password.xlsx - Google Chrome",
+      "startTime": "2025-02-28T07:22:13.687Z",
+      "endTime": "2025-02-28T07:22:17.678Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T07:22:13.687Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "OneDrive - Google Chrome",
+      "startTime": "2025-02-28T07:22:17.678Z",
+      "endTime": "2025-02-28T07:22:22.067Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T07:22:17.678Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-02-28T07:22:22.067Z",
+      "endTime": "2025-02-28T07:22:25.062Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T07:22:22.067Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T07:22:25.062Z",
+      "endTime": "2025-02-28T07:22:29.061Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T07:22:25.062Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Mail - Sachin Rathod - Outlook - Google Chrome",
+      "startTime": "2025-02-28T07:22:29.061Z",
+      "endTime": "2025-02-28T07:22:34.061Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T07:22:29.061Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Gmail - Google Chrome",
+      "startTime": "2025-02-28T07:22:34.061Z",
+      "endTime": "2025-02-28T07:22:37.061Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T07:22:34.061Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Urgent Hiring for Webform Developer at Beyond Key Systems Pvt. Ltd. - sachinrathodnic1@gmail.com - Gmail - Google Chrome",
+      "startTime": "2025-02-28T07:22:37.061Z",
+      "endTime": "2025-02-28T07:22:43.060Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T07:22:37.061Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Inbox (119) - sachinrathodnic1@gmail.com - Gmail - Google Chrome",
+      "startTime": "2025-02-28T07:22:43.060Z",
+      "endTime": "2025-02-28T07:22:50.057Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-02-28T07:22:43.060Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Mail - Sachin Rathod - Outlook - Google Chrome",
+      "startTime": "2025-02-28T07:22:50.057Z",
+      "endTime": "2025-02-28T07:22:57.059Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T07:22:50.057Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-02-28T07:22:59.057Z",
+      "endTime": "2025-02-28T07:23:05.068Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-02-28T07:22:59.057Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T07:23:05.068Z",
+      "endTime": "2025-02-28T07:23:21.058Z",
+      "duration": "0m 15s",
+      "timestamp": "2025-02-28T07:23:05.068Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json●",
+      "startTime": "2025-02-28T07:23:21.058Z",
+      "endTime": "2025-02-28T07:23:22.064Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T07:23:21.058Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T07:23:22.064Z",
+      "endTime": "2025-02-28T07:23:25.064Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T07:23:22.064Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json●",
+      "startTime": "2025-02-28T07:23:25.064Z",
+      "endTime": "2025-02-28T07:23:27.061Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T07:23:25.064Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T07:23:27.061Z",
+      "endTime": "2025-02-28T07:24:50.056Z",
+      "duration": "1m 22s",
+      "timestamp": "2025-02-28T07:23:27.061Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - Comput Labs Time Tracking Setup 1.0.0.exe",
+      "startTime": "2025-02-28T07:24:50.056Z",
+      "endTime": "2025-02-28T07:24:52.058Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T07:24:50.056Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "OneDrive - Google Chrome",
+      "startTime": "2025-02-28T07:24:52.058Z",
+      "endTime": "2025-02-28T07:25:01.069Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-02-28T07:24:52.058Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T07:25:01.069Z",
+      "endTime": "2025-02-28T07:25:24.067Z",
+      "duration": "0m 22s",
+      "timestamp": "2025-02-28T07:25:01.069Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - entitlements.mac.plist",
+      "startTime": "2025-02-28T07:25:24.067Z",
+      "endTime": "2025-02-28T07:25:26.068Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T07:25:24.067Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - entitlements.mac.plist●",
+      "startTime": "2025-02-28T07:25:26.068Z",
+      "endTime": "2025-02-28T07:25:28.064Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T07:25:26.068Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - entitlements.mac.plist",
+      "startTime": "2025-02-28T07:25:28.064Z",
+      "endTime": "2025-02-28T07:25:47.061Z",
+      "duration": "0m 18s",
+      "timestamp": "2025-02-28T07:25:28.064Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-02-28T07:25:47.061Z",
+      "endTime": "2025-02-28T07:26:25.062Z",
+      "duration": "0m 38s",
+      "timestamp": "2025-02-28T07:25:47.061Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - electron-builder.yml",
+      "startTime": "2025-02-28T07:26:25.062Z",
+      "endTime": "2025-02-28T07:26:28.055Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T07:26:25.062Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - electron-builder.yml●",
+      "startTime": "2025-02-28T07:26:28.055Z",
+      "endTime": "2025-02-28T07:26:29.060Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T07:26:28.055Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - electron-builder.yml",
+      "startTime": "2025-02-28T07:26:29.060Z",
+      "endTime": "2025-02-28T07:26:47.058Z",
+      "duration": "0m 17s",
+      "timestamp": "2025-02-28T07:26:29.060Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-02-28T07:26:47.058Z",
+      "endTime": "2025-02-28T07:27:20.056Z",
+      "duration": "0m 32s",
+      "timestamp": "2025-02-28T07:26:47.058Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - entitlements.mac.plist",
+      "startTime": "2025-02-28T07:27:20.056Z",
+      "endTime": "2025-02-28T07:27:27.064Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T07:27:20.056Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-02-28T07:27:27.064Z",
+      "endTime": "2025-02-28T07:27:36.080Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-02-28T07:27:27.064Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - electron-builder.yml",
+      "startTime": "2025-02-28T07:27:36.080Z",
+      "endTime": "2025-02-28T07:27:39.059Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T07:27:36.080Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - electron-builder.yml●",
+      "startTime": "2025-02-28T07:27:39.059Z",
+      "endTime": "2025-02-28T07:27:40.064Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T07:27:39.059Z"
     }
   ]
 }

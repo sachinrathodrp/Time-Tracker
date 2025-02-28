@@ -7,7 +7,7 @@
     "build": "electron-builder --win --x64",
     "build:mac": "electron-builder --mac --config.mac.identity=null",
     "build:linux": "electron-builder --linux",
-    "verify-uninstall":"node verify-uninstall.js",
+    "verify-uninstall": "node verify-uninstall.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -62,13 +62,17 @@
       "include": "installer.nsh"
     },
     "mac": {
-    "category": "public.app-category.productivity",
-    "icon": "assets/icons/icon512.icns",
-    "hardenedRuntime": true,  
-    "gatekeeperAssess": false,
-    "entitlements": "entitlements.mac.plist",
-    "entitlementsInherit": "entitlements.mac.plist"
-  },
+      "category": "public.app-category.productivity",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "identity": null
+    },
     "linux": {
       "target": "AppImage",
       "icon": "assets/icons/icon512.png",
