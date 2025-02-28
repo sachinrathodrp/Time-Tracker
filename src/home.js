@@ -32,7 +32,8 @@ const MAX_BATCH_RECORDS = 20;
 let batchUploadTimer = null;
 
 // Electron Idle Time Tracking
-const IDLE_THRESHOLD = 30 * 60; // 30 minutes in seconds (1800 seconds)
+ const IDLE_THRESHOLD = 30 * 60; // 30 minutes in seconds (1800 seconds)
+//const IDLE_THRESHOLD = 1 * 60; // 1 minutes in seconds (60 seconds)
 let idleDetectionEnabled = false;
 let isIdleAlertShown = false;
 
@@ -42,6 +43,8 @@ function startElectronIdleTracking() {
   ipcRenderer.send('start-idle-monitoring', IDLE_THRESHOLD);
 
   ipcRenderer.on('system-idle-time', (event, idleTime) => {
+    // Add an additional check for tracking state
+    if (!isTracking) return; // Only proceed if tracking is active
     if (!timerInterval) return; // Only show idle alerts if tracking is active
     if (idleTime < IDLE_THRESHOLD) return; // Ignore if idle time is below threshold
     if (isIdleAlertShown) return; // Prevent multiple alerts in one idle session
@@ -81,6 +84,20 @@ function startElectronIdleTracking() {
     } else {
       console.log("User chose to continue tracking.");
       isIdleAlertShown = false; // Reset flag so next idle period can trigger a new alert
+      
+      // Start tracking again
+      startTracking();
+
+      // Update button to "Stop" state
+      const startStopBtn = document.getElementById('start-stop-btn');
+      if (startStopBtn) {
+        startStopBtn.innerHTML = `
+          <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+            <polygon fill="#ffffff" points="16,16 32,16 32,32 16,32"/>
+          </svg>
+        `;
+      }
     }
   });
 
@@ -161,46 +178,66 @@ Click 'OK' to take a break or 'Cancel' to continue tracking.`);
 }
 
 // ** Stop Tracking Function **
+// function stopTracking() {
+//   if (!isTracking) return; // Prevent stopping if already stopped
+
+//   console.log("Stopping tracking...");
+
+//   clearInterval(timerInterval);
+//   clearInterval(trackingInterval);
+//   clearInterval(saveInterval);
+//   clearInterval(idleCheckInterval);
+
+//   timerInterval = null;
+//   trackingInterval = null;
+//   saveInterval = null;
+//   idleCheckInterval = null;
+//   isTracking = false;
+//   startTime = 0;
+
+//   saveTrackingData(); // Save progress before stopping
+
+//    // Upload any pending batch records and wait for it to complete
+//    try {
+//      uploadBatchToDatabase();
+//     console.log(" Batch uploaded successfully after stopping tracking.");
+//   } catch (error) {
+//     console.error(" Error uploading batch after stopping tracking:", error);
+//   }
+
+//   // Fix: Update Button UI to "Start"
+//   document.getElementById('start-stop-btn').innerHTML = `
+//       <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+//           <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+//           <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
+//       </svg>
+//   `;
+
+//   updateTimerDisplay();
+//   updateTable();
+//   updateInsights();
+
+//   console.log("Tracking stopped successfully.");
+// }
 function stopTracking() {
-  if (!isTracking) return; // Prevent stopping if already stopped
-
-  console.log("Stopping tracking...");
-
+  if (!isTracking) return;
   clearInterval(timerInterval);
   clearInterval(trackingInterval);
   clearInterval(saveInterval);
-  clearInterval(idleCheckInterval);
-
   timerInterval = null;
-  trackingInterval = null;
-  saveInterval = null;
-  idleCheckInterval = null;
+  const now = Date.now();
+  elapsedTime += Math.floor((now - startTime) / 1000);
   isTracking = false;
   startTime = 0;
-
-  saveTrackingData(); // Save progress before stopping
-
-   // Upload any pending batch records and wait for it to complete
-   try {
-     uploadBatchToDatabase();
-    console.log(" Batch uploaded successfully after stopping tracking.");
-  } catch (error) {
-    console.error(" Error uploading batch after stopping tracking:", error);
-  }
-
-  // Fix: Update Button UI to "Start"
+  saveTimerData();
+  uploadBatchToDatabase();
+  updateTimerDisplay(elapsedTime);
   document.getElementById('start-stop-btn').innerHTML = `
-      <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
-          <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
-      </svg>
+    <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+      <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
+    </svg>
   `;
-
-  updateTimerDisplay();
-  updateTable();
-  updateInsights();
-
-  console.log("Tracking stopped successfully.");
 }
 
 // Enhanced resetTimerState function with precise reset and logging
@@ -781,9 +818,10 @@ function startTracking() {
     trackingInterval = setInterval(trackActiveWindow, 1000);
     saveInterval = setInterval(saveTrackingData, 60000);
 
+    // Save initial state
     saveTimerData();
-    updateTimerDisplay(elapsedTime); // Show initial elapsed time immediately
 
+    // Change button to "Stop"
     document.getElementById('start-stop-btn').innerHTML = `
       <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
