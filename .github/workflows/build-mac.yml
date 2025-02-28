@@ -24,7 +24,7 @@ jobs:
 
       - name: Build macOS App
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Add this line
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  
         run: npm run build:mac
 
       - name: Upload Artifact

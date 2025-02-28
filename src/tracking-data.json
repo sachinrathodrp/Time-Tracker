@@ -5627,6 +5627,2103 @@
       "endTime": "2025-02-28T04:43:59.623Z",
       "duration": "0m 8s",
       "timestamp": "2025-02-28T04:43:51.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Windsurf",
+      "startTime": "2025-02-28T04:44:00.620Z",
+      "endTime": "2025-02-28T04:44:02.622Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T04:44:00.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T04:44:02.622Z",
+      "endTime": "2025-02-28T04:44:10.658Z",
+      "duration": "0m 8s",
+      "timestamp": "2025-02-28T04:44:02.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "GitHub - Google Chrome",
+      "startTime": "2025-02-28T04:44:14.619Z",
+      "endTime": "2025-02-28T04:44:17.624Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T04:44:14.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T04:44:17.624Z",
+      "endTime": "2025-02-28T04:44:19.626Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T04:44:17.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T04:44:20.624Z",
+      "endTime": "2025-02-28T04:44:25.613Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T04:44:20.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Workflow runs · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T04:44:25.613Z",
+      "endTime": "2025-02-28T04:44:49.623Z",
+      "duration": "0m 24s",
+      "timestamp": "2025-02-28T04:44:25.613Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:44:49.623Z",
+      "endTime": "2025-02-28T04:44:53.621Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T04:44:49.623Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Workflow runs · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T04:44:53.621Z",
+      "endTime": "2025-02-28T04:44:55.613Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T04:44:53.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GitHub Actions workflow for macOS builds · sachinrathodrp/Time-Tracker@26f80dd - Google Chrome",
+      "startTime": "2025-02-28T04:44:55.613Z",
+      "endTime": "2025-02-28T04:45:06.614Z",
+      "duration": "0m 11s",
+      "timestamp": "2025-02-28T04:44:55.613Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:45:06.614Z",
+      "endTime": "2025-02-28T04:45:13.627Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T04:45:06.614Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GitHub Actions workflow for macOS builds · sachinrathodrp/Time-Tracker@26f80dd - Google Chrome",
+      "startTime": "2025-02-28T04:45:13.627Z",
+      "endTime": "2025-02-28T04:45:39.618Z",
+      "duration": "0m 25s",
+      "timestamp": "2025-02-28T04:45:13.627Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:45:39.618Z",
+      "endTime": "2025-02-28T04:45:56.618Z",
+      "duration": "0m 17s",
+      "timestamp": "2025-02-28T04:45:39.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T04:45:56.618Z",
+      "endTime": "2025-02-28T04:45:59.624Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T04:45:56.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build.yml",
+      "startTime": "2025-02-28T04:45:59.624Z",
+      "endTime": "2025-02-28T04:46:10.619Z",
+      "duration": "0m 10s",
+      "timestamp": "2025-02-28T04:45:59.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T04:46:10.619Z",
+      "endTime": "2025-02-28T04:46:16.618Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T04:46:10.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:46:16.618Z",
+      "endTime": "2025-02-28T04:46:17.626Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T04:46:16.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T04:46:17.626Z",
+      "endTime": "2025-02-28T04:46:29.622Z",
+      "duration": "0m 11s",
+      "timestamp": "2025-02-28T04:46:17.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:46:29.622Z",
+      "endTime": "2025-02-28T04:46:31.620Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T04:46:29.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T04:46:31.620Z",
+      "endTime": "2025-02-28T04:46:42.620Z",
+      "duration": "0m 11s",
+      "timestamp": "2025-02-28T04:46:31.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GitHub Actions workflow for macOS builds · sachinrathodrp/Time-Tracker@26f80dd - Google Chrome",
+      "startTime": "2025-02-28T04:46:42.620Z",
+      "endTime": "2025-02-28T04:46:45.628Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T04:46:42.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Workflow runs · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T04:46:45.628Z",
+      "endTime": "2025-02-28T04:47:03.624Z",
+      "duration": "0m 17s",
+      "timestamp": "2025-02-28T04:46:45.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker at refs/heads/main - Google Chrome",
+      "startTime": "2025-02-28T04:47:03.624Z",
+      "endTime": "2025-02-28T04:47:06.613Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T04:47:03.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Workflow runs · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T04:47:06.613Z",
+      "endTime": "2025-02-28T04:47:09.618Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T04:47:06.613Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GitHub Actions workflow for macOS builds · sachinrathodrp/Time-Tracker@894e448 - Google Chrome",
+      "startTime": "2025-02-28T04:47:09.618Z",
+      "endTime": "2025-02-28T04:47:16.621Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T04:47:09.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:47:16.621Z",
+      "endTime": "2025-02-28T04:49:02.624Z",
+      "duration": "1m 46s",
+      "timestamp": "2025-02-28T04:47:16.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T04:49:02.624Z",
+      "endTime": "2025-02-28T04:49:11.613Z",
+      "duration": "0m 8s",
+      "timestamp": "2025-02-28T04:49:02.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:49:11.613Z",
+      "endTime": "2025-02-28T04:49:14.642Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T04:49:11.613Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Windsurf",
+      "startTime": "2025-02-28T04:49:15.621Z",
+      "endTime": "2025-02-28T04:49:16.626Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T04:49:15.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T04:49:16.626Z",
+      "endTime": "2025-02-28T04:49:44.619Z",
+      "duration": "0m 27s",
+      "timestamp": "2025-02-28T04:49:16.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Mail - Sachin Rathod - Outlook - Google Chrome",
+      "startTime": "2025-02-28T04:49:44.619Z",
+      "endTime": "2025-02-28T04:49:56.615Z",
+      "duration": "0m 11s",
+      "timestamp": "2025-02-28T04:49:44.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GitHub Actions workflow for macOS builds · sachinrathodrp/Time-Tracker@894e448 - Google Chrome",
+      "startTime": "2025-02-28T04:49:56.615Z",
+      "endTime": "2025-02-28T04:49:59.622Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T04:49:56.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Workflow runs · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T04:49:59.622Z",
+      "endTime": "2025-02-28T04:50:37.621Z",
+      "duration": "0m 37s",
+      "timestamp": "2025-02-28T04:49:59.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Update upload-artifact to v4 · sachinrathodrp/Time-Tracker@2a289d2 - Google Chrome",
+      "startTime": "2025-02-28T04:50:37.621Z",
+      "endTime": "2025-02-28T04:50:58.626Z",
+      "duration": "0m 21s",
+      "timestamp": "2025-02-28T04:50:37.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:50:59.623Z",
+      "endTime": "2025-02-28T04:51:10.612Z",
+      "duration": "0m 10s",
+      "timestamp": "2025-02-28T04:50:59.623Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Update upload-artifact to v4 · sachinrathodrp/Time-Tracker@2a289d2 - Google Chrome",
+      "startTime": "2025-02-28T04:51:10.612Z",
+      "endTime": "2025-02-28T04:51:43.629Z",
+      "duration": "0m 33s",
+      "timestamp": "2025-02-28T04:51:10.612Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T04:51:43.629Z",
+      "endTime": "2025-02-28T04:52:22.705Z",
+      "duration": "0m 39s",
+      "timestamp": "2025-02-28T04:51:43.629Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Update upload-artifact to v4 · sachinrathodrp/Time-Tracker@2a289d2 - Google Chrome",
+      "startTime": "2025-02-28T04:52:22.705Z",
+      "endTime": "2025-02-28T04:52:28.678Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T04:52:22.705Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Your profile - Google Chrome",
+      "startTime": "2025-02-28T04:52:28.678Z",
+      "endTime": "2025-02-28T04:52:38.678Z",
+      "duration": "0m 10s",
+      "timestamp": "2025-02-28T04:52:28.678Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "GitHub Apps - Google Chrome",
+      "startTime": "2025-02-28T04:52:38.678Z",
+      "endTime": "2025-02-28T04:53:21.677Z",
+      "duration": "0m 42s",
+      "timestamp": "2025-02-28T04:52:38.678Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Confirm access - Google Chrome",
+      "startTime": "2025-02-28T04:53:21.677Z",
+      "endTime": "2025-02-28T04:54:21.687Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-02-28T04:53:21.677Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Change your password - Google Chrome",
+      "startTime": "2025-02-28T04:54:21.687Z",
+      "endTime": "2025-02-28T04:55:21.686Z",
+      "duration": "0m 59s",
+      "timestamp": "2025-02-28T04:54:21.687Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Sign in to GitHub · GitHub - Google Chrome",
+      "startTime": "2025-02-28T04:55:21.686Z",
+      "endTime": "2025-02-28T04:55:45.306Z",
+      "duration": "0m 23s",
+      "timestamp": "2025-02-28T04:55:21.686Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Register new GitHub App - Google Chrome",
+      "startTime": "2025-02-28T04:55:45.306Z",
+      "endTime": "2025-02-28T04:55:46.617Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T04:55:45.306Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "GitHub Apps - Google Chrome",
+      "startTime": "2025-02-28T04:55:46.617Z",
+      "endTime": "2025-02-28T04:55:49.627Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T04:55:46.617Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Personal Access Tokens (Classic) - Google Chrome",
+      "startTime": "2025-02-28T04:55:50.618Z",
+      "endTime": "2025-02-28T04:55:53.624Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T04:55:50.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "New Fine-grained Personal Access Token - Google Chrome",
+      "startTime": "2025-02-28T04:55:53.624Z",
+      "endTime": "2025-02-28T04:56:14.674Z",
+      "duration": "0m 21s",
+      "timestamp": "2025-02-28T04:55:53.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Fine-grained Personal Access Tokens - Google Chrome",
+      "startTime": "2025-02-28T04:56:14.674Z",
+      "endTime": "2025-02-28T04:56:21.690Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T04:56:14.674Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T04:56:21.690Z",
+      "endTime": "2025-02-28T04:56:49.685Z",
+      "duration": "0m 27s",
+      "timestamp": "2025-02-28T04:56:21.690Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T04:56:49.685Z",
+      "endTime": "2025-02-28T04:56:54.686Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T04:56:49.685Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - .gitignore●",
+      "startTime": "2025-02-28T04:56:55.686Z",
+      "endTime": "2025-02-28T04:57:20.551Z",
+      "duration": "0m 24s",
+      "timestamp": "2025-02-28T04:56:55.686Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T04:57:20.551Z",
+      "endTime": "2025-02-28T04:57:22.621Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T04:57:20.551Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "password.xlsx - Google Chrome",
+      "startTime": "2025-02-28T04:57:22.621Z",
+      "endTime": "2025-02-28T04:57:23.624Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T04:57:22.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:57:24.619Z",
+      "endTime": "2025-02-28T04:57:39.627Z",
+      "duration": "0m 15s",
+      "timestamp": "2025-02-28T04:57:24.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T04:57:39.627Z",
+      "endTime": "2025-02-28T04:57:43.619Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T04:57:39.627Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T04:57:43.619Z",
+      "endTime": "2025-02-28T04:57:55.616Z",
+      "duration": "0m 11s",
+      "timestamp": "2025-02-28T04:57:43.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:57:55.616Z",
+      "endTime": "2025-02-28T04:58:15.626Z",
+      "duration": "0m 20s",
+      "timestamp": "2025-02-28T04:57:55.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T04:58:15.626Z",
+      "endTime": "2025-02-28T04:58:17.620Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T04:58:15.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T04:58:17.620Z",
+      "endTime": "2025-02-28T04:59:31.618Z",
+      "duration": "1m 13s",
+      "timestamp": "2025-02-28T04:58:17.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T04:59:31.618Z",
+      "endTime": "2025-02-28T04:59:33.617Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T04:59:31.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T04:59:33.617Z",
+      "endTime": "2025-02-28T04:59:35.618Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T04:59:33.617Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T04:59:36.612Z",
+      "endTime": "2025-02-28T05:01:46.620Z",
+      "duration": "2m 10s",
+      "timestamp": "2025-02-28T04:59:36.612Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:01:46.620Z",
+      "endTime": "2025-02-28T05:01:52.618Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T05:01:46.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Fine-grained Personal Access Tokens - Google Chrome",
+      "startTime": "2025-02-28T05:01:52.618Z",
+      "endTime": "2025-02-28T05:01:58.624Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-02-28T05:01:52.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Personal Access Tokens (Classic) - Google Chrome",
+      "startTime": "2025-02-28T05:01:58.624Z",
+      "endTime": "2025-02-28T05:02:00.613Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:01:58.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Untitled - Google Chrome",
+      "startTime": "2025-02-28T05:02:00.613Z",
+      "endTime": "2025-02-28T05:02:01.622Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:02:00.613Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Personal Access Tokens (Classic) - Google Chrome",
+      "startTime": "2025-02-28T05:02:02.618Z",
+      "endTime": "2025-02-28T05:02:05.627Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:02:02.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Fine-grained Personal Access Tokens - Google Chrome",
+      "startTime": "2025-02-28T05:02:05.627Z",
+      "endTime": "2025-02-28T05:02:15.621Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-02-28T05:02:05.627Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Personal Access Tokens (Classic) - Google Chrome",
+      "startTime": "2025-02-28T05:02:15.621Z",
+      "endTime": "2025-02-28T05:02:20.615Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:02:15.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "New Fine-grained Personal Access Token - Google Chrome",
+      "startTime": "2025-02-28T05:02:20.615Z",
+      "endTime": "2025-02-28T05:02:27.629Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T05:02:20.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:02:27.629Z",
+      "endTime": "2025-02-28T05:02:30.636Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:02:27.629Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "New Fine-grained Personal Access Token - Google Chrome",
+      "startTime": "2025-02-28T05:02:30.636Z",
+      "endTime": "2025-02-28T05:02:38.617Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T05:02:30.636Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:02:38.617Z",
+      "endTime": "2025-02-28T05:02:46.624Z",
+      "duration": "0m 8s",
+      "timestamp": "2025-02-28T05:02:38.617Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Fine-grained Personal Access Tokens - Google Chrome",
+      "startTime": "2025-02-28T05:02:47.623Z",
+      "endTime": "2025-02-28T05:02:56.623Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-02-28T05:02:47.623Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T05:02:56.623Z",
+      "endTime": "2025-02-28T05:02:58.618Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:02:56.623Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T05:02:58.618Z",
+      "endTime": "2025-02-28T05:03:00.622Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:02:58.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T05:03:01.615Z",
+      "endTime": "2025-02-28T05:03:05.618Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:03:01.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Windsurf",
+      "startTime": "2025-02-28T05:03:06.618Z",
+      "endTime": "2025-02-28T05:03:07.623Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:03:06.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T05:03:07.623Z",
+      "endTime": "2025-02-28T05:03:10.622Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:03:07.623Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "GitHub - Google Chrome",
+      "startTime": "2025-02-28T05:03:10.622Z",
+      "endTime": "2025-02-28T05:03:14.685Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:03:10.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:03:14.685Z",
+      "endTime": "2025-02-28T05:03:17.683Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:03:14.685Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Workflow runs · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:03:17.683Z",
+      "endTime": "2025-02-28T05:04:09.681Z",
+      "duration": "0m 51s",
+      "timestamp": "2025-02-28T05:03:17.683Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:04:09.681Z",
+      "endTime": "2025-02-28T05:05:21.506Z",
+      "duration": "1m 11s",
+      "timestamp": "2025-02-28T05:04:09.681Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:05:21.506Z",
+      "endTime": "2025-02-28T05:05:24.621Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:05:21.506Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:05:27.615Z",
+      "endTime": "2025-02-28T05:05:32.626Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T05:05:27.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T05:05:32.626Z",
+      "endTime": "2025-02-28T05:05:35.620Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:05:32.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:05:35.620Z",
+      "endTime": "2025-02-28T05:05:36.621Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:05:35.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:05:36.621Z",
+      "endTime": "2025-02-28T05:05:40.623Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:05:36.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "General - Google Chrome",
+      "startTime": "2025-02-28T05:05:40.623Z",
+      "endTime": "2025-02-28T05:06:16.616Z",
+      "duration": "0m 35s",
+      "timestamp": "2025-02-28T05:05:40.623Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Actions secrets · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:06:16.616Z",
+      "endTime": "2025-02-28T05:06:22.633Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-02-28T05:06:16.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add Actions secret · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:06:22.633Z",
+      "endTime": "2025-02-28T05:06:27.624Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:06:22.633Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - build-mac.yml",
+      "startTime": "2025-02-28T05:06:27.624Z",
+      "endTime": "2025-02-28T05:06:30.622Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:06:27.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add Actions secret · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:06:30.622Z",
+      "endTime": "2025-02-28T05:06:37.620Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-02-28T05:06:30.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T05:06:37.620Z",
+      "endTime": "2025-02-28T05:06:39.625Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:06:37.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add Actions secret · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:06:39.625Z",
+      "endTime": "2025-02-28T05:06:42.620Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:06:39.625Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Actions secrets · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:06:42.620Z",
+      "endTime": "2025-02-28T05:06:50.619Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T05:06:42.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Workflow runs · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:06:50.619Z",
+      "endTime": "2025-02-28T05:06:58.626Z",
+      "duration": "0m 8s",
+      "timestamp": "2025-02-28T05:06:50.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:06:58.626Z",
+      "endTime": "2025-02-28T05:08:11.622Z",
+      "duration": "1m 12s",
+      "timestamp": "2025-02-28T05:06:58.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T05:08:11.622Z",
+      "endTime": "2025-02-28T05:08:34.616Z",
+      "duration": "0m 22s",
+      "timestamp": "2025-02-28T05:08:11.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:08:34.616Z",
+      "endTime": "2025-02-28T05:08:59.625Z",
+      "duration": "0m 25s",
+      "timestamp": "2025-02-28T05:08:34.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - .env",
+      "startTime": "2025-02-28T05:08:59.625Z",
+      "endTime": "2025-02-28T05:09:05.622Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T05:08:59.625Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - token.txt",
+      "startTime": "2025-02-28T05:09:05.622Z",
+      "endTime": "2025-02-28T05:09:08.623Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:09:05.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - .env",
+      "startTime": "2025-02-28T05:09:09.614Z",
+      "endTime": "2025-02-28T05:09:13.624Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:09:09.614Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - .env",
+      "startTime": "2025-02-28T05:09:14.619Z",
+      "endTime": "2025-02-28T05:09:23.625Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-02-28T05:09:14.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:09:23.625Z",
+      "endTime": "2025-02-28T05:09:27.631Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:09:23.625Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json●",
+      "startTime": "2025-02-28T05:09:27.631Z",
+      "endTime": "2025-02-28T05:09:37.617Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-02-28T05:09:27.631Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:09:37.617Z",
+      "endTime": "2025-02-28T05:10:30.628Z",
+      "duration": "0m 53s",
+      "timestamp": "2025-02-28T05:09:37.617Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:10:30.628Z",
+      "endTime": "2025-02-28T05:10:34.615Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:10:30.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Workflow runs · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:10:34.615Z",
+      "endTime": "2025-02-28T05:10:39.623Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T05:10:34.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:10:39.623Z",
+      "endTime": "2025-02-28T05:10:53.620Z",
+      "duration": "0m 13s",
+      "timestamp": "2025-02-28T05:10:39.623Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Pull requests · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:10:53.620Z",
+      "endTime": "2025-02-28T05:10:55.621Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:10:53.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:10:56.617Z",
+      "endTime": "2025-02-28T05:11:00.616Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:10:56.617Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Time-Tracker/build at main · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:11:00.616Z",
+      "endTime": "2025-02-28T05:11:03.616Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:11:00.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:11:03.616Z",
+      "endTime": "2025-02-28T05:11:17.622Z",
+      "duration": "0m 14s",
+      "timestamp": "2025-02-28T05:11:03.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json●",
+      "startTime": "2025-02-28T05:11:18.614Z",
+      "endTime": "2025-02-28T05:11:22.636Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:11:18.614Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:11:22.636Z",
+      "endTime": "2025-02-28T05:11:36.624Z",
+      "duration": "0m 13s",
+      "timestamp": "2025-02-28T05:11:22.636Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:11:36.624Z",
+      "endTime": "2025-02-28T05:11:38.619Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:11:36.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "OneDrive - Google Chrome",
+      "startTime": "2025-02-28T05:11:38.619Z",
+      "endTime": "2025-02-28T05:11:39.628Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:11:38.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:11:39.628Z",
+      "endTime": "2025-02-28T05:12:57.615Z",
+      "duration": "1m 17s",
+      "timestamp": "2025-02-28T05:11:39.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:12:57.615Z",
+      "endTime": "2025-02-28T05:13:04.625Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T05:12:57.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "OneDrive - Google Chrome",
+      "startTime": "2025-02-28T05:13:04.625Z",
+      "endTime": "2025-02-28T05:13:05.626Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:13:04.625Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:13:06.615Z",
+      "endTime": "2025-02-28T05:13:25.627Z",
+      "duration": "0m 19s",
+      "timestamp": "2025-02-28T05:13:06.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:13:25.627Z",
+      "endTime": "2025-02-28T05:13:28.626Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:13:25.627Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Pull requests · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:13:28.626Z",
+      "endTime": "2025-02-28T05:13:30.619Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:13:28.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Workflow runs · sachinrathodrp/Time-Tracker - Google Chrome",
+      "startTime": "2025-02-28T05:13:30.619Z",
+      "endTime": "2025-02-28T05:13:32.627Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:13:30.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:13:32.627Z",
+      "endTime": "2025-02-28T05:14:04.622Z",
+      "duration": "0m 31s",
+      "timestamp": "2025-02-28T05:13:32.627Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:14:04.622Z",
+      "endTime": "2025-02-28T05:14:17.631Z",
+      "duration": "0m 13s",
+      "timestamp": "2025-02-28T05:14:04.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Mail - Sachin Rathod - Outlook - Google Chrome",
+      "startTime": "2025-02-28T05:14:17.631Z",
+      "endTime": "2025-02-28T05:14:28.616Z",
+      "duration": "0m 10s",
+      "timestamp": "2025-02-28T05:14:17.631Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:14:28.616Z",
+      "endTime": "2025-02-28T05:14:37.616Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-02-28T05:14:28.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:14:37.616Z",
+      "endTime": "2025-02-28T05:15:37.614Z",
+      "duration": "0m 59s",
+      "timestamp": "2025-02-28T05:14:37.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "password.xlsx - Google Chrome",
+      "startTime": "2025-02-28T05:16:01.613Z",
+      "endTime": "2025-02-28T05:16:02.614Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:16:01.613Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "OneDrive - Google Chrome",
+      "startTime": "2025-02-28T05:16:02.614Z",
+      "endTime": "2025-02-28T05:16:03.624Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:16:02.614Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:16:03.624Z",
+      "endTime": "2025-02-28T05:16:06.619Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:16:03.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "9% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:06.619Z",
+      "endTime": "2025-02-28T05:16:10.626Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:16:06.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "10% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:10.626Z",
+      "endTime": "2025-02-28T05:16:12.622Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:16:10.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "11% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:12.622Z",
+      "endTime": "2025-02-28T05:16:14.629Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:16:12.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "12% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:14.629Z",
+      "endTime": "2025-02-28T05:16:17.625Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:16:14.629Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "13% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:17.625Z",
+      "endTime": "2025-02-28T05:16:20.631Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:16:17.625Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "14% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:20.631Z",
+      "endTime": "2025-02-28T05:16:22.639Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:16:20.631Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "15% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:22.639Z",
+      "endTime": "2025-02-28T05:16:24.622Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:16:22.639Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "16% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:24.622Z",
+      "endTime": "2025-02-28T05:16:27.630Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:16:24.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "17% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:27.630Z",
+      "endTime": "2025-02-28T05:16:31.628Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:16:27.630Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "18% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:31.628Z",
+      "endTime": "2025-02-28T05:16:41.621Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-02-28T05:16:31.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "19% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:41.621Z",
+      "endTime": "2025-02-28T05:16:47.618Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T05:16:41.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "20% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:47.618Z",
+      "endTime": "2025-02-28T05:16:53.627Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-02-28T05:16:47.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "21% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:53.627Z",
+      "endTime": "2025-02-28T05:16:58.626Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:16:53.627Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "22% macOS-Build.zip",
+      "startTime": "2025-02-28T05:16:58.626Z",
+      "endTime": "2025-02-28T05:17:02.622Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:16:58.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "23% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:02.622Z",
+      "endTime": "2025-02-28T05:17:05.621Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:17:02.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "24% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:05.621Z",
+      "endTime": "2025-02-28T05:17:08.627Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:17:05.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "25% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:08.627Z",
+      "endTime": "2025-02-28T05:17:12.614Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:17:08.627Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "26% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:12.614Z",
+      "endTime": "2025-02-28T05:17:14.621Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:17:12.614Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "27% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:14.621Z",
+      "endTime": "2025-02-28T05:17:16.630Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:17:14.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "28% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:16.630Z",
+      "endTime": "2025-02-28T05:17:23.615Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-02-28T05:17:16.630Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "29% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:23.615Z",
+      "endTime": "2025-02-28T05:17:26.619Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:17:23.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "30% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:26.619Z",
+      "endTime": "2025-02-28T05:17:28.621Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:17:26.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "31% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:28.621Z",
+      "endTime": "2025-02-28T05:17:31.628Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:17:28.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "32% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:31.628Z",
+      "endTime": "2025-02-28T05:17:34.618Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:17:31.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "33% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:34.618Z",
+      "endTime": "2025-02-28T05:17:38.615Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:17:34.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "34% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:38.615Z",
+      "endTime": "2025-02-28T05:17:40.624Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:17:38.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "35% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:40.624Z",
+      "endTime": "2025-02-28T05:17:43.621Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:17:40.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "36% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:43.621Z",
+      "endTime": "2025-02-28T05:17:45.616Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:17:43.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "37% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:45.616Z",
+      "endTime": "2025-02-28T05:17:48.620Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:17:45.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "38% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:48.620Z",
+      "endTime": "2025-02-28T05:17:51.628Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:17:48.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "39% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:51.628Z",
+      "endTime": "2025-02-28T05:17:53.624Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:17:51.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "40% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:53.624Z",
+      "endTime": "2025-02-28T05:17:56.627Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:17:53.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "41% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:56.627Z",
+      "endTime": "2025-02-28T05:17:58.628Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:17:56.627Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "42% macOS-Build.zip",
+      "startTime": "2025-02-28T05:17:58.628Z",
+      "endTime": "2025-02-28T05:18:00.614Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:17:58.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "43% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:00.614Z",
+      "endTime": "2025-02-28T05:18:03.626Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:18:00.614Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "44% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:03.626Z",
+      "endTime": "2025-02-28T05:18:05.624Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:18:03.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "45% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:05.624Z",
+      "endTime": "2025-02-28T05:18:07.614Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:18:05.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "46% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:07.614Z",
+      "endTime": "2025-02-28T05:18:09.614Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:18:07.614Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "47% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:09.614Z",
+      "endTime": "2025-02-28T05:18:11.620Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:18:09.614Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "48% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:11.620Z",
+      "endTime": "2025-02-28T05:18:14.628Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:18:11.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "49% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:14.628Z",
+      "endTime": "2025-02-28T05:18:16.620Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:18:14.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "50% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:16.620Z",
+      "endTime": "2025-02-28T05:18:20.620Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:18:16.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "51% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:20.620Z",
+      "endTime": "2025-02-28T05:18:24.628Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:18:20.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "52% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:24.628Z",
+      "endTime": "2025-02-28T05:18:27.628Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:18:24.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "53% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:27.628Z",
+      "endTime": "2025-02-28T05:18:29.633Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:18:27.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "54% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:29.633Z",
+      "endTime": "2025-02-28T05:18:31.626Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:18:29.633Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "55% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:31.626Z",
+      "endTime": "2025-02-28T05:18:35.616Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:18:31.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "56% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:35.616Z",
+      "endTime": "2025-02-28T05:18:38.616Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:18:35.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "57% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:38.616Z",
+      "endTime": "2025-02-28T05:18:40.628Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:18:38.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "58% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:40.628Z",
+      "endTime": "2025-02-28T05:18:44.620Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:18:40.628Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "59% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:44.620Z",
+      "endTime": "2025-02-28T05:18:48.621Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:18:44.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "60% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:48.621Z",
+      "endTime": "2025-02-28T05:18:52.622Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:18:48.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "61% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:52.622Z",
+      "endTime": "2025-02-28T05:18:55.625Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:18:52.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "62% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:55.625Z",
+      "endTime": "2025-02-28T05:18:57.624Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:18:55.625Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "63% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:57.624Z",
+      "endTime": "2025-02-28T05:18:59.615Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:18:57.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "64% macOS-Build.zip",
+      "startTime": "2025-02-28T05:18:59.615Z",
+      "endTime": "2025-02-28T05:19:02.618Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:18:59.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "65% macOS-Build.zip",
+      "startTime": "2025-02-28T05:19:02.618Z",
+      "endTime": "2025-02-28T05:19:05.625Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:19:02.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Internet Download Manager (IDM)",
+      "title": "66% macOS-Build.zip",
+      "startTime": "2025-02-28T05:19:05.625Z",
+      "endTime": "2025-02-28T05:19:07.619Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:19:05.625Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:23:46.617Z",
+      "endTime": "2025-02-28T05:23:47.626Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:23:46.617Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Mail - Sachin Rathod - Outlook - Google Chrome",
+      "startTime": "2025-02-28T05:23:47.626Z",
+      "endTime": "2025-02-28T05:23:49.615Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:23:47.626Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:23:49.615Z",
+      "endTime": "2025-02-28T05:23:50.630Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:23:49.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "OneDrive - Google Chrome",
+      "startTime": "2025-02-28T05:24:03.617Z",
+      "endTime": "2025-02-28T05:24:50.615Z",
+      "duration": "0m 46s",
+      "timestamp": "2025-02-28T05:24:03.617Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Mail - Sachin Rathod - Outlook - Google Chrome",
+      "startTime": "2025-02-28T05:24:50.615Z",
+      "endTime": "2025-02-28T05:27:50.618Z",
+      "duration": "3m 0s",
+      "timestamp": "2025-02-28T05:24:50.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "OneDrive - Google Chrome",
+      "startTime": "2025-02-28T05:27:50.618Z",
+      "endTime": "2025-02-28T05:28:28.615Z",
+      "duration": "0m 37s",
+      "timestamp": "2025-02-28T05:27:50.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:28:28.615Z",
+      "endTime": "2025-02-28T05:29:57.618Z",
+      "duration": "1m 29s",
+      "timestamp": "2025-02-28T05:28:28.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T05:29:57.618Z",
+      "endTime": "2025-02-28T05:29:58.619Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:29:57.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:29:58.619Z",
+      "endTime": "2025-02-28T05:29:59.627Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:29:58.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Mail - Sachin Rathod - Outlook - Google Chrome",
+      "startTime": "2025-02-28T05:29:59.627Z",
+      "endTime": "2025-02-28T05:30:02.616Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:29:59.627Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "OneDrive - Google Chrome",
+      "startTime": "2025-02-28T05:30:02.616Z",
+      "endTime": "2025-02-28T05:30:05.622Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:30:02.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:30:05.622Z",
+      "endTime": "2025-02-28T05:36:08.629Z",
+      "duration": "6m 3s",
+      "timestamp": "2025-02-28T05:30:05.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:36:08.629Z",
+      "endTime": "2025-02-28T05:36:37.616Z",
+      "duration": "0m 28s",
+      "timestamp": "2025-02-28T05:36:08.629Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:36:37.616Z",
+      "endTime": "2025-02-28T05:37:47.617Z",
+      "duration": "1m 10s",
+      "timestamp": "2025-02-28T05:36:37.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:37:47.617Z",
+      "endTime": "2025-02-28T05:37:52.620Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T05:37:47.617Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - entitlements.mac.plist",
+      "startTime": "2025-02-28T05:37:52.620Z",
+      "endTime": "2025-02-28T05:37:54.626Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:37:52.620Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - entitlements.mac.plist●",
+      "startTime": "2025-02-28T05:37:55.621Z",
+      "endTime": "2025-02-28T05:37:56.627Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:37:55.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:37:57.621Z",
+      "endTime": "2025-02-28T05:38:01.619Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:37:57.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:38:01.619Z",
+      "endTime": "2025-02-28T05:38:13.621Z",
+      "duration": "0m 12s",
+      "timestamp": "2025-02-28T05:38:01.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:38:13.621Z",
+      "endTime": "2025-02-28T05:38:27.622Z",
+      "duration": "0m 14s",
+      "timestamp": "2025-02-28T05:38:13.621Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:38:27.622Z",
+      "endTime": "2025-02-28T05:38:29.622Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:38:27.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:38:29.622Z",
+      "endTime": "2025-02-28T05:38:37.614Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T05:38:29.622Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json●",
+      "startTime": "2025-02-28T05:38:37.614Z",
+      "endTime": "2025-02-28T05:38:38.623Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-02-28T05:38:37.614Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:38:38.623Z",
+      "endTime": "2025-02-28T05:38:43.683Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T05:38:38.623Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json●",
+      "startTime": "2025-02-28T05:38:43.683Z",
+      "endTime": "2025-02-28T05:38:47.676Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:38:43.683Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:38:47.676Z",
+      "endTime": "2025-02-28T05:38:54.682Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-02-28T05:38:47.676Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-02-28T05:38:54.682Z",
+      "endTime": "2025-02-28T05:38:57.680Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T05:38:54.682Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - package.json",
+      "startTime": "2025-02-28T05:38:57.680Z",
+      "endTime": "2025-02-28T05:39:07.686Z",
+      "duration": "0m 10s",
+      "timestamp": "2025-02-28T05:38:57.680Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - entitlements.mac.plist",
+      "startTime": "2025-02-28T05:46:16.612Z",
+      "endTime": "2025-02-28T05:46:30.618Z",
+      "duration": "0m 14s",
+      "timestamp": "2025-02-28T05:46:16.612Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-02-28T05:46:30.618Z",
+      "endTime": "2025-02-28T05:47:38.625Z",
+      "duration": "1m 8s",
+      "timestamp": "2025-02-28T05:46:30.618Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-02-28T05:47:38.625Z",
+      "endTime": "2025-02-28T05:47:42.624Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-02-28T05:47:38.625Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-02-28T05:47:42.624Z",
+      "endTime": "2025-02-28T05:48:52.621Z",
+      "duration": "1m 9s",
+      "timestamp": "2025-02-28T05:47:42.624Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Windsurf Editor by Codeium - Google Chrome",
+      "startTime": "2025-02-28T05:49:00.619Z",
+      "endTime": "2025-02-28T05:49:05.625Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-02-28T05:49:00.619Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Thank you for downloading Windsurf Editor - Google Chrome",
+      "startTime": "2025-02-28T05:49:05.625Z",
+      "endTime": "2025-02-28T05:49:12.614Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-02-28T05:49:05.625Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "GitHub Docs - Google Chrome",
+      "startTime": "2025-02-28T05:49:12.614Z",
+      "endTime": "2025-02-28T05:49:16.616Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-02-28T05:49:12.614Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-02-28T05:49:16.616Z",
+      "endTime": "2025-02-28T05:50:59.615Z",
+      "duration": "1m 42s",
+      "timestamp": "2025-02-28T05:49:16.616Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - home.js",
+      "startTime": "2025-02-28T05:50:59.615Z",
+      "endTime": "2025-02-28T05:52:42.622Z",
+      "duration": "1m 43s",
+      "timestamp": "2025-02-28T05:50:59.615Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "mylapkart-mern - Windsurf",
+      "startTime": "2025-02-28T05:53:38.683Z",
+      "endTime": "2025-02-28T05:56:21.686Z",
+      "duration": "2m 43s",
+      "timestamp": "2025-02-28T05:53:38.683Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "mylapkart-mern - Windsurf - server.js",
+      "startTime": "2025-02-28T05:56:21.686Z",
+      "endTime": "2025-02-28T05:57:21.684Z",
+      "duration": "0m 59s",
+      "timestamp": "2025-02-28T05:56:21.686Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "mylapkart-mern - Windsurf - .env",
+      "startTime": "2025-02-28T05:57:21.684Z",
+      "endTime": "2025-02-28T05:59:21.675Z",
+      "duration": "1m 59s",
+      "timestamp": "2025-02-28T05:57:21.684Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "mylapkart-mern - Windsurf - server.js",
+      "startTime": "2025-02-28T05:59:21.675Z",
+      "endTime": "2025-02-28T06:07:21.683Z",
+      "duration": "8m 0s",
+      "timestamp": "2025-02-28T05:59:21.675Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - home.js",
+      "startTime": "2025-02-28T06:09:21.681Z",
+      "endTime": "2025-02-28T06:14:21.711Z",
+      "duration": "5m 0s",
+      "timestamp": "2025-02-28T06:09:21.681Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - home.js",
+      "startTime": "2025-02-28T06:21:21.684Z",
+      "endTime": "2025-02-28T06:23:21.696Z",
+      "duration": "2m 0s",
+      "timestamp": "2025-02-28T06:21:21.684Z"
     }
   ]
 }

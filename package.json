@@ -62,10 +62,13 @@
       "include": "installer.nsh"
     },
     "mac": {
-      "target": "dmg",
-      "icon": "assets/icons/icon512.icns",
-      "category": "public.app-category.productivity"
-    },
+    "category": "public.app-category.productivity",
+    "icon": "assets/icons/icon512.icns",
+    "hardenedRuntime": true,  
+    "gatekeeperAssess": false,
+    "entitlements": "entitlements.mac.plist",
+    "entitlementsInherit": "entitlements.mac.plist"
+  },
     "linux": {
       "target": "AppImage",
       "icon": "assets/icons/icon512.png",
