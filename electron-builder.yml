@@ -11,3 +11,38 @@ mac:
   gatekeeperAssess: false
   entitlements: entitlements.mac.plist
   entitlementsInherit: entitlements.mac.plist
+
+win:
+  target:
+    - nsis
+    - portable
+  icon: build/icon.ico
+  publisherName: Comput Labs
+  certificateFile: build/certificate.pfx
+  certificatePassword: ${env:CERTIFICATE_PASSWORD}
+  verifyUpdateCodeSignature: false
+  requestExecutionLevel: user
+  artifactName: "${productName}-${version}-${arch}.${ext}"
+  
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutName: "${productName}"
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerHeader: build/installer-header.bmp
+  installerHeaderIcon: build/icon.ico
+  license: LICENSE
+
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Utility
+  icon: build/icon.png
+
+publish:
+  provider: github
+  releaseType: release

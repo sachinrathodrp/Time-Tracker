@@ -8183,6 +8183,1476 @@
       "endTime": "2025-02-28T07:27:40.064Z",
       "duration": "0m 1s",
       "timestamp": "2025-02-28T07:27:39.059Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - electron-builder.yml",
+      "startTime": "2025-02-28T07:27:40.064Z",
+      "endTime": "2025-02-28T07:28:26.063Z",
+      "duration": "0m 45s",
+      "timestamp": "2025-02-28T07:27:40.064Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Windsurf",
+      "startTime": "2025-02-28T07:28:26.063Z",
+      "endTime": "2025-02-28T07:28:28.067Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T07:28:26.063Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - electron-builder.yml",
+      "startTime": "2025-02-28T07:28:28.067Z",
+      "endTime": "2025-02-28T07:28:39.069Z",
+      "duration": "0m 11s",
+      "timestamp": "2025-02-28T07:28:28.067Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Add GH_TOKEN to workflow · sachinrathodrp/Time-Tracker@62736a3 - Google Chrome",
+      "startTime": "2025-02-28T07:28:39.069Z",
+      "endTime": "2025-02-28T07:28:42.061Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-02-28T07:28:39.069Z"
+    }
+  ],
+  "2025-03-01": [],
+  "2025-03-03": [
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T03:41:15.597Z",
+      "endTime": "2025-03-03T03:41:30.933Z",
+      "duration": "0m 15s",
+      "timestamp": "2025-03-03T03:41:15.597Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T03:41:30.933Z",
+      "endTime": "2025-03-03T03:41:36.929Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-03-03T03:41:30.933Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T03:41:36.929Z",
+      "endTime": "2025-03-03T03:42:09.939Z",
+      "duration": "0m 33s",
+      "timestamp": "2025-03-03T03:41:36.929Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T03:42:55.352Z",
+      "endTime": "2025-03-03T03:45:03.904Z",
+      "duration": "2m 8s",
+      "timestamp": "2025-03-03T03:42:55.352Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T03:45:09.135Z",
+      "endTime": "2025-03-03T03:45:14.149Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-03-03T03:45:09.135Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T03:45:14.149Z",
+      "endTime": "2025-03-03T03:50:02.599Z",
+      "duration": "4m 48s",
+      "timestamp": "2025-03-03T03:45:14.149Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T03:50:11.142Z",
+      "endTime": "2025-03-03T03:50:21.932Z",
+      "duration": "0m 10s",
+      "timestamp": "2025-03-03T03:50:11.142Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - axios.js",
+      "startTime": "2025-03-03T03:50:21.932Z",
+      "endTime": "2025-03-03T03:50:24.929Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T03:50:21.932Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-03-03T03:50:24.929Z",
+      "endTime": "2025-03-03T03:50:51.929Z",
+      "duration": "0m 27s",
+      "timestamp": "2025-03-03T03:50:24.929Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js●",
+      "startTime": "2025-03-03T03:50:51.929Z",
+      "endTime": "2025-03-03T03:50:54.926Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T03:50:51.929Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-03-03T03:53:29.147Z",
+      "endTime": "2025-03-03T03:53:35.148Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-03-03T03:53:29.147Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T03:53:35.148Z",
+      "endTime": "2025-03-03T03:53:43.138Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-03-03T03:53:35.148Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-03-03T03:53:43.138Z",
+      "endTime": "2025-03-03T03:53:46.140Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T03:53:43.138Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T03:53:46.140Z",
+      "endTime": "2025-03-03T03:54:00.135Z",
+      "duration": "0m 13s",
+      "timestamp": "2025-03-03T03:53:46.140Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-03-03T03:54:10.141Z",
+      "endTime": "2025-03-03T03:54:13.145Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T03:54:10.141Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-03-03T03:54:14.139Z",
+      "endTime": "2025-03-03T03:54:17.134Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T03:54:14.139Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-03-03T03:54:51.140Z",
+      "endTime": "2025-03-03T03:55:34.932Z",
+      "duration": "0m 43s",
+      "timestamp": "2025-03-03T03:54:51.140Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-03-03T03:56:08.909Z",
+      "endTime": "2025-03-03T03:56:11.900Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T03:56:08.909Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T03:56:11.900Z",
+      "endTime": "2025-03-03T03:56:19.933Z",
+      "duration": "0m 8s",
+      "timestamp": "2025-03-03T03:56:11.900Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-03-03T03:56:19.933Z",
+      "endTime": "2025-03-03T04:01:28.176Z",
+      "duration": "5m 8s",
+      "timestamp": "2025-03-03T03:56:19.933Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:04:00.079Z",
+      "endTime": "2025-03-03T04:04:02.945Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T04:04:00.079Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T04:04:02.945Z",
+      "endTime": "2025-03-03T04:04:21.946Z",
+      "duration": "0m 19s",
+      "timestamp": "2025-03-03T04:04:02.945Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:04:21.946Z",
+      "endTime": "2025-03-03T04:04:36.935Z",
+      "duration": "0m 14s",
+      "timestamp": "2025-03-03T04:04:21.946Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T04:04:36.935Z",
+      "endTime": "2025-03-03T04:04:38.936Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T04:04:36.935Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:06:47.300Z",
+      "endTime": "2025-03-03T04:06:52.234Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-03-03T04:06:47.300Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T04:06:52.234Z",
+      "endTime": "2025-03-03T04:07:09.931Z",
+      "duration": "0m 17s",
+      "timestamp": "2025-03-03T04:06:52.234Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:07:23.984Z",
+      "endTime": "2025-03-03T04:07:25.985Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T04:07:23.984Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T04:07:25.985Z",
+      "endTime": "2025-03-03T04:07:45.940Z",
+      "duration": "0m 19s",
+      "timestamp": "2025-03-03T04:07:25.985Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:07:45.940Z",
+      "endTime": "2025-03-03T04:07:47.938Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T04:07:45.940Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T04:07:47.938Z",
+      "endTime": "2025-03-03T04:07:49.933Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T04:07:47.938Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:09:02.207Z",
+      "endTime": "2025-03-03T04:09:13.938Z",
+      "duration": "0m 11s",
+      "timestamp": "2025-03-03T04:09:02.207Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T04:10:17.937Z",
+      "endTime": "2025-03-03T04:10:30.940Z",
+      "duration": "0m 13s",
+      "timestamp": "2025-03-03T04:10:17.937Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:10:30.940Z",
+      "endTime": "2025-03-03T04:10:49.941Z",
+      "duration": "0m 19s",
+      "timestamp": "2025-03-03T04:10:30.940Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:12:29.095Z",
+      "endTime": "2025-03-03T04:12:48.926Z",
+      "duration": "0m 19s",
+      "timestamp": "2025-03-03T04:12:29.095Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:15:08.666Z",
+      "endTime": "2025-03-03T04:15:33.679Z",
+      "duration": "0m 25s",
+      "timestamp": "2025-03-03T04:15:08.666Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T04:15:33.679Z",
+      "endTime": "2025-03-03T04:15:35.677Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T04:15:33.679Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T04:15:36.666Z",
+      "endTime": "2025-03-03T04:15:37.674Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T04:15:36.666Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:15:37.674Z",
+      "endTime": "2025-03-03T04:16:16.670Z",
+      "duration": "0m 38s",
+      "timestamp": "2025-03-03T04:15:37.674Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T04:16:16.670Z",
+      "endTime": "2025-03-03T04:16:23.676Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-03-03T04:16:16.670Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T04:17:28.897Z",
+      "endTime": "2025-03-03T04:17:33.934Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-03-03T04:17:28.897Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - home.js",
+      "startTime": "2025-03-03T04:17:33.934Z",
+      "endTime": "2025-03-03T04:18:24.926Z",
+      "duration": "0m 50s",
+      "timestamp": "2025-03-03T04:17:33.934Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - home.js●",
+      "startTime": "2025-03-03T04:18:24.926Z",
+      "endTime": "2025-03-03T04:18:29.933Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-03-03T04:18:24.926Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T04:37:01.377Z",
+      "endTime": "2025-03-03T04:40:49.928Z",
+      "duration": "3m 48s",
+      "timestamp": "2025-03-03T04:37:01.377Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - home.js",
+      "startTime": "2025-03-03T04:40:49.928Z",
+      "endTime": "2025-03-03T04:41:49.938Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-03-03T04:40:49.928Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - home.js",
+      "startTime": "2025-03-03T04:43:49.823Z",
+      "endTime": "2025-03-03T04:43:51.817Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T04:43:49.823Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Visual Studio Code",
+      "title": "Visual Studio Code",
+      "startTime": "2025-03-03T04:44:35.939Z",
+      "endTime": "2025-03-03T04:44:37.932Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T04:44:35.939Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Visual Studio Code",
+      "title": "icon256.svg - Visual Studio Code",
+      "startTime": "2025-03-03T04:44:37.932Z",
+      "endTime": "2025-03-03T04:44:41.940Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-03-03T04:44:37.932Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "SVG Viewer - View, edit, and optimize SVGs - Google Chrome",
+      "startTime": "2025-03-03T04:44:41.940Z",
+      "endTime": "2025-03-03T04:44:51.938Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-03-03T04:44:41.940Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Visual Studio Code",
+      "title": "icon256.svg - Visual Studio Code",
+      "startTime": "2025-03-03T04:44:51.938Z",
+      "endTime": "2025-03-03T04:44:53.926Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T04:44:51.938Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "SVG Viewer - View, edit, and optimize SVGs - Google Chrome",
+      "startTime": "2025-03-03T04:44:53.926Z",
+      "endTime": "2025-03-03T04:45:49.937Z",
+      "duration": "0m 56s",
+      "timestamp": "2025-03-03T04:44:53.926Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:03:44.299Z",
+      "endTime": "2025-03-03T05:03:59.930Z",
+      "duration": "0m 15s",
+      "timestamp": "2025-03-03T05:03:44.299Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T05:03:59.930Z",
+      "endTime": "2025-03-03T05:04:05.928Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-03-03T05:03:59.930Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:04:05.928Z",
+      "endTime": "2025-03-03T05:04:07.935Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:04:05.928Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T05:04:07.935Z",
+      "endTime": "2025-03-03T05:04:59.162Z",
+      "duration": "0m 51s",
+      "timestamp": "2025-03-03T05:04:07.935Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T05:04:59.162Z",
+      "endTime": "2025-03-03T05:05:04.156Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-03-03T05:04:59.162Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T05:05:04.156Z",
+      "endTime": "2025-03-03T05:05:06.165Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:05:04.156Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:05:06.165Z",
+      "endTime": "2025-03-03T05:05:14.936Z",
+      "duration": "0m 8s",
+      "timestamp": "2025-03-03T05:05:06.165Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:05:26.916Z",
+      "endTime": "2025-03-03T05:05:29.914Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:05:26.916Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:20:43.932Z",
+      "endTime": "2025-03-03T05:20:46.785Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:20:43.932Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "SVG Viewer - View, edit, and optimize SVGs - Google Chrome",
+      "startTime": "2025-03-03T05:20:46.785Z",
+      "endTime": "2025-03-03T05:20:48.795Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:20:46.785Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T05:20:48.795Z",
+      "endTime": "2025-03-03T05:20:52.785Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T05:20:48.795Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "SVG Viewer - View, edit, and optimize SVGs - Google Chrome",
+      "startTime": "2025-03-03T05:20:52.785Z",
+      "endTime": "2025-03-03T05:21:00.788Z",
+      "duration": "0m 8s",
+      "timestamp": "2025-03-03T05:20:52.785Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:21:00.788Z",
+      "endTime": "2025-03-03T05:21:09.792Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-03-03T05:21:00.788Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "xAI - Google Chrome",
+      "startTime": "2025-03-03T05:21:16.785Z",
+      "endTime": "2025-03-03T05:21:18.792Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:21:16.785Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Grok - Google Chrome",
+      "startTime": "2025-03-03T05:21:18.792Z",
+      "endTime": "2025-03-03T05:21:22.784Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T05:21:18.792Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "SVG Viewer - View, edit, and optimize SVGs - Google Chrome",
+      "startTime": "2025-03-03T05:21:22.784Z",
+      "endTime": "2025-03-03T05:21:25.792Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T05:21:22.784Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - Calendar.js",
+      "startTime": "2025-03-03T05:21:25.792Z",
+      "endTime": "2025-03-03T05:21:28.789Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:21:25.792Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:21:28.789Z",
+      "endTime": "2025-03-03T05:21:35.785Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-03-03T05:21:28.789Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Grok - Google Chrome",
+      "startTime": "2025-03-03T05:21:35.785Z",
+      "endTime": "2025-03-03T05:21:49.798Z",
+      "duration": "0m 14s",
+      "timestamp": "2025-03-03T05:21:35.785Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "New conversation - Grok - Google Chrome",
+      "startTime": "2025-03-03T05:21:49.798Z",
+      "endTime": "2025-03-03T05:22:07.785Z",
+      "duration": "0m 17s",
+      "timestamp": "2025-03-03T05:21:49.798Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Electron App Window Management - Grok - Google Chrome",
+      "startTime": "2025-03-03T05:22:07.785Z",
+      "endTime": "2025-03-03T05:22:11.794Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-03-03T05:22:07.785Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:22:11.794Z",
+      "endTime": "2025-03-03T05:22:16.792Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-03-03T05:22:11.794Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T05:22:16.792Z",
+      "endTime": "2025-03-03T05:22:17.794Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T05:22:16.792Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:22:24.657Z",
+      "endTime": "2025-03-03T05:22:42.932Z",
+      "duration": "0m 18s",
+      "timestamp": "2025-03-03T05:22:24.657Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T05:22:42.932Z",
+      "endTime": "2025-03-03T05:22:44.936Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:22:42.932Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "SVG Viewer - View, edit, and optimize SVGs - Google Chrome",
+      "startTime": "2025-03-03T05:22:44.936Z",
+      "endTime": "2025-03-03T05:22:53.940Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-03-03T05:22:44.936Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Koi Tumsa Nahin Lyrical Video Song | Krrish |Sonu Nigam,Shreya Ghosal|Hrithik Roshan,Priyanka Chopra - YouTube - Google Chrome",
+      "startTime": "2025-03-03T05:22:56.536Z",
+      "endTime": "2025-03-03T05:22:58.537Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:22:56.536Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Electron App Window Management - Grok - Google Chrome",
+      "startTime": "2025-03-03T05:22:58.537Z",
+      "endTime": "2025-03-03T05:23:35.538Z",
+      "duration": "0m 37s",
+      "timestamp": "2025-03-03T05:22:58.537Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "SVG Viewer - View, edit, and optimize SVGs - Google Chrome",
+      "startTime": "2025-03-03T05:23:35.538Z",
+      "endTime": "2025-03-03T05:23:38.539Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T05:23:35.538Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Electron App Window Management - Grok - Google Chrome",
+      "startTime": "2025-03-03T05:23:38.539Z",
+      "endTime": "2025-03-03T05:23:40.545Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:23:38.539Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T05:23:40.545Z",
+      "endTime": "2025-03-03T05:23:43.538Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T05:23:40.545Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:24:33.194Z",
+      "endTime": "2025-03-03T05:24:46.933Z",
+      "duration": "0m 13s",
+      "timestamp": "2025-03-03T05:24:33.194Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Electron App Window Management - Grok - Google Chrome",
+      "startTime": "2025-03-03T05:24:46.933Z",
+      "endTime": "2025-03-03T05:24:58.940Z",
+      "duration": "0m 12s",
+      "timestamp": "2025-03-03T05:24:46.933Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:24:58.940Z",
+      "endTime": "2025-03-03T05:25:39.925Z",
+      "duration": "0m 40s",
+      "timestamp": "2025-03-03T05:24:58.940Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T05:25:39.925Z",
+      "endTime": "2025-03-03T05:25:40.936Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T05:25:39.925Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:25:51.551Z",
+      "endTime": "2025-03-03T05:26:06.933Z",
+      "duration": "0m 15s",
+      "timestamp": "2025-03-03T05:25:51.551Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T05:26:07.929Z",
+      "endTime": "2025-03-03T05:26:20.941Z",
+      "duration": "0m 13s",
+      "timestamp": "2025-03-03T05:26:07.929Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Clock SVG Download Free & Edit Vector by Lucide Contributors (Lucide Line Icons) - SVG Viewer - Google Chrome",
+      "startTime": "2025-03-03T06:20:54.088Z",
+      "endTime": "2025-03-03T06:21:01.078Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-03-03T06:20:54.088Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T06:21:01.078Z",
+      "endTime": "2025-03-03T06:23:50.000Z",
+      "duration": "2m 48s",
+      "timestamp": "2025-03-03T06:21:01.078Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Main-App - Windsurf - axios.js●",
+      "startTime": "2025-03-03T06:23:50.000Z",
+      "endTime": "2025-03-03T06:24:50.016Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-03-03T06:23:50.000Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T06:24:50.016Z",
+      "endTime": "2025-03-03T06:25:50.762Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-03-03T06:24:50.016Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "http://localhost:8000/api/v1/tracking-data - Devlopment",
+      "startTime": "2025-03-03T06:25:50.762Z",
+      "endTime": "2025-03-03T06:26:49.963Z",
+      "duration": "0m 59s",
+      "timestamp": "2025-03-03T06:25:50.762Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Comput Labs - Google Chrome",
+      "startTime": "2025-03-03T06:26:49.963Z",
+      "endTime": "2025-03-03T06:27:03.089Z",
+      "duration": "0m 13s",
+      "timestamp": "2025-03-03T06:26:49.963Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "http://localhost:8000/api/v1/tracking-data - Devlopment",
+      "startTime": "2025-03-03T06:27:03.089Z",
+      "endTime": "2025-03-03T06:27:09.084Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-03-03T06:27:03.089Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Clock SVG Download Free & Edit Vector by Lucide Contributors (Lucide Line Icons) - SVG Viewer - Google Chrome",
+      "startTime": "2025-03-03T06:27:09.084Z",
+      "endTime": "2025-03-03T06:27:42.925Z",
+      "duration": "0m 33s",
+      "timestamp": "2025-03-03T06:27:09.084Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Electron App Window Management - Grok - Google Chrome",
+      "startTime": "2025-03-03T06:27:42.925Z",
+      "endTime": "2025-03-03T06:27:43.940Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T06:27:42.925Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Electron App Window Management - Grok - Google Chrome",
+      "startTime": "2025-03-03T06:27:51.938Z",
+      "endTime": "2025-03-03T06:29:49.967Z",
+      "duration": "1m 58s",
+      "timestamp": "2025-03-03T06:27:51.938Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T06:29:49.967Z",
+      "endTime": "2025-03-03T06:31:49.947Z",
+      "duration": "1m 59s",
+      "timestamp": "2025-03-03T06:29:49.967Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:31:49.947Z",
+      "endTime": "2025-03-03T06:32:49.932Z",
+      "duration": "0m 59s",
+      "timestamp": "2025-03-03T06:31:49.947Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T06:32:49.932Z",
+      "endTime": "2025-03-03T06:33:49.943Z",
+      "duration": "1m 0s",
+      "timestamp": "2025-03-03T06:32:49.932Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:33:49.943Z",
+      "endTime": "2025-03-03T06:34:49.940Z",
+      "duration": "0m 59s",
+      "timestamp": "2025-03-03T06:33:49.943Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:47:19.008Z",
+      "endTime": "2025-03-03T06:47:26.936Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-03-03T06:47:19.008Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T06:47:26.936Z",
+      "endTime": "2025-03-03T06:47:27.941Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T06:47:26.936Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:47:35.997Z",
+      "endTime": "2025-03-03T06:47:39.007Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T06:47:35.997Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T06:47:57.007Z",
+      "endTime": "2025-03-03T06:48:01.004Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T06:47:57.007Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Firefox",
+      "title": "(70) WhatsApp — Mozilla Firefox",
+      "startTime": "2025-03-03T06:48:01.004Z",
+      "endTime": "2025-03-03T06:48:11.009Z",
+      "duration": "0m 10s",
+      "timestamp": "2025-03-03T06:48:01.004Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Firefox",
+      "title": "Mozilla Firefox",
+      "startTime": "2025-03-03T06:48:11.009Z",
+      "endTime": "2025-03-03T06:48:35.011Z",
+      "duration": "0m 24s",
+      "timestamp": "2025-03-03T06:48:11.009Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Firefox",
+      "title": "Meet — Mozilla Firefox",
+      "startTime": "2025-03-03T06:48:35.011Z",
+      "endTime": "2025-03-03T06:48:38.928Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T06:48:35.011Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Firefox",
+      "title": "Meet - mky-gjvd-nkn — Mozilla Firefox",
+      "startTime": "2025-03-03T06:48:38.928Z",
+      "endTime": "2025-03-03T06:48:49.926Z",
+      "duration": "0m 10s",
+      "timestamp": "2025-03-03T06:48:38.928Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T06:49:29.379Z",
+      "endTime": "2025-03-03T06:49:30.392Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T06:49:29.379Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:49:30.392Z",
+      "endTime": "2025-03-03T06:49:33.381Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T06:49:30.392Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T06:49:33.381Z",
+      "endTime": "2025-03-03T06:49:49.386Z",
+      "duration": "0m 16s",
+      "timestamp": "2025-03-03T06:49:33.381Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Firefox",
+      "title": "Google Meet — Mozilla Firefox",
+      "startTime": "2025-03-03T06:53:11.935Z",
+      "endTime": "2025-03-03T06:53:13.938Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T06:53:11.935Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Firefox",
+      "title": "Mozilla Firefox",
+      "startTime": "2025-03-03T06:53:13.938Z",
+      "endTime": "2025-03-03T06:53:19.942Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-03-03T06:53:13.938Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T06:53:19.942Z",
+      "endTime": "2025-03-03T06:53:29.926Z",
+      "duration": "0m 9s",
+      "timestamp": "2025-03-03T06:53:19.942Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:53:33.929Z",
+      "endTime": "2025-03-03T06:53:40.935Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-03-03T06:53:33.929Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T06:53:40.935Z",
+      "endTime": "2025-03-03T06:55:20.606Z",
+      "duration": "1m 39s",
+      "timestamp": "2025-03-03T06:53:40.935Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:55:20.606Z",
+      "endTime": "2025-03-03T06:55:30.675Z",
+      "duration": "0m 10s",
+      "timestamp": "2025-03-03T06:55:20.606Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T06:55:30.675Z",
+      "endTime": "2025-03-03T06:55:35.677Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-03-03T06:55:30.675Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T06:55:35.677Z",
+      "endTime": "2025-03-03T06:55:39.670Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T06:55:35.677Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T06:55:39.670Z",
+      "endTime": "2025-03-03T06:55:41.682Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T06:55:39.670Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:55:41.682Z",
+      "endTime": "2025-03-03T06:55:49.675Z",
+      "duration": "0m 7s",
+      "timestamp": "2025-03-03T06:55:41.682Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T06:55:49.675Z",
+      "endTime": "2025-03-03T06:56:05.680Z",
+      "duration": "0m 16s",
+      "timestamp": "2025-03-03T06:55:49.675Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:56:05.680Z",
+      "endTime": "2025-03-03T06:56:06.684Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T06:56:05.680Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T06:56:06.684Z",
+      "endTime": "2025-03-03T06:56:12.672Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-03-03T06:56:06.684Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T06:56:12.672Z",
+      "endTime": "2025-03-03T06:56:20.687Z",
+      "duration": "0m 8s",
+      "timestamp": "2025-03-03T06:56:12.672Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:56:21.676Z",
+      "endTime": "2025-03-03T06:56:22.682Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T06:56:21.676Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T06:56:22.682Z",
+      "endTime": "2025-03-03T06:56:26.682Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-03-03T06:56:22.682Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:56:26.682Z",
+      "endTime": "2025-03-03T06:56:49.681Z",
+      "duration": "0m 22s",
+      "timestamp": "2025-03-03T06:56:26.682Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T06:56:49.681Z",
+      "endTime": "2025-03-03T06:56:54.693Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-03-03T06:56:49.681Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:56:54.693Z",
+      "endTime": "2025-03-03T06:56:58.684Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T06:56:54.693Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T06:56:58.684Z",
+      "endTime": "2025-03-03T06:57:07.672Z",
+      "duration": "0m 8s",
+      "timestamp": "2025-03-03T06:56:58.684Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:57:07.672Z",
+      "endTime": "2025-03-03T06:57:08.680Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T06:57:07.672Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T06:57:08.680Z",
+      "endTime": "2025-03-03T06:57:31.683Z",
+      "duration": "0m 23s",
+      "timestamp": "2025-03-03T06:57:08.680Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T06:57:31.683Z",
+      "endTime": "2025-03-03T06:57:34.679Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T06:57:31.683Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js●",
+      "startTime": "2025-03-03T06:57:34.679Z",
+      "endTime": "2025-03-03T06:57:37.685Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T06:57:34.679Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "ChatGPT - Google Chrome",
+      "startTime": "2025-03-03T06:58:06.100Z",
+      "endTime": "2025-03-03T06:58:12.101Z",
+      "duration": "0m 6s",
+      "timestamp": "2025-03-03T06:58:06.100Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - home.js",
+      "startTime": "2025-03-03T06:58:12.101Z",
+      "endTime": "2025-03-03T06:58:14.932Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T06:58:12.101Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf",
+      "startTime": "2025-03-03T06:58:14.932Z",
+      "endTime": "2025-03-03T06:58:16.931Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T06:58:14.932Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T08:49:01.502Z",
+      "endTime": "2025-03-03T08:49:05.503Z",
+      "duration": "0m 4s",
+      "timestamp": "2025-03-03T08:49:01.502Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "https://my-app-7fjx6.ondigitalocean.app/api/v1/tracking-data - Devlopment",
+      "startTime": "2025-03-03T08:49:05.503Z",
+      "endTime": "2025-03-03T08:49:13.928Z",
+      "duration": "0m 8s",
+      "timestamp": "2025-03-03T08:49:05.503Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T08:49:13.928Z",
+      "endTime": "2025-03-03T08:50:01.931Z",
+      "duration": "0m 48s",
+      "timestamp": "2025-03-03T08:49:13.928Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-03-03T09:04:28.470Z",
+      "endTime": "2025-03-03T09:04:30.921Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T09:04:28.470Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Google Chrome",
+      "startTime": "2025-03-03T09:04:30.921Z",
+      "endTime": "2025-03-03T09:04:31.932Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T09:04:30.921Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T09:04:42.296Z",
+      "endTime": "2025-03-03T09:04:44.298Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T09:04:42.296Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "https://my-app-7fjx6.ondigitalocean.app/api/v1/tracking-data - Devlopment",
+      "startTime": "2025-03-03T09:04:44.298Z",
+      "endTime": "2025-03-03T09:08:49.919Z",
+      "duration": "4m 5s",
+      "timestamp": "2025-03-03T09:04:44.298Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "http://localhost:8000/api/v1/tracking-data/categories - Devlopment",
+      "startTime": "2025-03-03T09:08:49.919Z",
+      "endTime": "2025-03-03T09:08:52.911Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T09:08:49.919Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "https://my-app-7fjx6.ondigitalocean.app/api/v1/tracking-data - Devlopment",
+      "startTime": "2025-03-03T09:08:52.911Z",
+      "endTime": "2025-03-03T09:09:12.136Z",
+      "duration": "0m 19s",
+      "timestamp": "2025-03-03T09:08:52.911Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - home.js",
+      "startTime": "2025-03-03T09:26:57.388Z",
+      "endTime": "2025-03-03T09:26:58.390Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T09:26:57.388Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T09:26:58.390Z",
+      "endTime": "2025-03-03T09:27:01.385Z",
+      "duration": "0m 2s",
+      "timestamp": "2025-03-03T09:26:58.390Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Electron App Idle Tracking Management - Grok - Google Chrome",
+      "startTime": "2025-03-03T09:27:01.385Z",
+      "endTime": "2025-03-03T09:27:04.387Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T09:27:01.385Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "Mail - Sachin Rathod - Outlook - Google Chrome",
+      "startTime": "2025-03-03T09:27:04.387Z",
+      "endTime": "2025-03-03T09:27:05.931Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T09:27:04.387Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Google Chrome",
+      "title": "DeepSeek - Into the Unknown - Google Chrome",
+      "startTime": "2025-03-03T09:27:06.929Z",
+      "endTime": "2025-03-03T09:27:10.924Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T09:27:06.929Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T09:44:12.219Z",
+      "endTime": "2025-03-03T09:44:13.929Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T09:44:12.219Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "https://my-app-7fjx6.ondigitalocean.app/api/v1/tracking-data - Devlopment",
+      "startTime": "2025-03-03T09:44:13.929Z",
+      "endTime": "2025-03-03T09:47:48.412Z",
+      "duration": "3m 34s",
+      "timestamp": "2025-03-03T09:44:13.929Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Postman",
+      "title": "https://my-app-7fjx6.ondigitalocean.app/api/v1/tracking-data - Devlopment",
+      "startTime": "2025-03-03T09:48:32.390Z",
+      "endTime": "2025-03-03T09:48:36.293Z",
+      "duration": "0m 3s",
+      "timestamp": "2025-03-03T09:48:32.390Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T09:48:36.293Z",
+      "endTime": "2025-03-03T09:48:41.293Z",
+      "duration": "0m 5s",
+      "timestamp": "2025-03-03T09:48:36.293Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - tracking-data.json",
+      "startTime": "2025-03-03T09:49:40.123Z",
+      "endTime": "2025-03-03T09:49:41.124Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T09:49:40.123Z"
+    },
+    {
+      "id": "6756797693aa383485a8ee2b",
+      "app": "Windsurf",
+      "title": "Time-Tracker - Windsurf - main.js",
+      "startTime": "2025-03-03T09:49:41.124Z",
+      "endTime": "2025-03-03T09:49:42.129Z",
+      "duration": "0m 1s",
+      "timestamp": "2025-03-03T09:49:41.124Z"
     }
   ]
 }

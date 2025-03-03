@@ -288,10 +288,8 @@ function createMainWindow() {
 //     // Reset hide timer
 //     if (hideTimer) clearTimeout(hideTimer);
 //     hideTimer = setTimeout(() => {
-//       if (!isMouseOverHomeWindow) {
-//         homeWindow.hide();
-//         createMiniIconWindow();
-//       }
+//       homeWindow.hide();
+//       createMiniIconWindow();
 //     }, 10000);
 //   });
 
@@ -304,10 +302,8 @@ function createMainWindow() {
 
 //     // Set timer to hide window after 10 seconds
 //     hideTimer = setTimeout(() => {
-//       if (!isMouseOverHomeWindow) {
-//         homeWindow.hide();
-//         createMiniIconWindow();
-//       }
+//       homeWindow.hide();
+//       createMiniIconWindow();
 //     }, 10000);
 //   });
 
@@ -702,9 +698,10 @@ function initializeWindow() {
 
 // Modify app ready event handler
 app.on('ready', () => {
-  // Prevent multiple app instances
-  const isSecondInstance = app.requestSingleInstanceLock();
-  if (!isSecondInstance) {
+  // Ensure only one instance of the app can run
+  const gotTheLock = app.requestSingleInstanceLock();
+  
+  if (!gotTheLock) {
     console.log('Another instance of the app is already running.');
     app.quit();
     return;
@@ -726,9 +723,12 @@ app.on('ready', () => {
     }
   }
 
-  // Handle second instance attempts
+  // Handle second instance attempts more explicitly
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Bring existing window to front if another instance is launched
+    // Prevent any further instances from launching
+    event.preventDefault();
+    
+    // Bring existing window to front if another instance is attempted
     const windows = BrowserWindow.getAllWindows();
     if (windows.length > 0) {
       const mainWindow = windows[0];
