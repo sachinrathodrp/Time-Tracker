@@ -573,41 +573,6 @@ function createHomeWindow() {
     miniIconWindow.show();
   });
 }
-// Enhanced Window Reset and Initialization
-// function resetApplicationState() {
-//   try {
-//     // Remove all existing tokens and user-specific data
-//     const cleanupPaths = [
-//       path.join(app.getPath('userData'), 'token.json'),
-//       path.join(app.getPath('home'), '.time-tracking-app', 'token.json'),
-//       path.join(process.env.APPDATA, 'time-tracking-app', 'token.json')
-//     ];
-
-//     cleanupPaths.forEach(tokenPath => {
-//       try {
-//         if (fs.existsSync(tokenPath)) {
-//           fs.unlinkSync(tokenPath);
-//           console.log(`Removed token file: ${tokenPath}`);
-//         }
-//       } catch (tokenRemovalError) {
-//         console.error(`Failed to remove token file ${tokenPath}:`, tokenRemovalError);
-//       }
-//     });
-
-//     // Clear all localStorage and browser storage
-//     clearLocalStorage();
-
-//     // Reset any persistent app-wide configurations
-//     global.isAuthenticated = false;
-//     global.userToken = null;
-
-//     console.log('Application state reset successfully');
-//     return true;
-//   } catch (error) {
-//     console.error('Failed to reset application state:', error);
-//     return false;
-//   }
-// }
 
 // Uninstall Cleanup Function with mac and windows support
 function resetApplicationState() {
@@ -627,53 +592,6 @@ function resetApplicationState() {
   global.isAuthenticated = false;
   global.userToken = null;
 }
-
-// Modify existing createLoginWindow function
-// function createLoginWindow() {
-//   // Ensure previous windows are closed
-//   if (mainWindow) {
-//     mainWindow.close();
-//     mainWindow = null;
-//   }
-
-//   // Reset application state only if necessary
-//   if (!checkForToken()) {
-//     resetApplicationState();
-//   }
-
-//   // Create login window with enhanced configuration
-//   mainWindow = new BrowserWindow({
-//     width: 400,
-//     height: 600,
-//     webPreferences: {
-//       nodeIntegration: true,
-//       contextIsolation: false,
-//       enableRemoteModule: true
-//     },
-//     resizable: false,
-//     autoHideMenuBar: true,
-//     title: 'Time Tracker - Login'
-//   });
-
-//   mainWindow.loadFile(path.join(__dirname, 'src', 'index.html'));
-  
-//   // Clear cache and storage before loading
-//   mainWindow.webContents.session.clearStorageData({
-//     storages: ['appcache', 'cookies', 'filesystem', 'indexdb', 'localstorage', 'shadercache', 'websql', 'serviceworkers']
-//   });
-
-//   // Enhanced error handling
-//   mainWindow.webContents.on('did-fail-load', () => {
-//     console.error('Failed to load login window');
-//     app.relaunch();
-//     app.exit(0);
-//   });
-
-//   mainWindow.on('closed', () => {
-//     mainWindow = null;
-//   });
-// }
-
 
 // Uninstall Cleanup Function with mac and windows support
 function createLoginWindow() {
@@ -747,6 +665,17 @@ function checkForToken() {
 
 // Function to initialize the correct window
 function initializeWindow() {
+  // Check if any window is already active
+  const existingWindows = BrowserWindow.getAllWindows();
+  if (existingWindows.length > 0) {
+    const activeWindow = existingWindows.find(window => window.isVisible());
+    if (activeWindow) {
+      console.log('Window already active. Skipping window creation.');
+      activeWindow.focus(); // Bring existing window to front
+      return;
+    }
+  }
+
   // Always destroy existing windows first
   if (mainWindow) {
     mainWindow.close();
@@ -773,14 +702,40 @@ function initializeWindow() {
 
 // Modify app ready event handler
 app.on('ready', () => {
+  // Prevent multiple app instances
+  const isSecondInstance = app.requestSingleInstanceLock();
+  if (!isSecondInstance) {
+    console.log('Another instance of the app is already running.');
+    app.quit();
+    return;
+  }
+
   // Additional check to ensure clean startup
   if (process.argv.includes('--squirrel-uninstall')) {
     performUninstallCleanup(false); // Perform actual cleanup
     app.quit();
   } else {
-    initializeWindow();
-    setupAutoLaunch();
+    // Additional error handling wrapper
+    try {
+      initializeWindow();
+      setupAutoLaunch();
+    } catch (error) {
+      console.error('Failed to initialize app:', error);
+      dialog.showErrorBox('Startup Error', 'Failed to start the application. Please restart.');
+      app.quit();
+    }
   }
+
+  // Handle second instance attempts
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    // Bring existing window to front if another instance is launched
+    const windows = BrowserWindow.getAllWindows();
+    if (windows.length > 0) {
+      const mainWindow = windows[0];
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.focus();
+    }
+  });
 });
 
 // Add global error handler
