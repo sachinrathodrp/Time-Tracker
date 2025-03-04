@@ -35,339 +35,6 @@ function createMainWindow() {
   });
 }
 
-// Create the home window with side-snapping behavior
-// function createHomeWindow() {
-//   // Get primary display
-//   const primaryDisplay = screen.getPrimaryDisplay();
-//   const { width, height } = primaryDisplay.workArea;
-
-//   // Window dimensions
-//   const windowWidth = 280;
-//   const windowHeight = 25;
-
-//   // Create home window
-//   homeWindow = new BrowserWindow({
-//     width: windowWidth,
-//     height: windowHeight,
-//     x: width - windowWidth,
-//     y: 0,
-//     resizable: true,
-//     alwaysOnTop: true,
-//     transparent: true,
-//     frame: false,
-//     hasShadow: false,
-//     skipTaskbar: true,
-//     webPreferences: {
-//       nodeIntegration: true,
-//       contextIsolation: false,
-//       enableRemoteModule: true,
-//     },
-//     icon: path.join(__dirname, '/assets/icons/icon256.png'),
-//     autoHideMenuBar: true,
-//     useContentSize: true,
-//   });
-
-//   // Mini icon window
-//   let miniIconWindow = null;
-
-//   // Side-snapping logic
-//   function snapToSide(x, y) {
-//     const snapThreshold = 50; // Pixels from screen edge
-//     const screenWidth = primaryDisplay.workArea.width;
-//     const snappedWidth = windowWidth;
-    
-//     // Snap to left side
-//     if (x <= snapThreshold) {
-//       homeWindow.setBounds({
-//         x: 0,
-//         y: y,
-//         width: snappedWidth,
-//         height: windowHeight
-//       });
-//       return 'left';
-//     } 
-//     // Snap to right side
-//     else if (x >= screenWidth - snappedWidth - snapThreshold) {
-//       homeWindow.setBounds({
-//         x: screenWidth - snappedWidth,
-//         y: y,
-//         width: snappedWidth,
-//         height: windowHeight
-//       });
-//       return 'right';
-//     }
-    
-//     return null;
-//   }
-
-//   // Dragging event handler
-//   let isDragging = false;
-//   let dragStartPos = { x: 0, y: 0 };
-
-//   homeWindow.on('move', () => {
-//     const [x, y] = homeWindow.getPosition();
-//     const snappedSide = snapToSide(x, y);
-
-//     // Send snapped side information to renderer
-//     homeWindow.webContents.send('window-snapped', snappedSide);
-//   });
-
-//   // Create mini icon window
-//   function createMiniIconWindow() {
-//     // Destroy existing mini icon window if it exists
-//     if (miniIconWindow && !miniIconWindow.isDestroyed()) {
-//       miniIconWindow.destroy();
-//     }
-
-//     // Get the current position of the home window
-//     const [homeX, homeY] = homeWindow.getPosition();
-//     const [homeWidth, homeHeight] = homeWindow.getSize();
-//     const screenWidth = primaryDisplay.workArea.width;
-
-//     // Determine mini icon position based on home window's side
-//     const miniIconX = homeX === 0 
-//       ? homeWidth  // Left side: position at right edge of home window
-//       : homeX + homeWidth - 50; // Right side: position at right edge of home window
-
-//     // Calculate mini icon position based on home window
-//     miniIconWindow = new BrowserWindow({
-//       width: 35,
-//       height: 50,
-//       x: miniIconX+20,
-//       y: homeY + homeHeight - 28, // Position at bottom of home window
-//       frame: false,
-//       transparent: true,
-//       alwaysOnTop: true,
-//       resizable: false,
-//       skipTaskbar: true,
-//       webPreferences: {
-//         nodeIntegration: true,
-//         contextIsolation: false,
-//       }
-//     });
-
-//     // Create mini icon content directly in memory
-//     const miniIconContent = `
-//     <!DOCTYPE html>
-//     <html>
-//     <head>
-//       <style>
-//         html, body { 
-//           margin: 0; 
-//           padding: 0; 
-//           overflow: hidden; 
-//           background: transparent; 
-//           display: flex; 
-//           justify-content: center; 
-//           align-items: center; 
-//           cursor: pointer;
-//           -webkit-app-region: drag;
-//           user-select: none;
-//         }
-//         svg {
-//           transition: transform 0.2s ease;
-//           max-width: 100%;
-//           max-height: 100%;
-//           -webkit-app-region: no-drag;
-//         }
-//         svg:hover {
-//           transform: scale(1.2);
-//         }
-//       </style>
-//     </head>
-//     <body>
-//       <svg width="30px" height="30px" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-//         <path id="sidebar" d="M49.984,56l-35.989,0c-3.309,0 -5.995,-2.686 -5.995,-5.995l0,-36.011c0,-3.308 2.686,-5.995 5.995,-5.995l35.989,0c3.309,0 5.995,2.687 5.995,5.995l0,36.011c0,3.309 -2.686,5.995 -5.995,5.995Zm-25.984,-4.001l0,-39.999l-9.012,0c-1.65,0 -2.989,1.339 -2.989,2.989l0,34.021c0,1.65 1.339,2.989 2.989,2.989l9.012,0Zm24.991,-39.999l-20.991,0l0,39.999l20.991,0c1.65,0 2.989,-1.339 2.989,-2.989l0,-34.021c0,-1.65 -1.339,-2.989 -2.989,-2.989Z" fill="#3498db"/>
-//         <path id="code" d="M19.999,38.774l-6.828,-6.828l6.828,-6.829l2.829,2.829l-4,4l4,4l-2.829,2.828Z" fill="#2ecc71"/>
-//       </svg>
-//       <script>
-//         // Hover event to show home window
-//         document.body.addEventListener('mouseenter', () => {
-//           require('electron').ipcRenderer.send('show-home-window-on-hover');
-//         });
-
-//         // Click event to show home window
-//         document.body.addEventListener('click', () => {
-//           require('electron').ipcRenderer.send('show-home-window');
-//         });
-//       </script>
-//     </body>
-//     </html>
-//     `;
-
-//     // Load the mini icon content directly
-//     miniIconWindow.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(miniIconContent)}`);
-
-//     // Prevent mini icon window from closing
-//     miniIconWindow.on('close', (event) => {
-//       event.preventDefault();
-//     });
-
-//     // Update mini icon position when home window moves
-//     homeWindow.on('move', () => {
-//       if (miniIconWindow && !miniIconWindow.isDestroyed()) {
-//         const [homeX, homeY] = homeWindow.getPosition();
-//         const [homeWidth, homeHeight] = homeWindow.getSize();
-//         const screenWidth = primaryDisplay.workArea.width;
-
-//         // Determine mini icon position based on home window's side
-//         const miniIconX = homeX === 0 
-//           ? homeWidth  // Left side: position at right edge of home window
-//           : homeX + homeWidth - 50; // Right side: position at right edge of home window
-
-//         miniIconWindow.setBounds({
-//           x: miniIconX,
-//           y: homeY + homeHeight
-//         });
-//       }
-//     });
-//   }
-
-//   // Auto-hide logic
-//   let hideTimer = null;
-//   let isMouseOverHomeWindow = false;
-
-//   // Track mouse enter and leave events
-//   homeWindow.webContents.on('did-finish-load', () => {
-//     homeWindow.webContents.executeJavaScript(`
-//       document.addEventListener('mouseenter', () => {
-//         require('electron').ipcRenderer.send('home-window-mouse-enter');
-//       });
-//       document.addEventListener('mouseleave', () => {
-//         require('electron').ipcRenderer.send('home-window-mouse-leave');
-//       });
-//     `);
-//   });
-
-//   // IPC handlers for mouse events
-//   ipcMain.on('home-window-mouse-enter', () => {
-//     isMouseOverHomeWindow = true;
-//     // Clear hide timer when mouse is over home window
-//     if (hideTimer) {
-//       clearTimeout(hideTimer);
-//       hideTimer = null;
-//     }
-//   });
-
-//   ipcMain.on('home-window-mouse-leave', () => {
-//     isMouseOverHomeWindow = false;
-//     // Restart hide timer when mouse leaves home window
-//     if (hideTimer) clearTimeout(hideTimer);
-//     hideTimer = setTimeout(() => {
-//       if (!isMouseOverHomeWindow) {
-//         homeWindow.hide();
-//         createMiniIconWindow();
-//       }
-//     }, 10000);
-//   });
-
-//   // Hover-to-show handler for mini icon
-//   ipcMain.on('show-home-window-on-hover', () => {
-//     // Show home window
-//     homeWindow.show();
-    
-//     // Hide mini icon window
-//     if (miniIconWindow && !miniIconWindow.isDestroyed()) {
-//       miniIconWindow.hide();
-//     }
-
-//     // Clear any existing timer
-//     if (hideTimer) clearTimeout(hideTimer);
-//   });
-
-//   // Modified show home window handler
-//   ipcMain.on('show-home-window', () => {
-//     // Show home window
-//     homeWindow.show();
-    
-//     // Hide mini icon window
-//     if (miniIconWindow && !miniIconWindow.isDestroyed()) {
-//       miniIconWindow.hide();
-//     }
-
-//     // Reset hide timer
-//     if (hideTimer) clearTimeout(hideTimer);
-//     hideTimer = setTimeout(() => {
-//       homeWindow.hide();
-//       createMiniIconWindow();
-//     }, 10000);
-//   });
-
-//   // Auto-hide logic for initial show
-//   homeWindow.on('ready-to-show', () => {
-//     homeWindow.show();
-    
-//     // Clear any existing timer
-//     if (hideTimer) clearTimeout(hideTimer);
-
-//     // Set timer to hide window after 10 seconds
-//     hideTimer = setTimeout(() => {
-//       homeWindow.hide();
-//       createMiniIconWindow();
-//     }, 10000);
-//   });
-
-//   // Load home window content
-//   homeWindow.loadFile('src/home.html');
-
-//   // Make window draggable with side-snapping
-//   homeWindow.webContents.on('did-finish-load', () => {
-//     console.log('Home window content loaded successfully.');
-//     homeWindow.webContents.insertCSS(`
-//       body {
-//         -webkit-app-region: drag;
-//         overflow: hidden !important;
-//         user-select: none;
-//       }
-//       button, input, a, svg {
-//         -webkit-app-region: no-drag;
-//       }
-//     `);
-
-//     // Inject side-snapping logic into renderer
-//     homeWindow.webContents.executeJavaScript(`
-//       // Visual indication for side-snapping
-//       window.addEventListener('message', (event) => {
-//         if (event.data.type === 'window-snapped') {
-//           const body = document.body;
-//           if (event.data.side === 'left') {
-//             body.style.background = 'linear-gradient(to right, rgba(44,62,80,0.1), transparent)';
-//           } else if (event.data.side === 'right') {
-//             body.style.background = 'linear-gradient(to left, rgba(44,62,80,0.1), transparent)';
-//           } else {
-//             body.style.background = 'transparent';
-//           }
-//         }
-//       });
-//     `);
-//   });
-
-//   // Prevent complete closure
-//   homeWindow.on('close', (event) => {
-//     event.preventDefault();
-//     homeWindow.hide();
-//     createMiniIconWindow();
-//   });
-
-//   // IPC handler to show home window
-//   ipcMain.on('show-home-window', () => {
-//     // Show home window
-//     homeWindow.show();
-    
-//     // Hide mini icon window
-//     if (miniIconWindow && !miniIconWindow.isDestroyed()) {
-//       miniIconWindow.hide();
-//     }
-
-//     // Reset hide timer
-//     if (hideTimer) clearTimeout(hideTimer);
-//     hideTimer = setTimeout(() => {
-//       homeWindow.hide();
-//       createMiniIconWindow();
-//     }, 10000);
-//   });
-// }
-
 // Function to create the home window with mac and windows support
 function createHomeWindow() {
   const primaryDisplay = screen.getPrimaryDisplay();
@@ -383,36 +50,41 @@ function createHomeWindow() {
      y: 0,
      resizable: true,
      alwaysOnTop: true,
-     transparent: process.platform !== 'darwin', // macOS doesn't support full transparency
+     transparent: true, // Keep transparency
      frame: false,
      hasShadow: false,
      skipTaskbar: true,
+     vibrancy: 'light', // Add vibrancy for better transparency
      webPreferences: {
        nodeIntegration: true,
        contextIsolation: false,
        enableRemoteModule: true,
-       // Add this to enable custom CSS
        webviewTag: true,
      },
+     roundedCorners: true,
      icon: process.platform === 'darwin'
        ? path.join(__dirname, 'assets/icons/icon512.icns')
        : path.join(__dirname, 'assets/icons/icon256.png'),
      autoHideMenuBar: true,
      useContentSize: true,
+     backgroundColor: '#00000000', // Fully transparent background
    });
  
  // Add this after loading the file
  homeWindow.webContents.on('did-finish-load', () => {
-   // Inject CSS to hide scrollbars
+   // Inject CSS to hide scrollbars and add rounded corners
    homeWindow.webContents.insertCSS(`
     body {
-      -webkit-app-region: drag;
-      overflow: hidden !important;
-      user-select: none;
-    }
-    button, input, a, svg {
-      -webkit-app-region: no-drag;
-    }
+        -webkit-app-region: drag;
+        overflow: hidden !important;
+        user-select: none  !important;
+        background: rgba(255, 255, 255, 0.9)  !important;
+        border-radius: 10px  !important; /* Add rounded corners */
+        backdrop-filter: blur(10px);
+      }
+      button, input, a, svg {
+        -webkit-app-region: no-drag;
+      }
   `);
  });
 
@@ -445,15 +117,31 @@ function createHomeWindow() {
       miniIconWindow.destroy();
     }
 
-    const [homeX, homeY] = homeWindow.getPosition();
-    const [homeWidth, homeHeight] = homeWindow.getSize();
-    const miniIconX = homeX === 0 ? homeWidth : homeX + homeWidth - 50;
+    const updateMiniIconPosition = () => {
+      if (miniIconWindow && !miniIconWindow.isDestroyed() && homeWindow && !homeWindow.isDestroyed()) {
+        const [homeX, homeY] = homeWindow.getPosition();
+        const [homeWidth, homeHeight] = homeWindow.getSize();
+        
+        // Adjust X position to be always near the right edge of home window
+        const miniIconX = homeX + homeWidth - 50;
+        
+        // Adjust Y position to be always at the bottom of home window
+        const miniIconY = homeY + homeHeight - 28;
+        
+        miniIconWindow.setBounds({ 
+          x: miniIconX + 20, 
+          y: miniIconY,
+          width: 35,
+          height: 50
+        });
+      }
+    };
 
     miniIconWindow = new BrowserWindow({
       width: 35,
       height: 50,
-      x: miniIconX + 20,
-      y: homeY + homeHeight - 28,
+      x: 0, // Temporary position, will be updated immediately
+      y: 0, // Temporary position, will be updated immediately
       frame: false,
       transparent: process.platform !== 'darwin',
       alwaysOnTop: true,
@@ -463,22 +151,40 @@ function createHomeWindow() {
         nodeIntegration: true,
         contextIsolation: false,
       },
+      // Add border radius
+      borderRadius: 10,
     });
+
+    // Initial positioning
+    updateMiniIconPosition();
 
     const miniIconContent = `
       <!DOCTYPE html>
       <html>
       <head>
         <style>
-          html, body { margin: 0; padding: 0; overflow: hidden; background: transparent; display: flex; justify-content: center; align-items: center; cursor: pointer; -webkit-app-region: drag; user-select: none; }
+          html, body { 
+            margin: 0; 
+            padding: 0; 
+            overflow: hidden; 
+            background: transparent; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            cursor: pointer; 
+            -webkit-app-region: drag; 
+            user-select: none; 
+            border-radius: 10px; 
+          }
           svg { transition: transform 0.2s ease; max-width: 100%; max-height: 100%; -webkit-app-region: no-drag; }
           svg:hover { transform: scale(1.2); }
         </style>
       </head>
       <body>
-        <svg width="30px" height="30px" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M49.984,56l-35.989,0c-3.309,0 -5.995,-2.686 -5.995,-5.995l0,-36.011c0,-3.308 2.686,-5.995 5.995,-5.995l35.989,0c3.309,0 5.995,2.687 5.995,5.995l0,36.011c0,3.309 -2.686,5.995 -5.995,5.995Zm-25.984,-4.001l0,-39.999l-9.012,0c-1.65,0 -2.989,1.339 -2.989,2.989l0,34.021c0,1.65 1.339,2.989 2.989,2.989l9.012,0Zm24.991,-39.999l-20.991,0l0,39.999l20.991,0c1.65,0 2.989,-1.339 2.989,-2.989l0,-34.021c0,-1.65 -1.339,-2.989 -2.989,-2.989Z" fill="#3498db"/>
-          <path d="M19.999,38.774l-6.828,-6.828l6.828,-6.829l2.829,2.829l-4,4l4,4l-2.829,2.828Z" fill="#2ecc71"/>
+        <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 8V12L15 15" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="10" stroke="#2ecc71" stroke-width="2" opacity="0.2"/>
         </svg>
         <script>
           const { ipcRenderer } = require('electron');
@@ -492,14 +198,12 @@ function createHomeWindow() {
     miniIconWindow.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(miniIconContent)}`);
     miniIconWindow.on('close', (event) => event.preventDefault());
 
-    homeWindow.on('move', () => {
-      if (miniIconWindow && !miniIconWindow.isDestroyed()) {
-        const [hx, hy] = homeWindow.getPosition();
-        const [hw, hh] = homeWindow.getSize();
-        const newX = hx === 0 ? hw : hx + hw - 50;
-        miniIconWindow.setBounds({ x: newX, y: hy + hh });
-      }
-    });
+    // Multiple event listeners to ensure accurate positioning
+    homeWindow.on('move', updateMiniIconPosition);
+    homeWindow.on('resize', updateMiniIconPosition);
+    
+    // Additional positioning check after a short delay to handle complex window movements
+    setTimeout(updateMiniIconPosition, 100);
   }
 
   // Auto-hide logic
@@ -661,26 +365,18 @@ function checkForToken() {
 
 // Function to initialize the correct window
 function initializeWindow() {
-  // Check if any window is already active
+  // Clear any existing windows first
   const existingWindows = BrowserWindow.getAllWindows();
-  if (existingWindows.length > 0) {
-    const activeWindow = existingWindows.find(window => window.isVisible());
-    if (activeWindow) {
-      console.log('Window already active. Skipping window creation.');
-      activeWindow.focus(); // Bring existing window to front
-      return;
+  existingWindows.forEach(window => {
+    if (!window.isDestroyed()) {
+      window.close();
     }
-  }
+  });
 
-  // Always destroy existing windows first
-  if (mainWindow) {
-    mainWindow.close();
-    mainWindow = null;
-  }
-  if (homeWindow) {
-    homeWindow.close();
-    homeWindow = null;
-  }
+  // Reset global window references
+  mainWindow = null;
+  homeWindow = null;
+  miniIconWindow = null;
 
   // Check token and create appropriate window
   const tokenValid = checkForToken();
@@ -691,7 +387,7 @@ function initializeWindow() {
     console.log('Token is valid. Creating home window.');
     createHomeWindow();
   } else {
-    console.log('Token is invalid. Creating main window.');
+    console.log('Token is invalid. Creating login window.');
     createLoginWindow();
   }
 }
@@ -751,8 +447,21 @@ ipcMain.on('login-success', (event, tokenData) => {
     const tokenPath = path.join(app.getPath('userData'), 'token.json');
     fs.writeFileSync(tokenPath, JSON.stringify(tokenData));
     
-    // Reinitialize window after successful login
-    initializeWindow();
+    // Close all existing windows
+    const existingWindows = BrowserWindow.getAllWindows();
+    existingWindows.forEach(window => {
+      if (!window.isDestroyed()) {
+        window.close();
+      }
+    });
+
+    // Reset global window references
+    mainWindow = null;
+    homeWindow = null;
+    miniIconWindow = null;
+
+    // Create home window after successful login
+    createHomeWindow();
   } catch (error) {
     console.error('Error saving token:', error);
     dialog.showErrorBox('Login Error', 'Failed to save login token');
@@ -919,132 +628,6 @@ function setupAutoStart() {
     autoUpdater.checkForUpdatesAndNotify();
   }
 }
-
-// function setupAutoLaunch() {
-//   const appLauncher = new AutoLaunch({
-//     name: 'Time Tracking App',
-//     path: app.getPath('exe'),
-//     isHidden: true  // Run in background without showing window
-//   });
-//   console.log('app path',app.getPath('exe'))
-
-//   // Global method to disable auto-launch completely
-//   global.disableAutoLaunch = async () => {
-//     try {
-//       await appLauncher.disable();
-//       console.log('Auto-launch completely disabled for uninstallation');
-      
-//       // Optional: Remove from Windows Registry (additional cleanup)
-//       try {
-//         const { exec } = require('child_process');
-//         exec('reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "Time Tracking App" /f', 
-//           (error, stdout, stderr) => {
-//             if (error) {
-//               console.warn(`Registry cleanup warning: ${error.message}`);
-//               return;
-//             }
-//             console.log('Windows Registry entry removed');
-//           }
-//         );
-//       } catch (registryError) {
-//         console.error('Failed to remove registry entry:', registryError);
-//       }
-//     } catch (err) {
-//     console.error('Failed to disable auto-launch:', err);
-//     }
-//   };
-
-//   // Enable auto-start by default
-//   appLauncher.enable()
-//     .then(() => console.log('Auto-launch enabled'))
-//     .catch((err) => console.error('Failed to enable auto-launch:', err));
-
-//   // Optional: Method to toggle auto-start
-//   global.toggleAutoStart = async (enable) => {
-//     try {
-//       if (enable) {
-//         await appLauncher.enable();
-//         console.log('Auto-launch enabled');
-//       } else {
-//         await appLauncher.disable();
-//         console.log('Auto-launch disabled');
-//       }
-//     } catch (err) {
-//       console.error('Failed to toggle auto-launch:', err);
-//     }
-//   };
-// }
-
-// function setup launch
-// function setupAutoLaunch() {
-//   // **Fix Executable Path: Use Installed Path in Production**
-//   const exePath = app.isPackaged
-//     ? path.dirname(process.execPath) + `\\${path.basename(process.execPath)}` // Installed EXE path
-//     : process.execPath; // Development mode (Electron binary)
-
-//   console.log('Corrected App Executable Path:', exePath);
-
-//   const appLauncher = new AutoLaunch({
-//     name: 'Time Tracking App',
-//     path: exePath
-//   });
-
-//   // **Check if auto-launch is enabled before enabling**
-//   appLauncher.isEnabled()
-//     .then((isEnabled) => {
-//       if (!isEnabled) {
-//         return appLauncher.enable();
-//       }
-//     })
-//     .then(() => console.log('✅ Auto-launch is now enabled'))
-//     .catch((err) => console.error('❌ Failed to enable auto-launch:', err));
-
-//   // **Backup Auto-Start using Electron API**
-//   app.setLoginItemSettings({
-//     openAtLogin: true,
-//     openAsHidden: true, // Start in background
-//     path: exePath
-//   });
-
-//   console.log('✅ Auto-start configured via setLoginItemSettings');
-
-//   // **Disable Auto-Launch Completely**
-//   global.disableAutoLaunch = async () => {
-//     try {
-//       await appLauncher.disable();
-//       console.log('🚫 Auto-launch completely disabled');
-
-//       // **Remove from Windows Registry**
-//       exec(
-//         'reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "Time Tracking App" /f',
-//         (error, stdout, stderr) => {
-//           if (error) {
-//             console.warn(`⚠️ Registry cleanup warning: ${error.message}`);
-//           } else {
-//             console.log('✅ Windows Registry entry removed successfully.');
-//           }
-//         }
-//       );
-//     } catch (err) {
-//       console.error('❌ Failed to disable auto-launch:', err);
-//     }
-//   };
-
-//   // **Toggle Auto-Start**
-//   global.toggleAutoStart = async (enable) => {
-//     try {
-//       if (enable) {
-//         await appLauncher.enable();
-//         console.log('✅ Auto-launch enabled');
-//       } else {
-//         await appLauncher.disable();
-//         console.log('🚫 Auto-launch disabled');
-//       }
-//     } catch (err) {
-//       console.error('❌ Failed to toggle auto-launch:', err);
-//     }
-//   };
-// }
 
 // Function to setup auto-launch with mac and windows support
 function setupAutoLaunch() {
