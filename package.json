@@ -2,6 +2,7 @@
   "name": "time-tracking-app",
   "version": "1.0.1",
   "main": "main.js",
+  "type": "commonjs",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --win --x64",
@@ -13,7 +14,6 @@
   "keywords": [],
   "author": "Comput Labs",
   "license": "ISC",
-  "type": "commonjs",
   "description": "Compüt Labs Time Tracking Application",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
@@ -28,7 +28,8 @@
     "axios": "^1.7.9",
     "chart.js": "^4.4.7",
     "child_process": "^1.0.2",
-    "electron-auto-launch": "^5.0.7"
+    "electron-auto-launch": "^5.0.7",
+    "get-windows": "^9.2.0"
   },
   "build": {
     "appId": "com.computlabs.timetrackingapp",

@@ -28,7 +28,7 @@ let lastWindowStartTime = null;
 
 // Batch Upload Configuration
 const BATCH_UPLOAD_INTERVAL = 10 * 60 * 1000; // 10 minutes in milliseconds
-const MAX_BATCH_RECORDS = 20;
+const MAX_BATCH_RECORDS = 10;
 let batchUploadTimer = null;
 
 // Electron Idle Time Tracking
@@ -219,27 +219,81 @@ Click 'OK' to take a break or 'Cancel' to continue tracking.`);
 
 //   console.log("Tracking stopped successfully.");
 // }
-function stopTracking() {
-  if (!isTracking) return;
-  clearInterval(timerInterval);
-  clearInterval(trackingInterval);
-  clearInterval(saveInterval);
-  timerInterval = null;
-  const now = Date.now();
-  elapsedTime += Math.floor((now - startTime) / 1000);
-  isTracking = false;
-  startTime = 0;
-  saveTimerData();
-  uploadBatchToDatabase();
-  updateTimerDisplay(elapsedTime);
-  document.getElementById('start-stop-btn').innerHTML = `
-    <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
-      <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
-    </svg>
-  `;
-}
+async function stopTracking() {
+  try {
+    console.log('Attempting to stop tracking...');
+    if (!isTracking) {
+      console.warn('Not currently tracking. Ignoring stop request.');
+      return;
+    }
 
+    clearInterval(timerInterval);
+    clearInterval(trackingInterval);
+    clearInterval(saveInterval);
+    timerInterval = null;
+    trackingInterval = null;
+    saveInterval = null;
+
+    const now = Date.now();
+    const sessionTime = Math.floor((now - startTime) / 1000);
+    elapsedTime += sessionTime;
+
+    if (lastWindow && lastWindowStartTime) {
+      const durationMs = now - lastWindowStartTime;
+      if (durationMs > 1000) {
+        const dateKey = new Date().toISOString().split('T')[0];
+        const userId = localStorage.getItem('userId') || 'test-user';
+
+        const newRecord = {
+          id: userId,
+          app: lastWindow.owner.name,
+          title: lastWindow.title,
+          startTime: new Date(lastWindowStartTime).toISOString(),
+          endTime: new Date(now).toISOString(),
+          duration: `${Math.floor(durationMs / 60000)}m ${Math.floor((durationMs % 60000) / 1000)}s`,
+          timestamp: new Date(lastWindowStartTime).toISOString(),
+          type: "active"
+        };
+
+        console.log("Finalizing last window record on stop:", newRecord);
+        if (!trackingData[dateKey]) trackingData[dateKey] = [];
+        trackingData[dateKey].push(newRecord);
+        batchRecords.push(newRecord);
+      }
+    }
+
+    await saveTrackingData();
+    await uploadBatchToDatabase();
+    saveTimerData();
+
+    isTracking = false;
+    startTime = 0;
+    localStorage.setItem('lastStopTime', now.toString());
+    lastWindow = null;
+    lastWindowStartTime = null;
+
+    updateTimerDisplay(elapsedTime);
+    updateTable();
+    updateInsights();
+
+    const startStopBtn = document.getElementById('start-stop-btn');
+    if (startStopBtn) {
+      startStopBtn.innerHTML = `
+        <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+          <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
+        </svg>
+      `;
+    } else {
+      console.error('Start-stop button not found in DOM during stop');
+    }
+
+    console.log(`Tracking stopped. Total Elapsed Time: ${elapsedTime}s, Session Time: ${sessionTime}s, Stop Time: ${new Date(now).toISOString()}`);
+  } catch (error) {
+    console.error('Error stopping tracking:', error);
+    isTracking = false;
+  }
+}
 // Enhanced resetTimerState function with precise reset and logging
 function resetTimerState() {
   try {
@@ -483,37 +537,28 @@ function saveTrackingData() {
       try {
         existingData = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8')) || {};
       } catch (parseError) {
-        console.error(' Error parsing existing tracking data:', parseError);
+        console.error('Error parsing existing tracking data:', parseError);
         existingData = {};
       }
     }
 
     const today = new Date().toISOString().split('T')[0];
+    if (!existingData[today]) existingData[today] = [];
 
-    if (!existingData[today]) {
-      existingData[today] = [];
-    }
-
-    // Merge existing records with new ones, avoiding duplicates
+    // Merge records, ensuring idle records are included
     const mergedRecords = [...new Map(
-      [...existingData[today], ...(trackingData[today] || [])].map(item => [item.startTime, item])
+      [...existingData[today], ...(trackingData[today] || [])]
+        .map(item => [item.startTime + item.app + item.type, item]) // Unique key including type
     ).values()];
 
     existingData[today] = mergedRecords;
 
-    // Save updated data to local storage
-    try {
-      localStorage.setItem('trackingData', JSON.stringify(existingData));
-    } catch (localStorageError) {
-      console.error(' Error saving to localStorage:', localStorageError);
-    }
-
-    // Write updated data to file
+    // Save to localStorage
+    localStorage.setItem('trackingData', JSON.stringify(existingData));
     fs.writeFileSync(dataFilePath, JSON.stringify(existingData, null, 2));
-    console.log(` Tracking data saved successfully. Records for today: ${mergedRecords.length}`);
-
+    console.log(`Tracking data saved successfully. Records for today: ${mergedRecords.length}`);
   } catch (error) {
-    console.error(' Error in saveTrackingData:', error);
+    console.error('Error in saveTrackingData:', error);
   }
 }
 
@@ -746,22 +791,21 @@ function updateTimer() {
   if (!startTime) {
     console.error('Start time is not set during tracking');
     isTracking = false;
+    clearInterval(timerInterval); // Stop the interval if startTime is invalid
     return;
   }
 
   const currentSessionTime = Math.floor((now - startTime) / 1000);
   const totalTime = elapsedTime + currentSessionTime;
 
-  // Safeguard against negative or unrealistic times
   if (currentSessionTime < 0) {
-    console.warn('Negative session time detected. Resetting timer.');
+    console.warn('Negative session time detected. Resetting startTime.');
     startTime = now;
     return;
   }
 
-  updateTimerDisplay(totalTime); // Display total time
+  updateTimerDisplay(totalTime);
 }
-
 // ** Start Tracking Function **
 // function startTracking() {
 //   try {
@@ -803,7 +847,7 @@ function updateTimer() {
 //     isTracking = false;
 //   }
 // }
-function startTracking() {
+async function startTracking() {
   try {
     console.log('Attempting to start tracking...');
     if (isTracking) {
@@ -811,28 +855,100 @@ function startTracking() {
       return;
     }
 
+    const now = Date.now();
     isTracking = true;
-    startTime = Date.now();
+    startTime = now;
+    console.log('Tracking state set: isTracking =', isTracking, 'startTime =', new Date(startTime).toISOString());
 
+    try {
+      const lastStopTime = localStorage.getItem('lastStopTime');
+      if (lastStopTime) {
+        const idleDurationMs = now - parseInt(lastStopTime);
+        if (idleDurationMs > 100) {
+          const dateKey = new Date().toISOString().split('T')[0];
+          const userId = localStorage.getItem('userId') || 'test-user';
+
+          const idleRecord = {
+            id: userId,
+            app: "Idle",
+            title: "Idle Time",
+            startTime: new Date(parseInt(lastStopTime)).toISOString(),
+            endTime: new Date(now).toISOString(),
+            duration: `${Math.floor(idleDurationMs / 60000)}m ${Math.floor((idleDurationMs % 60000) / 1000)}s`,
+            timestamp: new Date(parseInt(lastStopTime)).toISOString(),
+            type: "idle"
+          };
+
+          console.log("Adding idle time record:", idleRecord);
+          if (!trackingData) trackingData = {};
+          if (!trackingData[dateKey]) trackingData[dateKey] = [];
+          trackingData[dateKey].push(idleRecord);
+          batchRecords.push(idleRecord);
+
+          await saveTrackingData();
+          await uploadBatchToDatabase();
+          updateTable();
+          updateInsights();
+        } else {
+          console.log(`Idle duration too short (${idleDurationMs}ms). Skipping idle record.`);
+        }
+        localStorage.removeItem('lastStopTime');
+      } else {
+        console.log("No previous stop time found. Starting fresh.");
+      }
+    } catch (idleError) {
+      console.error('Error handling idle time:', idleError);
+    }
+
+    console.log('Setting intervals...');
+    if (timerInterval) clearInterval(timerInterval);
     timerInterval = setInterval(updateTimer, 1000);
+    console.log('timerInterval set:', timerInterval);
+
+    if (trackingInterval) clearInterval(trackingInterval);
     trackingInterval = setInterval(trackActiveWindow, 1000);
+    console.log('trackingInterval set:', trackingInterval);
+
+    if (saveInterval) clearInterval(saveInterval);
     saveInterval = setInterval(saveTrackingData, 60000);
+    console.log('saveInterval set:', saveInterval);
 
-    // Save initial state
-    saveTimerData();
+    try {
+      saveTimerData();
+      updateTimerDisplay(elapsedTime);
+    } catch (saveError) {
+      console.error('Error saving timer data or updating display:', saveError);
+    }
 
-    // Change button to "Stop"
-    document.getElementById('start-stop-btn').innerHTML = `
-      <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
-        <rect x="16" y="16" width="16" height="16" fill="#ffffff"/>
-      </svg>
-    `;
+    try {
+      const startStopBtn = document.getElementById('start-stop-btn');
+      if (startStopBtn) {
+        startStopBtn.innerHTML = `
+          <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+            <rect x="16" y="16" width="16" height="16" fill="#ffffff"/>
+          </svg>
+        `;
+      } else {
+        console.error('Start-stop button not found in DOM');
+      }
+    } catch (btnError) {
+      console.error('Error updating start-stop button:', btnError);
+    }
 
-    console.log(`Tracking started. Initial Elapsed Time: ${elapsedTime}s`);
+    setTimeout(trackActiveWindow, 1000);
+
+    console.log(`Tracking started successfully. Total Elapsed Time: ${elapsedTime}s, Start Time: ${new Date(now).toISOString()}`);
   } catch (error) {
-    console.error('Error starting tracking:', error);
+    console.error('Error in startTracking:', error.message, error.stack);
     isTracking = false;
+    if (timerInterval) clearInterval(timerInterval);
+    if (trackingInterval) clearInterval(trackingInterval);
+    if (saveInterval) clearInterval(saveInterval);
+    timerInterval = null;
+    trackingInterval = null;
+    saveInterval = null;
+    updateTimerDisplay(elapsedTime);
   }
 }
 // ** Stop Tracking Function **
@@ -893,83 +1009,50 @@ function startTracking() {
 //   }
 // }
 
-function stopTracking() {
-  try {
-    console.log('Attempting to stop tracking...');
-    if (!isTracking) {
-      console.warn('Not currently tracking. Ignoring stop request.');
-      return;
-    }
-
-    // Clear all intervals first to stop any updates
-    clearInterval(timerInterval);
-    clearInterval(trackingInterval);
-    clearInterval(saveInterval);
-    timerInterval = null;
-    trackingInterval = null;
-    saveInterval = null;
-
-    // Calculate the final elapsed time
-    const now = Date.now();
-    const sessionTime = Math.floor((now - startTime) / 1000);
-    elapsedTime += sessionTime; // Add session duration to total elapsed time
-
-    // Update state
-    isTracking = false;
-    startTime = 0;
-
-    // Save data and update display
-    saveTimerData();
-    uploadBatchToDatabase();
-    updateTimerDisplay(elapsedTime); // Show the final elapsed time
-
-    // Update the button icon
-    document.getElementById('start-stop-btn').innerHTML = `
-      <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
-        <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
-      </svg>
-    `;
-
-    console.log(`Tracking stopped. Total Elapsed Time: ${elapsedTime}s`);
-  } catch (error) {
-    console.error('Error stopping tracking:', error);
-    isTracking = false;
-  }
-}
-
-// ** Active Window Tracking **
 async function trackActiveWindow() {
   console.log("Running trackActiveWindow...");
 
-  if (!timerInterval) {
+  if (!isTracking || !timerInterval) {
     lastWindow = null;
     lastWindowStartTime = null;
-    console.log(" Timer is not running. Skipping active window tracking.");
-    return; // Add return to stop execution if timer is not running
+    console.log("Tracking is stopped or timer not running. Skipping active window tracking.");
+    return;
   }
 
-  const result = await ipcRenderer.invoke('get-active-window');
-  console.log(" Active window result:", result);
+  try {
+    const result = await ipcRenderer.invoke('get-active-window');
+    console.log("Raw active window result:", result);
 
-  if (result && result.owner && result.title) {
-    // Check if the window should be tracked
-    if (!shouldIgnoreWindow(result.owner.name, result.title)) {
+    if (!result) {
+      console.log("No active window data returned.");
+      return;
+    }
+
+    const windowInfo = {
+      owner: {
+        name: result.owner?.name || result.process || result.processName || 'Unknown Process',
+        path: result.owner?.path || result.path || ''
+      },
+      title: result.title || result.name || 'Untitled'
+    };
+    console.log("Normalized window info:", windowInfo);
+
+    if (!shouldIgnoreWindow(windowInfo.owner.name, windowInfo.title)) {
       const now = Date.now();
       const dateKey = new Date().toISOString().split('T')[0];
       const userId = localStorage.getItem('userId') || 'test-user';
 
+      if (!trackingData) trackingData = {};
       if (!trackingData[dateKey]) trackingData[dateKey] = [];
 
-      // Check if the active window has changed
-      if (!lastWindow ||
-        lastWindow.owner.name !== result.owner.name ||
-        lastWindow.title !== result.title) {
+      if (!lastWindow || 
+          lastWindow.owner.name !== windowInfo.owner.name || 
+          lastWindow.title !== windowInfo.title) {
         if (lastWindow && lastWindowStartTime) {
           const durationMs = now - lastWindowStartTime;
 
-          if (durationMs > 1000) { // Avoid tiny records
-            trackingData[dateKey].push({
+          if (durationMs > 1000) {
+            const newRecord = {
               id: userId,
               app: lastWindow.owner.name,
               title: lastWindow.title,
@@ -977,43 +1060,255 @@ async function trackActiveWindow() {
               endTime: new Date(now).toISOString(),
               duration: `${Math.floor(durationMs / 60000)}m ${Math.floor((durationMs % 60000) / 1000)}s`,
               timestamp: new Date(lastWindowStartTime).toISOString(),
-            });
+              type: "active"
+            };
 
-            batchRecords.push(trackingData[dateKey].slice(-1)[0]); // Add last record to batch
-            saveTrackingData();
+            console.log("Adding new active record:", newRecord);
+            trackingData[dateKey].push(newRecord);
+            batchRecords.push(newRecord);
+
+            await saveTrackingData();
           }
         }
 
-        lastWindow = result;
-        lastWindowStartTime = now; // Ensure this is updated correctly
+        lastWindow = windowInfo;
+        lastWindowStartTime = now;
+        console.log("Updated lastWindow:", lastWindow);
       }
     } else {
-      console.log(" No trackable window detected or window is ignored.");
-      // Optional: Reset lastWindow if an ignored window is detected
-      if (lastWindow && lastWindowStartTime) {
-        const now = Date.now();
-        const durationMs = now - lastWindowStartTime;
-
-        // Only log if the previous window was tracked for more than a second
-        if (durationMs > 1000) {
-          console.log(` Ignored window detected. Previous window tracked for ${durationMs}ms`);
-        }
-
-        // Reset last window tracking
-        lastWindow = null;
-        lastWindowStartTime = null;
-      }
+      console.log(`Window ignored: ${windowInfo.owner.name} - ${windowInfo.title}`);
     }
-  } else {
-    console.log(" No active window detected.");
+  } catch (error) {
+    console.error("Error in trackActiveWindow:", error);
   }
 
   updateTable();
   updateInsights();
 
-  // Check if batch records have reached the threshold
   if (batchRecords.length >= MAX_BATCH_RECORDS) {
-    console.log(` Batch records reached ${MAX_BATCH_RECORDS}. Triggering upload.`);
+    console.log(`Batch records reached ${MAX_BATCH_RECORDS}. Triggering upload.`);
+    await uploadBatchToDatabase();
+  }
+}
+// ** Active Window Tracking **
+// async function trackActiveWindow() {
+//   console.log("Running trackActiveWindow...");
+
+//   if (!timerInterval) {
+//     lastWindow = null;
+//     lastWindowStartTime = null;
+//     console.log(" Timer is not running. Skipping active window tracking.");
+//     return;
+//   }
+
+//   const result = await ipcRenderer.invoke('get-active-window');
+//   console.log(" Active window result:", result);
+
+//   // Enhance compatibility with different library return structures
+//   const windowInfo = result ? {
+//     owner: {
+//       name: result.owner?.name || result.process || result.processName || 'Unknown Process',
+//       path: result.owner?.path || result.path || ''
+//     },
+//     title: result.title || result.name || 'Untitled'
+//   } : null;
+
+//   if (windowInfo && windowInfo.owner && windowInfo.title) {
+//     // Check if the window should be tracked
+//     if (!shouldIgnoreWindow(windowInfo.owner.name, windowInfo.title)) {
+//       const now = Date.now();
+//       const dateKey = new Date().toISOString().split('T')[0];
+//       const userId = localStorage.getItem('userId') || 'test-user';
+
+//       // Ensure trackingData is initialized
+//       if (!trackingData) trackingData = {};
+//       if (!trackingData[dateKey]) trackingData[dateKey] = [];
+
+//       // Check if the active window has changed
+//       if (!lastWindow ||
+//         lastWindow.owner.name !== windowInfo.owner.name ||
+//         lastWindow.title !== windowInfo.title) {
+//         if (lastWindow && lastWindowStartTime) {
+//           const durationMs = now - lastWindowStartTime;
+
+//           if (durationMs > 1000) { // Avoid tiny records
+//             const newRecord = {
+//               id: userId,
+//               app: lastWindow.owner.name,
+//               title: lastWindow.title,
+//               startTime: new Date(lastWindowStartTime).toISOString(),
+//               endTime: new Date(now).toISOString(),
+//               duration: `${Math.floor(durationMs / 60000)}m ${Math.floor((durationMs % 60000) / 1000)}s`,
+//               timestamp: new Date(lastWindowStartTime).toISOString(),
+//             };
+
+//             // Add to tracking data
+//             trackingData[dateKey].push(newRecord);
+
+//             // Update localStorage immediately
+//             try {
+//               // Log detailed information about the record being added
+//               console.log(' 📝 Preparing to update localStorage:', {
+//                 dateKey: dateKey,
+//                 recordCount: trackingData[dateKey].length,
+//                 newRecord: {
+//                   app: lastWindow.owner.name,
+//                   title: lastWindow.title,
+//                   duration: `${Math.floor(durationMs / 60000)}m ${Math.floor((durationMs % 60000) / 1000)}s`
+//                 }
+//               });
+
+//               // Stringify and save to localStorage
+//               const localStorageData = JSON.stringify(trackingData);
+//               localStorage.setItem('trackingData', localStorageData);
+
+//               // Verify the data was saved correctly
+//               const verifiedData = localStorage.getItem('trackingData');
+//               console.log(' ✅ localStorage update', {
+//                 status: 'Success',
+//                 savedRecordCount: JSON.parse(verifiedData)[dateKey].length,
+//                 dataLength: localStorageData.length
+//               });
+//             } catch (error) {
+//               console.error(' ❌ Error updating localStorage:', {
+//                 message: error.message,
+//                 stack: error.stack,
+//                 data: trackingData[dateKey]
+//               });
+
+//               // Attempt to recover or log additional context
+//               try {
+//                 console.log(' 🔍 Additional Context:', {
+//                   trackingDataExists: !!trackingData,
+//                   dateKeyExists: !!trackingData[dateKey],
+//                   recordCount: trackingData[dateKey]?.length || 0
+//                 });
+//               } catch (contextError) {
+//                 console.error(' 🚨 Critical error gathering context:', contextError);
+//               }
+//             }
+
+//             // Add to batch records
+//             batchRecords.push(newRecord);
+
+//             // Save tracking data
+//             saveTrackingData();
+//           }
+//         }
+
+//         lastWindow = windowInfo;
+//         lastWindowStartTime = now;
+//       }
+//     } else {
+//       console.log(" No trackable window detected or window is ignored.");
+//       // Optional: Reset lastWindow if an ignored window is detected
+//       if (lastWindow && lastWindowStartTime) {
+//         const now = Date.now();
+//         const durationMs = now - lastWindowStartTime;
+
+//         // Only log if the previous window was tracked for more than a second
+//         if (durationMs > 1000) {
+//           console.log(` Ignored window detected. Previous window tracked for ${durationMs}ms`);
+//         }
+
+//         // Reset last window tracking
+//         lastWindow = null;
+//         lastWindowStartTime = null;
+//       }
+//     }
+//   } else {
+//     console.log(" No active window detected.");
+//   }
+
+//   updateTable();
+//   updateInsights();
+
+//   // Check if batch records have reached the threshold
+//   if (batchRecords.length >= MAX_BATCH_RECORDS) {
+//     console.log(` Batch records reached ${MAX_BATCH_RECORDS}. Triggering upload.`);
+//     await uploadBatchToDatabase();
+//   }
+// }
+
+// ** Active Window Tracking with adding data into batchRecords array on local storage and uploading to database **
+async function trackActiveWindow() {
+  console.log("Running trackActiveWindow...");
+
+  if (!isTracking || !timerInterval) {
+    lastWindow = null;
+    lastWindowStartTime = null;
+    console.log("Tracking is stopped or timer not running. Skipping active window tracking.");
+    return;
+  }
+
+  try {
+    const result = await ipcRenderer.invoke('get-active-window');
+    console.log("Raw active window result:", result);
+
+    if (!result) {
+      console.log("No active window data returned.");
+      return;
+    }
+
+    const windowInfo = {
+      owner: {
+        name: result.owner?.name || result.process || result.processName || 'Unknown Process',
+        path: result.owner?.path || result.path || ''
+      },
+      title: result.title || result.name || 'Untitled'
+    };
+    console.log("Normalized window info:", windowInfo);
+
+    if (!shouldIgnoreWindow(windowInfo.owner.name, windowInfo.title)) {
+      const now = Date.now();
+      const dateKey = new Date().toISOString().split('T')[0];
+      const userId = localStorage.getItem('userId') || 'test-user';
+
+      if (!trackingData) trackingData = {};
+      if (!trackingData[dateKey]) trackingData[dateKey] = [];
+
+      if (!lastWindow || 
+          lastWindow.owner.name !== windowInfo.owner.name || 
+          lastWindow.title !== windowInfo.title) {
+        if (lastWindow && lastWindowStartTime) {
+          const durationMs = now - lastWindowStartTime;
+
+          if (durationMs > 1000) {
+            const newRecord = {
+              id: userId,
+              app: lastWindow.owner.name,
+              title: lastWindow.title,
+              startTime: new Date(lastWindowStartTime).toISOString(),
+              endTime: new Date(now).toISOString(),
+              duration: `${Math.floor(durationMs / 60000)}m ${Math.floor((durationMs % 60000) / 1000)}s`,
+              timestamp: new Date(lastWindowStartTime).toISOString(),
+              type: "active"
+            };
+
+            console.log("Adding new active record:", newRecord);
+            trackingData[dateKey].push(newRecord);
+            batchRecords.push(newRecord);
+
+            await saveTrackingData();
+          }
+        }
+
+        lastWindow = windowInfo;
+        lastWindowStartTime = now;
+        console.log("Updated lastWindow:", lastWindow);
+      }
+    } else {
+      console.log(`Window ignored: ${windowInfo.owner.name} - ${windowInfo.title}`);
+    }
+  } catch (error) {
+    console.error("Error in trackActiveWindow:", error);
+  }
+
+  updateTable();
+  updateInsights();
+
+  if (batchRecords.length >= MAX_BATCH_RECORDS) {
+    console.log(`Batch records reached ${MAX_BATCH_RECORDS}. Triggering upload.`);
     await uploadBatchToDatabase();
   }
 }
@@ -1094,104 +1389,180 @@ document.addEventListener('DOMContentLoaded', () => {
   setupBatchUploadSchedule();
 
   const startStopBtn = document.getElementById('start-stop-btn');
-  
-  startStopBtn.addEventListener('click', () => {
-    const today = new Date().toLocaleDateString();
-    const userId = localStorage.getItem('userId') || 'test-user';
-    const timerKey = `dailyTimerData_${userId}_${today}`;
+  // startStopBtn.addEventListener('click', async () => {
+  //   if (isTracking) {
+  //     await stopTracking();
+  //   } else {
+  //     await startTracking();
+  //   }
+  // });
+  // Start Stop Button
+  // startStopBtn.addEventListener('click',async () => {
+  //   const today = new Date().toLocaleDateString();
+  //   const userId = localStorage.getItem('userId') || 'test-user';
+  //   const timerKey = `dailyTimerData_${userId}_${today}`;
     
-    if (isTracking) {
-      // Stop Timer
-      const now = Date.now();
-      const currentSessionTime = Math.floor((now - startTime) / 1000);
+  //   if (isTracking) {
+  //     await stopTracking();
+  //     // Stop Timer
+  //     const now = Date.now();
+  //     const currentSessionTime = Math.floor((now - startTime) / 1000);
 
-      clearInterval(timerInterval);
-      clearInterval(trackingInterval);
-      clearInterval(saveInterval);
-      timerInterval = null;
-      isTracking = false;
+  //     clearInterval(timerInterval);
+  //     clearInterval(trackingInterval);
+  //     clearInterval(saveInterval);
+  //     timerInterval = null;
+  //     isTracking = false;
 
-      // Accurately accumulate elapsed time
-      elapsedTime += currentSessionTime;
-      startTime = 0;
+  //     // Accurately accumulate elapsed time
+  //     elapsedTime += currentSessionTime;
+  //     startTime = 0;
 
-      // Save final state
-      saveTimerData();
+  //     // Save final state
+  //     saveTimerData();
 
-      // Update display
-      updateTimerDisplay();
+  //     // Update display
+  //     updateTimerDisplay();
+     
+  //     try {
+  //       // Upload final batch
+  //       uploadBatchToDatabase();
+  //       console.log(" Batch uploaded successfully after stopping tracking.");
+  //       // alert(" Batch uploaded successfully after stopping tracking."); 
 
-      try {
-        // Upload final batch
-        uploadBatchToDatabase();
-        console.log(" Batch uploaded successfully after stopping tracking.");
-        // alert(" Batch uploaded successfully after stopping tracking."); 
+  //     } catch (error) {
+  //       console.error('Error uploading batch:', error);
+  //       // alert(" Error uploading batch.", error);
+  //     }
 
-      } catch (error) {
-        console.error('Error uploading batch:', error);
-        // alert(" Error uploading batch.", error);
-      }
+  //     // Change button to "Start"
+  //     startStopBtn.innerHTML = `
+  //       <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  //         <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+  //         <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
+  //       </svg>
+  //     `;
 
-      // Change button to "Start"
-      startStopBtn.innerHTML = `
-        <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
-          <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
-        </svg>
-      `;
+  //   } else {
+  //     await startTracking();
+  //     // Start Timer
+  //     startTime = Date.now();
+  //     isTracking = true;
 
-    } else {
-      // Start Timer
-      startTime = Date.now();
-      isTracking = true;
+  //     timerInterval = setInterval(updateTimer, 1000);
+  //     trackingInterval = setInterval(trackActiveWindow, 1000);
+  //     saveInterval = setInterval(saveTrackingData, 60000);
 
-      timerInterval = setInterval(updateTimer, 1000);
-      trackingInterval = setInterval(trackActiveWindow, 1000);
-      saveInterval = setInterval(saveTrackingData, 60000);
+  //     // Save initial state
+  //     saveTimerData();
+     
+  //     // Change button to "Stop"
+  //     startStopBtn.innerHTML = `
+  //       <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  //         <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+  //         <rect x="16" y="16" width="16" height="16" fill="#ffffff"/>
+  //       </svg>
+  //     `;
+  //   }
+  // });
 
-      // Save initial state
-      saveTimerData();
-
-      // Change button to "Stop"
-      startStopBtn.innerHTML = `
+  if (startStopBtn) {
+    startStopBtn.addEventListener('click', async () => {
+      if (isTracking) {
+        await stopTracking();
+        startStopBtn.innerHTML = `
+              <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
+                <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
+              </svg>
+            `;
+      } else {
+        await startTracking();
+        startStopBtn.innerHTML = `
         <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
           <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
           <rect x="16" y="16" width="16" height="16" fill="#ffffff"/>
         </svg>
       `;
-    }
-  });
+
+      }
+    });
+  } else {
+    console.error('Start-stop button not found in DOM on load');
+  }
 
   // Handle Pause & Take a Break (Fix for "Yes, take a break" not stopping the timer)
   document.getElementById("take-break")?.addEventListener("click", async () => {
-    console.log(" User clicked 'Yes, take a break'");
-
+    console.log("User clicked 'Yes, take a break'");
+  
     // Stop Timer Completely
-    clearInterval(timerInterval);
-    clearInterval(trackingInterval);
-    clearInterval(saveInterval);
-    clearInterval(idleCheckInterval);
+    if (timerInterval) clearInterval(timerInterval);
+    if (trackingInterval) clearInterval(trackingInterval);
+    if (saveInterval) clearInterval(saveInterval);
+    if (idleCheckInterval) clearInterval(idleCheckInterval);
     timerInterval = null;
-    isTracking = false; // Mark as stopped
-
-    // Save and Upload before stopping
-    saveTrackingData();
-    stopTracking();
+    trackingInterval = null;
+    saveInterval = null;
+  
+    // Calculate session time
+    const now = Date.now();
+    const sessionTime = Math.floor((now - startTime) / 1000);
+    elapsedTime += sessionTime;
+  
+    // Finalize the last active window's tracking data
+    if (lastWindow && lastWindowStartTime) {
+      const durationMs = now - lastWindowStartTime;
+      if (durationMs > 1000) {
+        const dateKey = new Date().toISOString().split('T')[0];
+        const userId = localStorage.getItem('userId') || 'test-user';
+  
+        const newRecord = {
+          id: userId,
+          app: lastWindow.owner.name,
+          title: lastWindow.title,
+          startTime: new Date(lastWindowStartTime).toISOString(),
+          endTime: new Date(now).toISOString(),
+          duration: `${Math.floor(durationMs / 60000)}m ${Math.floor((durationMs % 60000) / 1000)}s`,
+          timestamp: new Date(lastWindowStartTime).toISOString(),
+          type: "active"
+        };
+  
+        console.log("Finalizing last active window record on break:", newRecord);
+        if (!trackingData) trackingData = {};
+        if (!trackingData[dateKey]) trackingData[dateKey] = [];
+        trackingData[dateKey].push(newRecord);
+        batchRecords.push(newRecord);
+  
+        await saveTrackingData();
+      }
+    }
+  
+    // Reset state and store stop time
+    isTracking = false;
+    startTime = 0;
+    const stopTime = now;
+    lastWindow = null;
+    lastWindowStartTime = null;
+  
+    localStorage.setItem('lastStopTime', stopTime.toString());
+  
+    // Save and Upload
     await uploadBatchToDatabase();
-
+  
     // Update UI
-    updateTimerDisplay();
+    updateTimerDisplay(elapsedTime);
     updateTable();
     updateInsights();
-
+  
     // Change the Start/Stop Button to "Start"
+    const startStopBtn = document.getElementById('start-stop-btn');
     startStopBtn.innerHTML = `
       <svg width="20px" height="20px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <path fill="#4CAF50" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"/>
         <polygon fill="#ffffff" points="31,24 20,16 20,32"/>
       </svg>
     `;
-    console.log("Tracking stopped successfully after taking a break.");
+    console.log("Tracking stopped successfully after taking a break. Stop Time:", new Date(stopTime).toISOString());
   });
 
   // Handle Menu Dropdown

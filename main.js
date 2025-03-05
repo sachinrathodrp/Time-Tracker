@@ -1,7 +1,6 @@
 const { app, BrowserWindow, ipcMain, screen, dialog, autoUpdater } = require('electron');
 const path = require('path');
 const fs = require('fs');
-const activeWin = require('active-win');
 const powerMonitor = require('electron').powerMonitor;
 const AutoLaunch = require('electron-auto-launch');
 
@@ -35,6 +34,9 @@ function createMainWindow() {
   });
 }
 
+const isMac = process.platform === 'darwin';
+const isWindows = process.platform === 'win32';
+
 // Function to create the home window with mac and windows support
 function createHomeWindow() {
   const primaryDisplay = screen.getPrimaryDisplay();
@@ -62,14 +64,17 @@ function createHomeWindow() {
        webviewTag: true,
      },
      roundedCorners: true,
-     icon: process.platform === 'darwin'
-       ? path.join(__dirname, 'assets/icons/icon512.icns')
-       : path.join(__dirname, 'assets/icons/icon256.png'),
+     icon: isMac
+      ? path.join(__dirname, 'assets/icons/icon512.icns')
+      : path.join(__dirname, 'assets/icons/icon256.png'),
      autoHideMenuBar: true,
      useContentSize: true,
      backgroundColor: '#00000000', // Fully transparent background
    });
- 
+   if (isMac) {
+    windowOptions.vibrancy = 'light';
+  }
+
  // Add this after loading the file
  homeWindow.webContents.on('did-finish-load', () => {
    // Inject CSS to hide scrollbars and add rounded corners
@@ -475,16 +480,94 @@ app.on('window-all-closed', () => {
   }
 });
 
-ipcMain.handle('get-active-window', async () => {
+// Fallback to active-win if get-windows fails
+let activeWindowModule;
+try {
+  // First, try get-windows
+  activeWindowModule = require('get-windows');
+  console.log('Using get-windows module');
+} catch (getWindowsError) {
   try {
-    const activeWindow = await activeWin(); // Get the active window information
+    // Fallback to active-win
+    activeWindowModule = require('active-win');
+    console.log('Falling back to active-win module');
+  } catch (activeWinError) {
+    console.error('Neither get-windows nor active-win could be loaded:', {
+      getWindowsError,
+      activeWinError
+    });
+    activeWindowModule = null;
+  }
+}
+
+async function getActiveWindow() {
+  if (!activeWindowModule) {
+    console.error(' No active window module available');
+    return null;
+  }
+
+  try {
+    console.log(' Attempting to get active window');
+    console.log('Module type:', typeof activeWindowModule);
+    console.log('Module keys:', Object.keys(activeWindowModule));
+
+    // Support different module structures
+    let activeWindow;
+    if (typeof activeWindowModule === 'function') {
+      console.log(' Using function call method');
+      activeWindow = await activeWindowModule();
+    } else if (activeWindowModule.getActiveWindow) {
+      console.log(' Using .getActiveWindow() method');
+      activeWindow = await activeWindowModule.getActiveWindow();
+    } else if (activeWindowModule.default && activeWindowModule.default.getActiveWindow) {
+      console.log(' Using .default.getActiveWindow() method');
+      activeWindow = await activeWindowModule.default.getActiveWindow();
+    } else {
+      console.error(' No suitable method found to get active window');
+      return null;
+    }
+
+    console.log(' Active Window Details:', {
+      title: activeWindow.title,
+      processName: activeWindow.processName,
+      process: activeWindow.process,
+      path: activeWindow.path
+    });
+    
     return activeWindow;
   } catch (error) {
-    console.error('Error in get-active-window:', error.message);
+    console.error(' Error getting active window:', {
+      message: error.message,
+      stack: error.stack,
+      name: error.name
+    });
+    return null;
+  }
+}
+
+ipcMain.handle('get-active-window', async () => {
+  try {
+    const window = await getActiveWindow();
+    console.log('Main process - Raw window data:', window);
+
+    // Normalize the output to ensure owner.name is a string
+    const normalizedWindow = {
+      owner: {
+        name: typeof window.owner?.name === 'string' 
+          ? window.owner.name 
+          : (window.owner?.name?.toString() || window.process || window.processName || 'Unknown Process'),
+        path: window.owner?.path || window.path || ''
+      },
+      title: window.title || window.name || 'Untitled'
+    };
+
+    console.log('Main process - Normalized window:', normalizedWindow);
+    return normalizedWindow;
+  } catch (error) {
+    console.error('Error fetching active window:', error);
     return null;
   }
 });
-
 // Handle logout event
 ipcMain.on('logout', () => {
   // Clear the token file
@@ -657,14 +740,14 @@ function setupAutoLaunch() {
       appLauncher.disable();
       console.log('Auto-launch disabled via appLauncher');
 
-      if (process.platform === 'win32') {
+      if (isWindows) {
         try {
           execSync('reg delete "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "Comput Labs Time Tracking" /f');
           console.log('Windows Registry entry removed');
         } catch (regError) {
           console.warn('Failed to remove registry entry:', regError.message);
         }
-      } else if (process.platform === 'darwin') {
+      } else if (isMac) {
         app.setLoginItemSettings({ openAtLogin: false });
         console.log('macOS Login Item removed');
       }
@@ -793,7 +876,7 @@ function clearLocalStorage() {
 // Function to perform uninstall cleanup with mac and windows support
 function performUninstallCleanup(dryRun = false) {
   try {
-    const userDataPath = app.getPath('userData'); // e.g., ~/Library/Application Support/ on macOS, %APPDATA% on Windows
+    const userDataPath = app.getPath('userData');
     if (dryRun) {
       console.log(`Dry run: Would remove ${userDataPath}`);
     } else if (fs.existsSync(userDataPath)) {
