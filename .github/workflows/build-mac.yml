@@ -1,4 +1,4 @@
-name: Build macOS Application
+name: Build Application
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-macos:
     runs-on: macos-latest
 
     steps:
@@ -32,3 +32,65 @@ jobs:
         with:
           name: macOS-Build
           path: dist/
+
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Windows App
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  
+        run: npm run build
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-Build
+          path: dist/
+
+
+# name: Build macOS Application
+
+# on:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
+
+# jobs:
+#   build:
+#     runs-on: macos-latest
+
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v4
+
+#       - name: Set Up Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 20.x
+
+#       - name: Install Dependencies
+#         run: npm install
+
+#       - name: Build macOS App
+#         env:
+#           GH_TOKEN: ${{ secrets.GH_TOKEN }}  
+#         run: npm run build:mac
+
+#       - name: Upload Artifact
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: macOS-Build
+#           path: dist/
